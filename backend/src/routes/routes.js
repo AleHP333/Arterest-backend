@@ -2,7 +2,8 @@ const { Router } = require("express");
 const router = Router();
 
 //IMPORTS
+const createProduct = require("./route/productRoutes")
 
-router.use("/", (req, res) => {res.send("hola")});
+router.use("/paints", createProduct)
 
 module.exports = router;
