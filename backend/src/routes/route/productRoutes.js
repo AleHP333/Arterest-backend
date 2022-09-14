@@ -13,8 +13,17 @@ router.get("/allPaints", async (req, res) => {
             return res.status(200).json(products)
         }
         if(art){
-            let products = await ProductTest.find({title: {$regex: '.*' + art + '.*', $options: "i"}})
-
+            let productsTitle = await ProductTest.find({title: {$regex: '.*' + art + '.*', $options: "i"}})
+            console.log(productsTitle)
+            let productsOrigin = await ProductTest.find({origin: {$regex: '.*' + art + '.*', $options: "i"}})
+            let productsStyle = await ProductTest.find({style: {$regex: '.*' + art + '.*', $options: "i"}})
+            //let productsColors = await ProductTest.find({})
+            let productsTags = await ProductTest.find({tags: {$regex: '.*' + art + '.*', $options: "i"} })
+            let productsColors = await ProductTest.find({colors: {$regex: '.*' + art + '.*', $options: "i"} })
+            let productsTechnique = await ProductTest.find({technique: {$regex: '.*' + art + '.*', $options: "i"} })
+            console.log(productsTags)
+            let productsToMap = [...productsTitle, ...productsOrigin, ...productsStyle, ...productsTags, ...productsColors, ...productsTechnique]
+            let products = await [...new Map(productsToMap.map((paint) => [paint["id"], paint])).values()]
             return res.status(200).json(products)
         }
         let products = await ProductTest.find()
@@ -28,14 +37,14 @@ router.get("/allPaints", async (req, res) => {
 
 router.get("/createMassive", async (req, res) => {
     try {
-        const subirTodo = await mockData.data.forEach( async (product) => {
+        await mockData.data.forEach( async (product) => {
             await ProductTest.create({
                 userName: product.artist_name,
                 userImage: product.avatar,
                 title: product.artWork_name,
                 description: product.description,
                 img: product.image,
-                origin: product.image,
+                origin: product.country || "unknow",
                 technique: product.artwork_medium,
                 style: product.artwork_genre,
                 colors: product.color,
@@ -98,9 +107,9 @@ module.exports = router
 // description: {type: String, required: true},
 // img: {type: String, required: true},
 // origin: {type: String, required: true},
-// technique: [{type: String, required: true}],
+// technique: [{type: String, required: true}], === ARRAY
 // style: {type: String, required: false},
-// colors: [{type: String, required: false}],
+// colors: [{type: String, required: false}], === ARRAY
 // releaseDate: {type: Date, required: true},
 // price: {type: Number, required: true},
-// tags: [{type: String, required: true}]
+// tags: [{type: String, required: true}] === ARRAY
