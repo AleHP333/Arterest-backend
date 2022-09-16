@@ -4,7 +4,7 @@ const axios = require("axios");
 const ProductTest = require("../../models/productTest");
 const mockData = require("./data.json")
 
-router.get("/allPaints", async (req, res) => {
+router.get("/allpaints", async (req, res) => {
     const {name, art} = req.query
     try {
         if(name){
@@ -35,6 +35,7 @@ router.get("/allPaints", async (req, res) => {
     }
 })
 
+//NO USAR ESTA RUTA (Solo para crear muchos a la vez mediante un .json local)
 router.get("/createMassive", async (req, res) => {
     try {
         await mockData.data.forEach( async (product) => {
