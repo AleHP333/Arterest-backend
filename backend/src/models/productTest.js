@@ -11,7 +11,7 @@ const productTestSchema = new mongoose.Schema({
     style: {type: String, required: false},
     colors: [{type: String, required: false}],
     releaseDate: {type: String, required: true},
-    price: {type: String, required: true},
+    price: {type: Number, required: true},
     tags: [{type: String, required: true}]
 })
 

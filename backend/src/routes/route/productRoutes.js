@@ -8,11 +8,12 @@ router.get("/allpaints", async (req, res) => {
     const {name, art} = req.query
     try {
         if(name){
-            let products = await ProductTest.find({name: {$regex: '.*' + name + '.*', $options: "i"}})
+            let products = await ProductTest.find({userName: {$regex: '.*' + name + '.*', $options: "i"}})
 
             return res.status(200).json(products)
         }
         if(art){
+            let productsUserName = await ProductTest.find({userName: {$regex: '.*' + art + '.*', $options: "i"}})
             let productsTitle = await ProductTest.find({title: {$regex: '.*' + art + '.*', $options: "i"}})
             console.log(productsTitle)
             let productsOrigin = await ProductTest.find({origin: {$regex: '.*' + art + '.*', $options: "i"}})
@@ -22,7 +23,7 @@ router.get("/allpaints", async (req, res) => {
             let productsColors = await ProductTest.find({colors: {$regex: '.*' + art + '.*', $options: "i"} })
             let productsTechnique = await ProductTest.find({technique: {$regex: '.*' + art + '.*', $options: "i"} })
             console.log(productsTags)
-            let productsToMap = [...productsTitle, ...productsOrigin, ...productsStyle, ...productsTags, ...productsColors, ...productsTechnique]
+            let productsToMap = [...productsUserName, ...productsTitle, ...productsOrigin, ...productsStyle, ...productsTags, ...productsColors, ...productsTechnique]
             let products = await [...new Map(productsToMap.map((paint) => [paint["id"], paint])).values()]
             return res.status(200).json(products)
         }
