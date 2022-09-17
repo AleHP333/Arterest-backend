@@ -36,6 +36,16 @@ router.get("/allpaints", async (req, res) => {
     }
 })
 
+router.get("/getFiveRandom", async (req, res) => {
+    try {
+        const fiveRandom = await ProductTest.aggregate([{ $sample: { size: 5 } }])
+        return res.status(200).json(fiveRandom);
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({msg: "Internal server error"})
+    }
+})
+
 //NO USAR ESTA RUTA (Solo para crear muchos a la vez mediante un .json local)
 router.get("/createMassive", async (req, res) => {
     try {
