@@ -4,6 +4,17 @@ const axios = require("axios");
 const ProductTest = require("../../models/productTest");
 const mockData = require("./data.json")
 
+router.get("/getOnePaint/:id", async (req, res) => {
+    const {id} = req.params
+    try {
+        let onePaint = await ProductTest.findOne({_id: id})
+
+        return res.status(200).json(onePaint);
+    } catch (error) {
+        res.status(500).json({msg: "Internal server error"})
+    }
+})
+
 router.get("/allpaints", async (req, res) => {
     const {name, art} = req.query
     try {
