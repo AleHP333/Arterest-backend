@@ -16,4 +16,4 @@ app.use(passport.initialize());
 //INDEX
 app.use("/", router);
 
-module.exports = app;
+module.exports = app; 
