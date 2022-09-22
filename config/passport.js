@@ -12,7 +12,6 @@ passport.use(
             secretOrKey: SECRET_KEY
         },
         async (jwt_payload, done) => {
-            console.log(jwt_payload)
             User.findOne({email: jwt_payload._doc.email})
                 .then((user) => {
                     if(user){
