@@ -1,4 +1,4 @@
-const passport = require("../../../config/passportAdmin.js");
+const passport = require("../../../config/passport.js");
 const { Router } = require("express");
 const User = require("../../models/user.js");
 const Product = require("../../models/product.js")
@@ -69,5 +69,15 @@ router.route("/modifyProduct").put(passport.authenticate("jwt", { session: false
         res.status(500).json({msgData:{ success: "error", msg: "Something is wrong"}})
     }
 })
+
+router.route("/getAllUsers").get(passport.authenticate("jwt", { session: false }), async (req, res) => {
+    try {
+        let allUsers = await User.find();
+        return res.status(200).json(allUsers);
+    } catch (error) {
+        console.log(error, "getAllUserserror");
+        res.status(500).json({ msg: "Internal server error" });
+    }
+});
 
 module.exports = router
