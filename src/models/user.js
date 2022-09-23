@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
     city: {type: String, required: false},
     verification: {type: Boolean, required: false},
     uniqueString: {type: String, required: false},
-    role: {type: String, required: true},
+    isAdmin: {type: Boolean, required: false, default: false},
     isBanned: {type: Boolean, required: false, default: false},
     cart: {type: mongoose.Types.ObjectId, ref: "products" },
     buyHistory: {type: mongoose.Types.ObjectId, ref: "products" },
