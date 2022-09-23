@@ -1,6 +1,7 @@
 const passport = require("../../../config/passportAdmin.js");
 const { Router } = require("express");
 const User = require("../../models/user.js");
+const Product = require("../../models/product.js")
 const router = Router();
 
 //RECIVE LA ID DEL USUARIO Y UN BOOLEANO (TRUE: BANEADO, FALSE: NO BANEADO XD)
@@ -22,6 +23,50 @@ router.route("/banUser").put(passport.authenticate("jwt", { session: false }), a
     } catch (error) {
         console.log(error)
         res.status(500).json({msg: "Internal server error"})
+    }
+})
+
+router.route("/modifyProduct").put(passport.authenticate("jwt", { session: false }), async (req, res) => {
+    const { 
+            _id,
+            userName, 
+            userImage, 
+            title, 
+            description, 
+            img, 
+            origin, 
+            technique, 
+            style, 
+            colors, 
+            releaseDate, 
+            price, 
+            stock, 
+            tags, 
+            likes, 
+            comments} = req.body
+
+    console.log(req.body)
+    try {
+        const modifiedProduct = await Product.findOneAndUpdate({ _id: _id }, 
+            {   userName: userName, 
+                userImage: userImage, 
+                title: title, 
+                description: description, 
+                img: img, 
+                origin: origin, 
+                technique: technique, 
+                style: style, 
+                colors: colors, 
+                releaseDate: releaseDate, 
+                price: price, 
+                stock: stock, 
+                tags: tags, 
+                likes: likes,
+                comments: comments  }, { new: true })
+
+        res.status(201).json({ msgData: { success: "success", msg: "Product modified successfully"}})
+    } catch (error) {
+        res.status(500).json({msgData:{ success: "error", msg: "Something is wrong"}})
     }
 })
 
