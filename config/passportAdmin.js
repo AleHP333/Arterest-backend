@@ -12,7 +12,7 @@ passport.use(
             secretOrKey: SECRET_KEY
         },
         async (jwt_payload, done) => {
-            User.findOne({email: jwt_payload._doc.email, isAdmin: true})
+            User.findOne({_id: jwt_payload._doc._id, isAdmin: true})
                 .then((user) => {
                     if(user){
                         return done(null, user);
