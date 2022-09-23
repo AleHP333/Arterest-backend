@@ -46,7 +46,7 @@ const sendVerification = async (email, code) => {
         to: email,
         subject: "Verify your account. (Don't reply)",
         html: `<b>Thanks for register.Please confirm your arterest account:</b>
-                <a href="http://localhost:3001/verifyEmail/${code}">Click here to verify</a>` 
+                <a href="http://localhost:3000/verifyEmail/${code}">Click here to verify</a>` 
     }
 
     await transporter.sendMail(message, (error, response) => {
