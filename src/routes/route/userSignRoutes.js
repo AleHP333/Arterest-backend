@@ -59,7 +59,6 @@ router.post("/signUp", async (req, res) => {
     } = req.body
     try {
     const userFound = await User.findOne({ email: email })
-    console.log(User);
     if(userFound){
         return res.status(401).json({msg: "An user with the current email already exists"})
     } else {
@@ -86,7 +85,6 @@ router.post("/signUp", async (req, res) => {
 
 router.get("/verifyEmail/:id", async (req, res) => {
     const { id } = req.params;
-    console.log(id)
     try {
         const findUser = await User.findOne({ uniqueString: id })
         if(findUser){
