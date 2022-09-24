@@ -10,19 +10,19 @@ router.route("/banUser").put(passport.authenticate("jwt", { session: false }), a
     const { id, isBanned } = req.body
     try {
         const findUser = await User.findOne({ _id: id })
-        if(!findUser){return res.status(404).json({msg: "User not found"})}
+        if(!findUser){return res.status(404).json({msgData:{status: "error", msg: "User not found"}})}
         if(isBanned === true){
             findUser.isBanned = isBanned
             await findUser.save()
-            return res.status(200).json({msgData: {success: "success", msg: "The user was banned"}})
+            return res.status(200).json({msgData: {status: "success", msg: "The user was banned"}})
         } else {
             findUser.isBanned = isBanned
             await findUser.save()
-            return res.status(200).json({msgData: {success: "success", msg: "The user was unbanned"}})
+            return res.status(200).json({msgData: {status: "success", msg: "The user was unbanned"}})
         }
     } catch (error) {
         console.log(error)
-        res.status(500).json({msg: "Internal server error"})
+        res.status(500).json({msgData:{ status: "error", msg: "Internal server Error"}})
     }
 })
 
@@ -64,9 +64,9 @@ router.route("/modifyProduct").put(passport.authenticate("jwt", { session: false
                 likes: likes,
                 comments: comments  }, { new: true })
 
-        res.status(201).json({ msgData: { success: "success", msg: "Product modified successfully"}})
+        res.status(201).json({ msgData: { status: "success", msg: "Product modified successfully"}})
     } catch (error) {
-        res.status(500).json({msgData:{ success: "error", msg: "Something is wrong"}})
+        res.status(500).json({msgData:{ status: "error", msg: "Something is wrong"}})
     }
 })
 
@@ -76,7 +76,7 @@ router.route("/getAllUsers").get(passport.authenticate("jwt", { session: false }
         return res.status(200).json(allUsers);
     } catch (error) {
         console.log(error, "getAllUserserror");
-        res.status(500).json({ msg: "Internal server error" });
+        res.status(500).json({msgData:{ status: "error", msg: "Something is wrong"}});
     }
 });
 
