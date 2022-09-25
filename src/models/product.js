@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 const productSchema = new mongoose.Schema({
     userName: {type: String, required: true},
@@ -14,6 +15,10 @@ const productSchema = new mongoose.Schema({
     price: {type: Number, required: true},
     stock: {type: Number, required: false, default: 10},
     tags: [{type: String, required: true}],
+    transactions: {
+        type: [Schema.Types.ObjectId],
+        ref: 'Transaction',
+      },
     likes: {type: Array},
     comments: [{
         date: {type: Date},
