@@ -60,7 +60,7 @@ router.post("/signIn", async (req, res) => {
                     isBanned: findUser.isBanned
                 }
 
-                const jwToken = jwt.sign({...userData}, SECRET_KEY, {
+                const jwToken = jwt.sign(userData, SECRET_KEY, {
                     expiresIn: 60 * 60 * 24,
                 })
                 return res.status(200).json({msgData: {status: "success", msg: "Welcome"}, userData: userData, token: jwToken });
@@ -76,11 +76,13 @@ router.post("/signIn", async (req, res) => {
 
 router.route("/signInToken").get(passport.authenticate("jwt", { session: false }), async (req, res) => {
     try {
+        console.log(req.user)
         if(req.user){
-            const id = req.user.id
+            const id = req.user._id
             const findUser = await User.findOne({ _id: id });
+            console.log("usuario buscado", findUser)
 
-            return res.status(200).json({ msgData: { status: "success", msg: "Welcome", userData: findUser}});
+            return res.status(200).json({ msgData: { status: "success", msg: "Welcome"}, userData: findUser});
         } else {
             return res.status(400).json({ msgData: { status: "error", msg: "Token has expired"}});
         } 
