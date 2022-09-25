@@ -41,7 +41,7 @@ router.post("/signIn", async (req, res) => {
                     expiresIn: 60 * 60 * 24,
                 })
 
-                return res.status(200).json({msgData: {status: "success", msg: "Welcome"}, userData: userData, token: jwToken });
+                return res.status(200).json({msgData: {status: "success", msg: `Welcome ${findUser.userName}`}, userData: userData, token: jwToken });
             } else {
                 return res.status(401).json({ msgData: {status: "error", msg: "Invalid password"}})
             }
@@ -63,7 +63,7 @@ router.post("/signIn", async (req, res) => {
                 const jwToken = jwt.sign(userData, SECRET_KEY, {
                     expiresIn: 60 * 60 * 24,
                 })
-                return res.status(200).json({msgData: {status: "success", msg: "Welcome"}, userData: userData, token: jwToken });
+                return res.status(200).json({msgData: {status: "success", msg: `Welcome ${findUser.userName}`}, userData: userData, token: jwToken });
             } else {
                 return res.status(401).json({ msgData: {status: "error", msg: "The provided information isn't valid"}})
             }
@@ -81,7 +81,7 @@ router.route("/signInToken").get(passport.authenticate("jwt", { session: false }
             const id = req.user._id
             const findUser = await User.findOne({ _id: id });
 
-            return res.status(200).json({ msgData: { status: "success", msg: "Welcome"}, userData: findUser});
+            return res.status(200).json({ msgData: { status: "success", msg: `Welcome ${findUser.userName}`}, userData: findUser});
         } else {
             return res.status(400).json({ msgData: { status: "error", msg: "Token has expired"}});
         } 
