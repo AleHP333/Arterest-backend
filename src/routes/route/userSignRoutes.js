@@ -80,7 +80,6 @@ router.route("/signInToken").get(passport.authenticate("jwt", { session: false }
         if(req.user){
             const id = req.user._id
             const findUser = await User.findOne({ _id: id });
-            console.log("usuario buscado", findUser)
 
             return res.status(200).json({ msgData: { status: "success", msg: "Welcome"}, userData: findUser});
         } else {
