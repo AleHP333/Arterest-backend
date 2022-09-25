@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { Schema, model } = require('mongoose');
 
 const userSchema = new mongoose.Schema({
     email: {type: String, required: true},
@@ -13,8 +14,24 @@ const userSchema = new mongoose.Schema({
     uniqueString: {type: String, required: false},
     isAdmin: {type: Boolean, required: false, default: false},
     isBanned: {type: Boolean, required: false, default: false},
-    cart: {type: mongoose.Types.ObjectId, ref: "products" },
-    buyHistory: {type: mongoose.Types.ObjectId, ref: "products" },
+    purchase_order: {
+        products: [{
+          publicationId: {
+            type: Schema.Types.ObjectId,
+            ref: 'product'
+          },
+          quantity: {
+            type: Number
+          },
+        }],
+        link: {
+          type: String
+        }
+      },
+    buyHistory: {type: [Schema.Types.ObjectId],
+        ref: "Transaction",
+      },
+    user_id: String
 })
 
 const User = mongoose.model("users", userSchema);
