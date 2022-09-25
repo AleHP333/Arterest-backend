@@ -11,32 +11,22 @@ router
   .put(passport.authenticate("jwt", { session: false }), async (req, res) => {
     const { _id, isBanned } = req.body;
     try {
-      const findUser = await User.findOne({ _id: req.body._id });
-      if (!findUser) {
-        return res.status(404).json({ msg: "User not found" });
-      }
-      if (isBanned === true) {
-        findUser.isBanned = isBanned;
-        await findUser.save();
-        return res
-          .status(200)
-          .json({
-            msgData: { success: "success", msg: "The user was banned" },
-          });
-      } else {
-        findUser.isBanned = isBanned;
-        await findUser.save();
-        return res
-          .status(200)
-          .json({
-            msgData: { success: "success", msg: "The user was unbanned" },
-          });
-      }
+        const findUser = await User.findOne({ id: req.body._id })
+        if(!findUser){return res.status(404).json({msgData:{status: "error", msg: "User not found"}})}
+        if(isBanned === true){
+            findUser.isBanned = isBanned
+            await findUser.save()
+            return res.status(200).json({msgData: {status: "success", msg: "The user was banned"}})
+        } else {
+            findUser.isBanned = isBanned
+            await findUser.save()
+            return res.status(200).json({msgData: {status: "success", msg: "The user was unbanned"}})
+        }
     } catch (error) {
-      console.log(error);
-      res.status(500).json({ msg: "Internal server error" });
+        console.log(error)
+        return res.status(500).json({msgData:{ status: "error", msg: "Internal server Error"}})    
     }
-  });
+});
 
 router
   .route("/modifyProduct")
@@ -83,16 +73,9 @@ router
         },
         { new: true }
       );
-
-      res
-        .status(201)
-        .json({
-          msgData: { success: "success", msg: "Product modified successfully" },
-        });
+        return res.status(201).json({ msgData: { status: "success", msg: "Product modified successfully"}})
     } catch (error) {
-      res
-        .status(500)
-        .json({ msgData: { success: "error", msg: "Something is wrong" } });
+        return res.status(500).json({msgData:{ status: "error", msg: "Something is wrong"}})
     }
   });
 
@@ -100,11 +83,11 @@ router
   .route("/getAllUsers")
   .get(passport.authenticate("jwt", { session: false }), async (req, res) => {
     try {
-      let allUsers = await User.find();
-      return res.status(200).json(allUsers);
+        let allUsers = await User.find();
+        return res.status(200).json(allUsers);
     } catch (error) {
-      console.log(error, "getAllUserserror");
-      res.status(500).json({ msg: "Internal server error" });
+        console.log(error, "getAllUserserror");
+        return res.status(500).json({msgData:{ status: "error", msg: "Something is wrong"}});
     }
   });
 

@@ -10,7 +10,7 @@ router.get("/getPaintComments/:id", async (req, res) => {
     const { id } = req.params
     try {
         const paintComments = await Product.findOne({ _id: id }).select("comments").populate("comments.userId", {userName:1, userImage:1})
-
+        console.log(paintComments)
         res.status(200).json({success: "success", response: paintComments, msg: "disliked"})
     } catch (error) {
         res.status(500).json({success: false, msg: "Something is wrong :C"})
