@@ -3,6 +3,7 @@ const mongoose = require("mongoose")
 const productTestSchema = new mongoose.Schema({
     userName: {type: String, required: true},
     userImage: {type: String, required: false},
+    nick: {type: String, required: true, unique: true},
     title: {type: String, required: true},
     description: {type: String, required: true},
     img: {type: String, required: true},

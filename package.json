@@ -5,8 +5,8 @@
     "main": "index.js",
     "scripts": {
         "start": "nodemon bin/www",
-    "web": "node bin/www",
-    "dev": "nodemon bin/www"
+        "web": "node bin/www",
+        "dev": "nodemon bin/www"
     },
     "author": "",
     "license": "ISC",
@@ -17,6 +17,7 @@
         "dotenv": "^16.0.1",
         "express": "^4.18.1",
         "express-fileupload": "^1.4.0",
+        "googleapis": "^107.0.0",
         "jsonwebtoken": "^8.5.1",
         "mongoose": "^6.3.6",
         "morgan": "^1.10.0",
