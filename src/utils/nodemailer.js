@@ -18,7 +18,7 @@ let transporter = nodemailer.createTransport({
 exports.sendEmail = async (email, subject, textHTML) => {
     try {
         let info = await transporter.sendMail({
-            from: `${process.env.gmail}, <Mercado de enanos>`, // sender address
+            from: `${process.env.gmail}, <Arterest>`, // sender address
             to: email, // list of receivers
             subject: subject, // Subject line
             html: textHTML, // html body

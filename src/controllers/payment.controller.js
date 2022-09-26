@@ -17,10 +17,10 @@ const createOrder = async (req, res, next) => {
     let itemsPaypal = [];
     for (let item of cartItem) {
       let itemObj = {
-        id: item.product,
+        id: item._id,
         name: item.title,
         description: item.title,
-        sku: item.stock.stockTotal.toString(),
+        sku: item.stock.toString(),
         unit_amount: {
           currency_code: 'USD',
           value: item.price.toString(),
@@ -65,8 +65,8 @@ const createOrder = async (req, res, next) => {
         brand_name: "Arterest",
         landing_page: "LOGIN",
         user_action: "PAY_NOW",
-        return_url: 'http://localhost:3000',
-        cancel_url: 'http://localhost:3000/cancel-payment',
+        return_url: 'http://localhost:3001',
+        cancel_url: 'http://localhost:3001/cancel-payment',
       },
     };
 
@@ -209,8 +209,92 @@ const captureOrder = async (req, res, next) => {
   }
 };
 
-const cancelPayment = (req, res) => {
-  res.redirect("/");
-};
+const cancelPayment = catchAsync(async (req, res, next) => {
+  let { id } = req.params;
 
-module.exports = {cancelPayment, captureOrder, createOrder}
+  const transaction = await Transaction.findById(id);
+
+  if (!transaction) {
+    return next(new AppError('There is no transaction with that id', 404));
+  }
+
+  const trans = await Transaction.findByIdAndUpdate(
+    id,
+    { transaction: { ...transaction.transaction, status: 'rejected' } },
+    { new: true }
+  );
+
+  const publication = await Product.findById(
+    transaction.transaction.publication
+  );
+
+  if (!publication) {
+    return next(new AppError('there is no publication with that id', 404));
+  }
+ 
+  const pub = await Product.findByIdAndUpdate(
+    transaction.transaction.publication,
+    {
+      stock: {
+        ...publication.stock,
+        stock:
+          publication.stock + transaction.transaction.quantity,
+      },
+    },
+    { new: true }
+  );
+  // const template = purchase_canceled(id)
+  // const user = await User.findOne({_id: seller.user })
+  // sendEmail(user.email, 'Venta cancelada por el comprador', template)
+   res.status(200).json({
+    status: 'success',
+    data: {
+      transaction: trans,
+    },
+  });
+});
+
+const toFulfilled = catchAsync(async (req, res, next) => {
+  let { id } = req.params;
+
+  let transaction = await Transaction.findById(id);
+
+  if (!transaction) {
+    return next(new AppError('There are no transaction with that id', 404));
+  }
+
+  const trans = await Transaction.findByIdAndUpdate(
+    id,
+    { transaction: { ...transaction.transaction, status: 'fulfilled' } },
+    { new: true }
+  );
+
+  const publication = await Product.findById(///ver
+    transaction.transaction.product
+  );
+
+
+  if (!publication) {
+    return next(new AppError('there is no publication with that id', 404));
+  }
+
+
+  
+  const user_buyer = await User.findOne({_id: transaction.buyer})
+
+  const template_confirmation = Confirmation()
+  
+  sendEmail(user_buyer.email, 'Compra confirmada!', template_confirmation)
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      transaction: trans,
+    },
+  });
+});
+
+
+
+
+module.exports = {cancelPayment, captureOrder, createOrder, toFulfilled}
