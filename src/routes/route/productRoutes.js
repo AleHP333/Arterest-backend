@@ -26,14 +26,12 @@ router.get("/allpaints", async (req, res) => {
         if(art){
             let productsUserName = await Product.find({userName: {$regex: '.*' + art + '.*', $options: "i"}})
             let productsTitle = await Product.find({title: {$regex: '.*' + art + '.*', $options: "i"}})
-            console.log(productsTitle)
             let productsOrigin = await Product.find({origin: {$regex: '.*' + art + '.*', $options: "i"}})
             let productsStyle = await Product.find({style: {$regex: '.*' + art + '.*', $options: "i"}})
             //let productsColors = await ProductTest.find({})
             let productsTags = await Product.find({tags: {$regex: '.*' + art + '.*', $options: "i"} })
             let productsColors = await Product.find({colors: {$regex: '.*' + art + '.*', $options: "i"} })
             let productsTechnique = await Product.find({technique: {$regex: '.*' + art + '.*', $options: "i"} })
-            console.log(productsTags)
             let productsToMap = [...productsUserName, ...productsTitle, ...productsOrigin, ...productsStyle, ...productsTags, ...productsColors, ...productsTechnique]
             let products = await [...new Map(productsToMap.map((paint) => [paint["id"], paint])).values()]
             return res.status(200).json(products)
