@@ -1,4 +1,4 @@
-const ProductTest = require("../models/productTest")
+const Product = require("../models/product")
 
 async function filterProducts(req,res){
     let condition={}
@@ -14,7 +14,7 @@ async function filterProducts(req,res){
                 condition[prop]=new RegExp(req.query[prop],"i")
             }
         }
-        const foundProducts=await ProductTest.find(condition)
+        const foundProducts=await Product.find(condition)
         res.send(foundProducts)
     }catch(error){
         res.status(404).send({ error: error.message });
