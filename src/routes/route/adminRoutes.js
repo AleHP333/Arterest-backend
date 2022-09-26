@@ -11,7 +11,7 @@ router
   .put(passport.authenticate("jwt", { session: false }), async (req, res) => {
     const { _id, isBanned } = req.body;
     try {
-        const findUser = await User.findOne({ id: req.body._id })
+        const findUser = await User.findOne({ _id: req.body._id })
         if(!findUser){return res.status(404).json({msgData:{status: "error", msg: "User not found"}})}
         if(isBanned === true){
             findUser.isBanned = isBanned
@@ -49,8 +49,6 @@ router
       likes,
       comments,
     } = req.body;
-
-    console.log(req.body);
     try {
       const modifiedProduct = await Product.findOneAndUpdate(
         { _id: _id },

@@ -76,7 +76,6 @@ router.post("/signIn", async (req, res) => {
 
 router.route("/signInToken").get(passport.authenticate("jwt", { session: false }), async (req, res) => {
     try {
-        console.log(req.user)
         if(req.user){
             const id = req.user._id
             const findUser = await User.findOne({ _id: id });
