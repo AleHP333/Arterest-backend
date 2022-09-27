@@ -59,6 +59,32 @@ router
 });
 
 router
+  .route("/artistUser")
+  .put(passport.authenticate("jwt", { session: false }), async (req, res) => {
+    const { _id  } = req.body;
+    const isArtist = req.user.isArtist
+    try {
+        if(isArtist === false){
+          return res.status(401).json({msgDate: {status: "error", msg: "You don't have permissions"}})
+        }
+        const findUser = await User.findOne({ _id: req.body._id })
+        if(!findUser){return res.status(404).json({msgData:{status: "error", msg: "User not found"}})}
+        if(findUser.isArtist === true){
+            findUser.isArtist = !findUser.isArtist
+            await findUser.save()
+            return res.status(200).json({msgData: {status: "success", msg: "The user was banned"}})
+        } else {
+            findUser.isArtist = !findUser.isArtist
+            await findUser.save()
+            return res.status(200).json({msgData: {status: "success", msg: "The user was unbanned"}})
+        }
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({msgData:{ status: "error", msg: "Internal server Error"}})    
+    }
+});
+
+router
   .route("/modifyProduct")
   .put(passport.authenticate("jwt", { session: false }), async (req, res) => {
     const {
