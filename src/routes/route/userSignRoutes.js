@@ -16,6 +16,9 @@ router.post("/signIn", async (req, res) => {
         if(!findUser){
             return res.status(404).json({ msgData: { status: "error",  msg: "User doesn't exists"}})
         }
+        if(findUser.isBanned === true){
+            return res.status(401).json({ msgData: { status: "warning", msg: "This account was banned"}})
+        }
         if(from === "signIn"){
             if(findUser.verification === false){
                 return res.status(401).json({ msgData: { status: "error",  msg: "The account isn't verificated. Please check your email and verify your account" }})

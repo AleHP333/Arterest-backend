@@ -10,7 +10,11 @@ router
   .route("/banUser")
   .put(passport.authenticate("jwt", { session: false }), async (req, res) => {
     const { _id, isBanned } = req.body;
+    const isAdmin = req.user.isAdmin 
     try {
+        if(isAdmin === false){
+          return res.status(401).json({msgDate: {status: "error", msg: "You don't have permissions"}})
+        }
         const findUser = await User.findOne({ _id: req.body._id })
         if(!findUser){return res.status(404).json({msgData:{status: "error", msg: "User not found"}})}
         if(isBanned === true){
@@ -19,6 +23,32 @@ router
             return res.status(200).json({msgData: {status: "success", msg: "The user was banned"}})
         } else {
             findUser.isBanned = isBanned
+            await findUser.save()
+            return res.status(200).json({msgData: {status: "success", msg: "The user was unbanned"}})
+        }
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({msgData:{ status: "error", msg: "Internal server Error"}})    
+    }
+});
+
+router
+  .route("/adminUser")
+  .put(passport.authenticate("jwt", { session: false }), async (req, res) => {
+    const { _id  } = req.body;
+    const isAdmin1 = req.user.isAdmin 
+    try {
+        if(isAdmin1 === false){
+          return res.status(401).json({msgDate: {status: "error", msg: "You don't have permissions"}})
+        }
+        const findUser = await User.findOne({ _id: req.body._id })
+        if(!findUser){return res.status(404).json({msgData:{status: "error", msg: "User not found"}})}
+        if(findUser.isAdmin === true){
+            findUser.isAdmin = !findUser.isAdmin
+            await findUser.save()
+            return res.status(200).json({msgData: {status: "success", msg: "The user was banned"}})
+        } else {
+            findUser.isAdmin = !findUser.isAdmin
             await findUser.save()
             return res.status(200).json({msgData: {status: "success", msg: "The user was unbanned"}})
         }
