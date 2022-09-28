@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const router = Router();
 const User = require("../../models/user");
+const passport = require("../../../config/passport.js");
 
 
 router.get('/', async (req, res) => {
@@ -13,10 +14,12 @@ router.get('/', async (req, res) => {
     }
   })
 
-  router.get('/:id', async (req, res) => {
-    const { id } = req.params
+  router
+  .route('/:id')
+  .get(passport.authenticate("jwt", { session: false }), async (req, res) => {
+    const  id  = req.user._id
     try {
-      const userId = await User.findById(id)
+      const userId = await User.findOne({_id: id})
       if (!userId) throw new Error('User not found')
       res.json(userId)
     } catch (error) {
