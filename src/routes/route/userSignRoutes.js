@@ -45,7 +45,7 @@ router.post("/signIn", async (req, res) => {
                     expiresIn: 60 * 60 * 24,
                 })
 
-                return res.status(200).json({msgData: {status: "success", msg: `Welcome ${findUser.userName}`}, userData: userData, token: jwToken });
+                return res.status(200).json({msgData: {status: "success", msg: `Welcome ${findUser.userName}`}, userData: {...userData, country: findUser.country, names: findUser.names, surnames: findUser.surnames, city: findUser.city }, token: jwToken });
             } else {
                 return res.status(401).json({ msgData: {status: "error", msg: "Invalid password"}})
             }
@@ -68,7 +68,7 @@ router.post("/signIn", async (req, res) => {
                 const jwToken = jwt.sign(userData, SECRET_KEY, {
                     expiresIn: 60 * 60 * 24,
                 })
-                return res.status(200).json({msgData: {status: "success", msg: `Welcome ${findUser.userName}`}, userData: userData, token: jwToken });
+                return res.status(200).json({msgData: {status: "success", msg: `Welcome ${findUser.userName}`}, userData: {...userData, country: findUser.country, names: findUser.names, surnames: findUser.surnames, city: findUser.city }, token: jwToken });
             } else {
                 return res.status(401).json({ msgData: {status: "error", msg: "The provided information isn't valid"}})
             }
