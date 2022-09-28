@@ -6,7 +6,7 @@ const Request = require("../../models/request.js")
 const router = Router();
 
 
-router.post("/artistRequest").post(passport.authenticate("jwt", { session: false }), async (req, res) => {
+router.route("/artistRequest").post(passport.authenticate("jwt", { session: false }), async (req, res) => {
     const {
         message,
         url1,
@@ -17,12 +17,12 @@ router.post("/artistRequest").post(passport.authenticate("jwt", { session: false
     const user = req.user._id
     try {
         if(isArtist === true){
-            res.status(401).json({msgDate: {status: "info", msg: "You already are an Artist :)"}})
+            return res.status(401).json({msgDate: {status: "info", msg: "You already are an Artist :)"}})
         }
-        const find = await Request.find({ user: user })
+        const find = await Request.findOne({ _id: user })
 
         if(find){
-            res.status(401).json({msgDate: {status: "warning", msg: "You have a pending artist request"}})
+            return res.status(401).json({msgDate: {status: "warning", msg: "You have a pending artist request"}})
         }
 
         await Request.create({
@@ -33,10 +33,10 @@ router.post("/artistRequest").post(passport.authenticate("jwt", { session: false
             url3
         });
 
-        res.status(201).json({msgDate: {status: "info", msg: "Thank you for your interest! You will receive the request answer by email"}})
+        return res.status(201).json({msgDate: {status: "info", msg: "Thank you for your interest! You will receive the request answer by email"}})
     } catch (error) {
         console.log(error)
-        res.status(500).json({msg: "Internal server error"})
+        return res.status(500).json({msg: "Internal server error"})
     }
 
 })
@@ -79,3 +79,5 @@ router.route("/productRequest").post(passport.authenticate("jwt", { session: fal
         res.status(500).json({msg: "Internal server error"})
     }
 })
+
+module.exports = router
