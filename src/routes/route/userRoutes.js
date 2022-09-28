@@ -23,5 +23,34 @@ router.get('/', async (req, res) => {
       res.send(error.message)
     }
   })
+  router.put("/modifyUserProfile", async (req, res) => {
+    const {
+      _id,
+      userName,
+      userImage,
+      names,
+      surnames,
+      country,
+      city,
+      
+    } = req.body;
+    try {
+      const modifiedProduct = await User.findOneAndUpdate(
+        { _id: _id },
+        {
+          userName: userName,
+          userImage: userImage,
+          names: names,
+          surnames: surnames,
+          country: country,
+          city: city,
+        },
+        { new: true }
+      );
+        return res.status(201).json({ msgData: { status: "success", msg: "Product modified successfully"}})
+    } catch (error) {
+        return res.status(500).json({msgData:{ status: "error", msg: "Something is wrong"}})
+    }
+  });
 
   module.exports = router
