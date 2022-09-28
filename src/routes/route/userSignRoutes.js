@@ -96,7 +96,7 @@ router.route("/signInToken").get(passport.authenticate("jwt", { session: false }
                 isBanned: findUser.isBanned
             }
 
-            return res.status(200).json({ msgData: { status: "success", msg: `Welcome ${findUser.userName}`}, userData: userData});
+            return res.status(200).json({ msgData: { status: "success", msg: `Welcome ${findUser.userName}`}, userData: {...userData, country: findUser.country, names: findUser.names, surnames: findUser.surnames, city: findUser.city }});
         } else {
             return res.status(400).json({ msgData: { status: "error", msg: "Token has expired"}});
         } 
