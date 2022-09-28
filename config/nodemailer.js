@@ -12,7 +12,7 @@ const OAuth2 = google.auth.OAuth2;
 //------------
 //TRANSPORTER:
 //Funcion encargada de enviar la data al email del usuario de parte del servidor con el email del proyecto
-const sendVerification = async (email, code) => {
+const sendVerification = async (email, code, index) => {
 
     const myOAuth2Client = new OAuth2( //creating the settings with 3 params
         GOOGLE_CLIENTID,
@@ -41,15 +41,24 @@ const sendVerification = async (email, code) => {
         },
     });
     
-    const message = {
+    const message = [
+    {
         from: GOOGLE_USER,
         to: email,
         subject: "Verify your account. (Don't reply)",
         html: `<b>Thanks for register.Please confirm your arterest account:</b>
                 <a href="http://localhost:3000/verifyEmail/${code}">Click here to verify</a>` 
+    },
+    {
+        from: GOOGLE_USER,
+        to: email,
+        subject: "Congratulations! You Artist Request Approved",
+        html: `<b>felicitaciones! 
+        Ya eres artista en nuestro sitio web. ¡Ya puedes vender tus cuadros!. Gracias por su interes en nuestro sistema de ventas.</b>
+                <a href="http://localhost:3000/home">Go to web-site!</a>` 
     }
-
-    await transporter.sendMail(message, (error, response) => {
+    ]
+    await transporter.sendMail(message[index], (error, response) => {
         if(error){
             console.log(error);
         } else {
