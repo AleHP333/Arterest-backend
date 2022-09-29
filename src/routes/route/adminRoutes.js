@@ -38,7 +38,7 @@ router
         .status(500)
         .json({ msgData: { status: "error", msg: "Internal server Error" } });
     }
-  });
+});
 
 router
   .route("/adminUser")
@@ -151,10 +151,10 @@ router
   .route("/getAllUsers")
   .get(passport.authenticate("jwt", { session: false }), async (req, res) => {
     try {
-      let allUsers = await User.find();
-      return res.status(200).json(allUsers);
+        let allUsers = await User.find();
+        return res.status(200).json(allUsers);
     } catch (error) {
-      console.log(error, "getAllUserserror");
+        console.log(error, "getAllUserserror");
       return res
         .status(500)
         .json({ msgData: { status: "error", msg: "Something is wrong" } });
@@ -225,5 +225,4 @@ router
         .json({ msgData: { status: "error", msg: "Something is wrong" } });
     }
   });
-
 module.exports = router;

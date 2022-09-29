@@ -2,7 +2,8 @@ const passport = require("../../../config/passport.js");
 const { Router } = require("express");
 const User = require("../../models/user.js");
 const ProductArtist = require("../../models/productArtist.js");
-const Request = require("../../models/request.js")
+const Request = require("../../models/request.js");
+const Transaction = require("../../models/Transaction.js");
 const router = Router();
 
 
@@ -78,6 +79,16 @@ router.route("/productRequest").post(passport.authenticate("jwt", { session: fal
     } catch (error) {
         console.log(error)
         res.status(500).json({msgData: { status: "error", msg: "Failed to sent, try again" }})
+    }
+})
+
+router.route("/pruebita").get(async (req, res) => {
+    try {
+        const data = await User.findOne({ _id: "6330ccd5bc8591b180e3447a"})
+        const userTransactions = await Transaction.find({ buyer: data._id }).populate("transaction.product")
+        return res.status(201).json({userData: data, transactions: userTransactions})
+    } catch (error) {
+        
     }
 })
 
