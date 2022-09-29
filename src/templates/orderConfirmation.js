@@ -101,7 +101,7 @@ exports.orderConfirmation = (info) => {
                                                         class="m_-5006345486347126279row-content m_-5006345486347126279stack"
                                                         align="center" border="0" cellpadding="0" cellspacing="0"
                                                         role="presentation"
-                                                        style="background-color:#fee600;color:#000;width:650px"
+                                                        style="background-color:#FF6F61;color:#000;width:650px"
                                                         width="650">
                                                         <tbody>
                                                             <tr>
@@ -117,7 +117,7 @@ exports.orderConfirmation = (info) => {
                                                                                     <div align="center"
                                                                                         style="line-height:10px"><img
                                                                                             class="m_-5006345486347126279big CToWUd a6T"
-                                                                                            src="https://ci3.googleusercontent.com/proxy/5j8fZ_Pcl2sKQkvILnUOy_MU4CSXrx7CAASWUxAMeUkSt--hbM4G8p38YzeUpSmMcv9EBhvjZlGPtUxavuYCxuSBtWnKw_ByGrvpqf7Do319kVjQrdmSVa68Iz-1hcQ=s0-d-e1-ft#https://publictemplates.wbsrvcx.com/t/shipping-confirmation/illo_shipped.png"
+                                                                                            src="https://www.fundssociety.com/sites/default/files/styles/image_full/public/news/arte1.jpg?itok=LTh79sto"
                                                                                             style="display:block;height:auto;border:0;width:488px;max-width:100%"
                                                                                             width="488" alt="Image"
                                                                                             title="Image" tabindex="0">
@@ -157,8 +157,7 @@ exports.orderConfirmation = (info) => {
                                                                                                 <span
                                                                                                     style="font-size:38px"><strong><span
                                                                                                             style="font-size:38px"><span
-                                                                                                                style="color:#2190e3;font-size:38px">Tu
-                                                                                                                compra
+                                                                                                                style="color:#2190e3;font-size:38px">Your buy
                                                                                                             </span></span></strong></span>
                                                                                             </p>
                                                                                             <p
@@ -166,10 +165,9 @@ exports.orderConfirmation = (info) => {
                                                                                                 <span
                                                                                                     style="font-size:38px"><strong><span
                                                                                                             style="font-size:38px"><span
-                                                                                                                style="color:#2190e3;font-size:38px">ha
-                                                                                                                sido
+                                                                                                                style="color:#2190e3;font-size:38px">Has been
                                                                                                             </span><span
-                                                                                                                style="color:#2190e3;font-size:38px">confirmada!</span></span></strong></span>
+                                                                                                                style="color:#2190e3;font-size:38px">confirm!</span></span></strong></span>
                                                                                             </p>
                                                                                         </div>
                                                                                     </div>
@@ -232,7 +230,7 @@ exports.orderConfirmation = (info) => {
                                                                                                 style="padding-left:20px;padding-right:20px;font-size:18px;display:inline-block;letter-spacing:normal"><span
                                                                                                     style="font-size:16px;line-height:2;word-break:break-word"><span
                                                                                                         style="font-size:18px;line-height:36px">
-                                                                                                        <strong>Ver tu compra</strong></span></span></span></a>
+                                                                                                        <strong>See more to buy</strong></span></span></span></a>
                                                                                     </div>
                                                                                 </td>
                                                                             </tr>
@@ -273,8 +271,7 @@ exports.orderConfirmation = (info) => {
                                                                                             <p
                                                                                                 style="margin:0;text-align:center;font-size:12px">
                                                                                                 <strong><span
-                                                                                                        style="font-size:20px">Productos
-                                                                                                        comprados:</span></strong>
+                                                                                                        style="font-size:20px">Buyed Artwork:</span></strong>
                                                                                             </p>
                                                                                         </div>
                                                                                     </div>
@@ -344,7 +341,7 @@ exports.orderConfirmation = (info) => {
                                                                                             style="font-size:12px;color:#555;line-height:1.2;font-family:Lato,Tahoma,Verdana,Segoe,sans-serif">
                                                                                             <p
                                                                                                 style="margin:0;font-size:14px;text-align:center">
-                                                                                                <strong>CANTIDAD</strong></p>
+                                                                                                <strong>QUANTITY</strong></p>
                                                                                         </div>
                                                                                     </div>
                                                                                 </td>
@@ -366,7 +363,7 @@ exports.orderConfirmation = (info) => {
                                                                                             style="font-size:12px;color:#555;line-height:1.2;font-family:Lato,Tahoma,Verdana,Segoe,sans-serif">
                                                                                             <p
                                                                                                 style="margin:0;font-size:14px;text-align:center">
-                                                                                                <strong>PRECIO</strong>
+                                                                                                <strong>PRICE</strong>
                                                                                             </p>
                                                                                         </div>
                                                                                     </div>
@@ -519,103 +516,9 @@ exports.orderConfirmation = (info) => {
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0"
-                                        role="presentation">
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <table
-                                                        class="m_-5006345486347126279row-content m_-5006345486347126279stack"
-                                                        align="center" border="0" cellpadding="0" cellspacing="0"
-                                                        role="presentation"
-                                                        style="background-color:#fee600;color:#333;width:650px"
-                                                        width="650">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="m_-5006345486347126279column" width="100%"
-                                                                    style="font-weight:400;text-align:left;vertical-align:top;background-color:#fff;border-bottom:18px solid #d6e7f0;border-left:18px solid #d6e7f0;border-right:18px solid #d6e7f0;border-top:18px solid #d6e7f0;padding-left:15px;padding-top:5px;padding-bottom:10px">
-                                                                    <table class="m_-5006345486347126279image_block"
-                                                                        width="100%" border="0" cellpadding="0"
-                                                                        cellspacing="0" role="presentation">
-                                                                        <tbody>
-                                                                            <tr>
-                                                                                <td
-                                                                                    style="width:100%;padding-right:0;padding-left:0">
-                                                                                    <div align="center"
-                                                                                        style="line-height:10px"><img
-                                                                                            src="https://ci4.googleusercontent.com/proxy/k515wsmiSA1xmMaaVxoGL_zKO66ufp9Kq5sciLDgaORQ9PUGr70K1PQ2grxlJ-ycQAC-exqk2D2jw84rYS4wAJuxo1aw0uzv8ENV8mc87s5tuy3nmDBgDc_-1EegbQ=s0-d-e1-ft#https://publictemplates.wbsrvcx.com/t/shipping-confirmation/002-shipped.png"
-                                                                                            style="display:block;height:auto;border:0;width:270px;max-width:100%"
-                                                                                            width="270" alt="Image"
-                                                                                            title="Image"
-                                                                                            class="CToWUd"></div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                    <table width="100%" border="0" cellpadding="0"
-                                                                        cellspacing="0" role="presentation"
-                                                                        style="word-break:break-word">
-                                                                        <tbody>
-                                                                            <tr>
-                                                                                <td
-                                                                                    style="padding-bottom:5px;padding-left:15px;padding-right:15px;padding-top:15px">
-                                                                                    <div style="font-family:sans-serif">
-                                                                                        <div
-                                                                                            style="font-size:12px;color:#fc7318;line-height:1.2;font-family:Lato,Tahoma,Verdana,Segoe,sans-serif">
-                                                                                            <p
-                                                                                                style="margin:0;font-size:14px;text-align:left">
-                                                                                                <span
-                                                                                                    style="font-size:24px"><strong>DIRECCIÓN DE ENVIO</strong></span>
-                                                                                            </p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                    <table width="100%" border="0" cellpadding="0"
-                                                                        cellspacing="0" role="presentation"
-                                                                        style="word-break:break-word">
-                                                                        <tbody>
-                                                                            <tr>
-                                                                                <td
-                                                                                    style="padding-bottom:15px;padding-left:15px;padding-right:15px;padding-top:5px">
-                                                                                    <div style="font-family:sans-serif">
-                                                                                        <div
-                                                                                            style="font-size:12px;color:#555;line-height:1.5;font-family:Lato,Tahoma,Verdana,Segoe,sans-serif">
-                                                                                            <p
-                                                                                                style="margin:0;font-size:14px">
-                                                                                                 <p>ARGENTINA 
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                    <table width="100%" border="0" cellpadding="10"
-                                                                        cellspacing="0" role="presentation">
-                                                                        <tbody>
-                                                                            <tr>
-                                                                                <td>
-                                                                                    <div
-                                                                                        style="text-decoration:none;display:inline-block;color:#fff;background-color:#fc7318;border-radius:15px;width:auto;border-top:1px solid #fc7318;font-weight:400;border-right:1px solid #fc7318;border-bottom:1px solid #fc7318;border-left:1px solid #fc7318;padding-top:5px;padding-bottom:5px;font-family:Lato,Tahoma,Verdana,Segoe,sans-serif;text-align:center;word-break:keep-all">
-                                                                                        <span
-                                                                                            style="padding-left:20px;padding-right:20px;font-size:16px;display:inline-block;letter-spacing:normal"><span
-                                                                                                style="font-size:16px;line-height:2;word-break:break-word"><strong>
-                                                                                                    Confirmar Entrega&nbsp;</strong></span></span>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                                                                                  
+                                                                
+                                    
                                     <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0"
                                         role="presentation">
                                         <tbody>
@@ -646,9 +549,7 @@ exports.orderConfirmation = (info) => {
                                                                                                 <span
                                                                                                     style="font-size:34px"><span
                                                                                                         style="font-size:34px"><span
-                                                                                                            style="color:#fc7318"><strong>Tienes
-                                                                                                                una
-                                                                                                                pregunta?</strong></span></span></span>
+                                                                                                            style="color:#fc7318"><strong>Have any question?</strong></span></span></span>
                                                                                             </p>
                                                                                             <p
                                                                                                 style="margin:0;font-size:12px;text-align:center">

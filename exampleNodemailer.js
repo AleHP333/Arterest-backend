@@ -1,4 +1,4 @@
-const  nodemailer  = require('./src/utils/nodemailer')
+const  nodemail  = require('./src/utils/nodemail')
 const { orderConfirmation } = require('./src/templates/orderConfirmation')
 
 
@@ -15,11 +15,9 @@ const template = orderConfirmation({
         price: `$${500}`
     }],
     total_price: 800,
-   
-    estimated_delivery_date: `hoy` // puede agarrar el date de la transaccion y sumarle 'x' cantidad de dias
 })
 
 
 
 // sendEmail recibe los parametros Email, subject, y template
-nodemailer.sendEmail('Buyer email', 'Confirm buy', template)
+nodemail.sendEmail('Buyer email', 'Succesfully buy', template)

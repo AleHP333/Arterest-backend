@@ -7,18 +7,18 @@ let transporter = nodemailer.createTransport({
     port: 465,
     secure: true, // true for 465, false for other ports
     auth: {
-        user: process.env.GOOGLE_USER, // generated ethereal user
-        pass: process.env.GOOGLE_MAIL_KEY, // generated ethereal password
+        user: "arterest002@gmail.com", // generated ethereal user
+        pass: "rrdnsnzdcxigcxsf", // generated ethereal password
     },
     tls: {
         rejectUnauthorized: false
     }
 });
 
-exports.sendEmail = async (email, subject, textHTML) => {
+const sendEmail = async (email, subject, textHTML) => {
     try {
         let info = await transporter.sendMail({
-            from: `${process.env.GOOGLE_USER}, <Arterest>`, // sender address
+            from: "arterest002@gmail.com", // sender address
             to: email, // list of receivers
             subject: subject, // Subject line
             html: textHTML, // html body
@@ -28,3 +28,4 @@ exports.sendEmail = async (email, subject, textHTML) => {
         return error
     }
 }
+module.exports = {nodemailer, sendEmail}

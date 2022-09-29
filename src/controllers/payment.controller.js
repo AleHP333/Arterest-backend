@@ -6,7 +6,7 @@ const AppError = require('../utils/appError');
 const axios = require('axios');
 const mongoose = require('mongoose');
 
-const {sendEmail} = require('../utils/nodemailer')
+const {sendEmail} = require('../utils/nodemail')
 const {Confirmation} = require('../templates/Confirmation')
 const {orderConfirmation} = require('../templates/orderConfirmation')
 
@@ -194,15 +194,15 @@ console.log(pubs, "y esto") //ata aca parece que tamb
       // publi.save();
     }
 
-    // await User.updateOne(
-    //   { _id: buyer_id },
-    //   {
-    //     purchase_order: {
-    //       products: [],
-    //       link: '',
-    //     },
-    //   }
-    // );
+    await User.updateOne(
+      { _id: buyer_id },
+      {
+        purchase_order: {
+          products: [],
+          link: '',
+        },
+      }
+    );
     
     const template = orderConfirmation({
       products: pubs.map((e, i) => {return {price: e.price, title: e.title, quantity: publications[i].quantity, img: e.img, origin: e.origin}}),
@@ -210,9 +210,10 @@ console.log(pubs, "y esto") //ata aca parece que tamb
     })
 
     sendEmail(buyer.email, 'Succesfully buy', template)
+    
 
-    res.redirect("http://localhost:3000/home");
-    res.status(200).json({ status: 'success', data: 'success' });
+    await res.redirect("http://localhost:3000/transaction");
+    await res.status(200).json({ status: 'success', data: 'success' });
   } catch (error) {
     console.log(error);
     next(new AppError(error));
@@ -307,4 +308,4 @@ const toFulfilled = catchAsync(async (req, res, next) => {
 
 
 
-module.exports = {cancelPayment, captureOrder, createOrder, toFulfilled}
+module.exports = {cancelPayment, captureOrder, createOrder, toFulfilled, sendEmail}
