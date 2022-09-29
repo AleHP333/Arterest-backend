@@ -30,6 +30,7 @@ router.get('/', async (req, res) => {
   router
   .route("/modifyUserProfile")
   .put(passport.authenticate("jwt", { session: false }), async (req, res) => {
+    const user = req.user._id
     const {
       _id,
       userName,
@@ -41,20 +42,22 @@ router.get('/', async (req, res) => {
       
     } = req.body;
     try {
-      const modifiedProduct = await User.findOneAndUpdate(
-        { _id: _id },
-        {
-          userName: userName,
-          userImage: userImage,
-          names: names,
-          surnames: surnames,
-          country: country,
-          city: city,
-        },
-        { new: true }
-      );
-        return res.status(201).json({ msgData: { status: "success", msg: "Product modified successfully"}})
-    } catch (error) {
+      const modifiedUser = await User.findOne(
+        { _id: user }
+
+        );
+      
+          modifiedUser.userName= userName,
+          modifiedUser.userImage= userImage,
+          modifiedUser.names= names,
+          modifiedUser.surnames= surnames,
+          modifiedUser.country= country,
+          modifiedUser.city= city,
+    
+        await modifiedUser.save()
+        console.log(modifiedUser)
+        return res.status(201).json({userData: modifiedUser, msgData: { status: "success", msg: "User modified successfully"}})
+      } catch (error) {
         return res.status(500).json({msgData:{ status: "error", msg: "Something is wrong"}})
     }
   });
