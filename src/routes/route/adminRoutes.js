@@ -6,6 +6,8 @@ const Request = require("../../models/request.js");
 const ProductArtist = require("../../models/productArtist.js");
 const ProductTest = require("../../models/productTest.js")
 const sendVerification = require("../../../config/nodemailer.js");
+const Transaction = require("../../models/Transaction");
+
 const router = Router();
 
 //RECIVE LA ID DEL USUARIO Y UN BOOLEANO (TRUE: BANEADO, FALSE: NO BANEADO XD)
@@ -31,10 +33,12 @@ router
             return res.status(200).json({msgData: {status: "success", msg: "The user was unbanned"}})
         }
     } catch (error) {
-        console.log(error)
-        return res.status(500).json({msgData:{ status: "error", msg: "Internal server Error"}})    
+      console.log(error);
+      return res
+        .status(500)
+        .json({ msgData: { status: "error", msg: "Internal server Error" } });
     }
-});
+  });
 
 router
   .route("/adminUser")
@@ -133,9 +137,13 @@ router
         },
         { new: true }
       );
-        return res.status(201).json({ msgData: { status: "success", msg: "Product modified successfully"}})
+      return res.status(201).json({
+        msgData: { status: "success", msg: "Product modified successfully" },
+      });
     } catch (error) {
-        return res.status(500).json({msgData:{ status: "error", msg: "Something is wrong"}})
+      return res
+        .status(500)
+        .json({ msgData: { status: "error", msg: "Something is wrong" } });
     }
   });
 
@@ -143,13 +151,16 @@ router
   .route("/getAllUsers")
   .get(passport.authenticate("jwt", { session: false }), async (req, res) => {
     try {
-        let allUsers = await User.find();
-        return res.status(200).json(allUsers);
+      let allUsers = await User.find();
+      return res.status(200).json(allUsers);
     } catch (error) {
-        console.log(error, "getAllUserserror");
-        return res.status(500).json({msgData:{ status: "error", msg: "Something is wrong"}});
+      console.log(error, "getAllUserserror");
+      return res
+        .status(500)
+        .json({ msgData: { status: "error", msg: "Something is wrong" } });
     }
   });
+
 
 router.route("/getArtistRequest").get(async (req, res) => {
   try {
@@ -161,6 +172,7 @@ router.route("/getArtistRequest").get(async (req, res) => {
   }
 })
 
+<<<<<<< HEAD
 router.route("/getArtRequest").get(async (req, res) => {
   try {
     let requests = await ProductArtist.find().populate("user", {userName:1, userImage:1, email:1});
@@ -200,4 +212,20 @@ router.route("/approveArt").post(async (req, res) => {
   }
 })
 
+=======
+router
+  .route("/getAllOrders")
+  .get(passport.authenticate("jwt", { session: false }), async (req, res) => {
+    try {
+      let orders = await Transaction.find();
+      console.log(orders, "transaction");
+      return res.status(200).json(orders);
+    } catch (error) {
+      console.log(error, "getAllOrdersError");
+      return res
+        .status(500)
+        .json({ msgData: { status: "error", msg: "Something is wrong" } });
+    }
+  });
+>>>>>>> 65f19449588953b9db59dab156f4bd364279c293
 module.exports = router;

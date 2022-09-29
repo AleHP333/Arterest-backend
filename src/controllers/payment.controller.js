@@ -6,6 +6,10 @@ const AppError = require('../utils/appError');
 const axios = require('axios');
 const mongoose = require('mongoose');
 
+const {sendEmail} = require('../utils/nodemail')
+const {Confirmation} = require('../templates/Confirmation')
+const {orderConfirmation} = require('../templates/orderConfirmation')
+
 
 const {PAYPAL_API,PAYPAL_API_CLIENT,PAYPAL_API_SECRET,} = require("../config");
 
@@ -17,10 +21,10 @@ const createOrder = async (req, res, next) => {
     let itemsPaypal = [];
     for (let item of cartItem) {
       let itemObj = {
-        id: item.product,
+        id: item._id,
         name: item.title,
         description: item.title,
-        sku: item.stock.stockTotal.toString(),
+        sku: item.stock.toString(),
         unit_amount: {
           currency_code: 'USD',
           value: item.price.toString(),
@@ -36,7 +40,7 @@ const createOrder = async (req, res, next) => {
     }
     let total_value = 0;
     for (let itemV of cartItem) {
-      total_value = total_value + itemV.price * itemV.quantity;
+      total_value = total_value + itemV.price * itemV.quantity; 
     }
 //Orden de compra que recibe Paypal
 
@@ -65,8 +69,8 @@ const createOrder = async (req, res, next) => {
         brand_name: "Arterest",
         landing_page: "LOGIN",
         user_action: "PAY_NOW",
-        return_url: 'http://localhost:3000',
-        cancel_url: 'http://localhost:3000/cancel-payment',
+        return_url: 'http://localhost:3001/capture-order',
+        cancel_url: 'http://localhost:3000/home',
       },
     };
 
@@ -83,7 +87,7 @@ const createOrder = async (req, res, next) => {
       params,
       {
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          Content_Type: "application/x-www-form-urlencoded",
         },
         auth: {
           username: PAYPAL_API_CLIENT,
@@ -92,7 +96,7 @@ const createOrder = async (req, res, next) => {
       }
     );
 
-    console.log(access_token);
+    console.log(access_token, "sera esto");
 
     // make a request
     const response = await axios.post(
@@ -105,23 +109,26 @@ const createOrder = async (req, res, next) => {
       }
     );
 
-    console.log(response.data);
+    console.log(response.data, "i");
       //--guardar en user la orden compra
       let products = [];
       cartItem.map((el) =>
         products.push({
-          publicationId: el.product,
+          publicationId: el._id,
           quantity: el.quantity,
-        })
+        }) 
       );
+      
     let user = await User.findByIdAndUpdate(id, {
       purchase_order: {
         products: products,
         link: response.data.links[1].href,
       },
     });
+    console.log(products, "abelardo")
 
-    res.json(response.data.links[1].href); //-- devuelvo el link de pago
+    res.json(response.data.links[1].href);
+     //-- devuelvo el link de pago
   } catch (error) {
     console.log(error);
     next(error);
@@ -144,21 +151,23 @@ const captureOrder = async (req, res, next) => {
     );
 
     const buyer_id = response.data.purchase_units[0].reference_id;
+    console.log(response.data.purchase_units[0].reference_id, "aca")
 
-    const buyer = await User.findOne({ _id: buyer_id });
+    const buyer = await User.findOne({ _id: buyer_id });// ataca too bien
     const publications = buyer.purchase_order.products.map((e) => e);
     const pubs = [];
 
     for (let i = 0; i < publications.length; i++) {
       pubs.push(await Product.findById(publications[i].publicationId));
     }
-
+console.log(pubs, "y esto") //ata aca parece que tamb
     const purchase_units = pubs.map((e, i) => {
       return {
         
         quantity: publications[i].quantity,
-        status: 'pending',
+        status: 'fulfilled',
         product: pubs[i]._id,
+        total_money: e.price * publications[i].quantity,
       
       };
     });
@@ -178,11 +187,11 @@ const captureOrder = async (req, res, next) => {
         { new: true }
       );
 
-      const publi = await Product.findOne({
-        _id: purchase_units[i].publication,
-      });
-      publi.stock-=purchase_units[i].quantity;
-      publi.save();
+      // const publi = await Product.findOne({
+      //   _id: purchase_units[i].publication,
+      // });
+      // publi.stock-=purchase_units[i].quantity;
+      // publi.save();
     }
 
     await User.updateOne(
@@ -197,20 +206,106 @@ const captureOrder = async (req, res, next) => {
     
     const template = orderConfirmation({
       products: pubs.map((e, i) => {return {price: e.price, title: e.title, quantity: publications[i].quantity, img: e.img, origin: e.origin}}),
-      address : buyer.address
+      //address : buyer.country
     })
 
     sendEmail(buyer.email, 'Succesfully buy', template)
+    
 
-    res.status(200).json({ status: 'success', data: 'success' });
+    await res.redirect("http://localhost:3000/transaction");
+    await res.status(200).json({ status: 'success', data: 'success' });
   } catch (error) {
     console.log(error);
     next(new AppError(error));
   }
 };
 
-const cancelPayment = (req, res) => {
-  res.redirect("/");
-};
+const cancelPayment = catchAsync(async (req, res, next) => {
+  let { id } = req.params;
 
-module.exports = {cancelPayment, captureOrder, createOrder}
+  const transaction = await Transaction.findById(id);
+
+  if (!transaction) {
+    return next(new AppError('There is no transaction with that id', 404));
+  }
+
+  const trans = await Transaction.findByIdAndUpdate(
+    id,
+    { transaction: { ...transaction.transaction, status: 'rejected' } },
+    { new: true }
+  );
+
+  const publication = await Product.findById(
+    transaction.transaction.publication
+  );
+
+  if (!publication) {
+    return next(new AppError('there is no publication with that id', 404));
+  }
+ 
+  const pub = await Product.findByIdAndUpdate(
+    transaction.transaction.publication,
+    {
+      stock: {
+        ...publication.stock,
+        stock:
+          publication.stock + transaction.transaction.quantity,
+      },
+    },
+    { new: true }
+  );
+  // const template = purchase_canceled(id)
+  // const user = await User.findOne({_id: seller.user })
+  // sendEmail(user.email, 'Venta cancelada por el comprador', template)
+   res.status(200).json({
+    status: 'success',
+    data: {
+      transaction: trans,
+    },
+  });
+});
+
+const toFulfilled = catchAsync(async (req, res, next) => {
+  let { id } = req.params;
+
+  let transaction = await Transaction.findById(id);
+
+  if (!transaction) {
+    return next(new AppError('There are no transaction with that id', 404));
+  }
+
+  const trans = await Transaction.findByIdAndUpdate(
+    id,
+    { transaction: { ...transaction.transaction, status: 'fulfilled' } },
+    { new: true }
+  );
+
+  const publication = await Product.findById(///ver
+    transaction.transaction.product
+  );
+
+
+  if (!publication) {
+    return next(new AppError('there is no publication with that id', 404));
+  }
+
+
+  
+  const user_buyer = await User.findOne({_id: transaction.buyer})
+
+  const template_confirmation = Confirmation()
+  
+  sendEmail(user_buyer.email, 'Compra confirmada!', template_confirmation)
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      transaction: trans,
+    },
+  });
+});
+
+
+
+
+module.exports = {cancelPayment, captureOrder, createOrder, toFulfilled, sendEmail}

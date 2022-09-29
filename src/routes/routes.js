@@ -7,6 +7,7 @@ const { filterProducts } = require("../helpers/filter");
 const likeComments = require("./route/likeCommentRoutes")
 const userSign = require("./route/userSignRoutes")
 const adminActions = require("./route/adminRoutes")
+const users = require("./route/userRoutes")
 const artistActions = require("./route/artistRoutes")
 
 router.use("/paints", createProduct)
@@ -19,6 +20,7 @@ router.use("/likeComments", likeComments)
 
 router.use("/adminActions", adminActions)
 
+router.use("/users", users)
 router.use("/artist", artistActions)
 
 module.exports = router;
