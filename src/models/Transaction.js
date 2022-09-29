@@ -16,6 +16,9 @@ const transactionSchema = new Schema({
     enum: ['pending', 'rejected', 'fulfilled'],
     default: 'pending',
   },
+  total_money: {
+    type: Number,
+  }
   },
   buyer: {
     type: Schema.Types.ObjectId,

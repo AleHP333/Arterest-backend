@@ -7,8 +7,8 @@ let transporter = nodemailer.createTransport({
     port: 465,
     secure: true, // true for 465, false for other ports
     auth: {
-        user: process.env.gmail, // generated ethereal user
-        pass: process.env.passwordGmail, // generated ethereal password
+        user: process.env.GOOGLE_USER, // generated ethereal user
+        pass: process.env.GOOGLE_MAIL_KEY, // generated ethereal password
     },
     tls: {
         rejectUnauthorized: false
@@ -18,7 +18,7 @@ let transporter = nodemailer.createTransport({
 exports.sendEmail = async (email, subject, textHTML) => {
     try {
         let info = await transporter.sendMail({
-            from: `${process.env.gmail}, <Mercado de enanos>`, // sender address
+            from: `${process.env.GOOGLE_USER}, <Arterest>`, // sender address
             to: email, // list of receivers
             subject: subject, // Subject line
             html: textHTML, // html body
