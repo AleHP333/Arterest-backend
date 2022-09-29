@@ -172,7 +172,6 @@ router.route("/getArtistRequest").get(async (req, res) => {
   }
 })
 
-<<<<<<< HEAD
 router.route("/getArtRequest").get(async (req, res) => {
   try {
     let requests = await ProductArtist.find().populate("user", {userName:1, userImage:1, email:1});
@@ -212,7 +211,6 @@ router.route("/approveArt").post(async (req, res) => {
   }
 })
 
-=======
 router
   .route("/getAllOrders")
   .get(passport.authenticate("jwt", { session: false }), async (req, res) => {
@@ -227,5 +225,5 @@ router
         .json({ msgData: { status: "error", msg: "Something is wrong" } });
     }
   });
->>>>>>> 65f19449588953b9db59dab156f4bd364279c293
+
 module.exports = router;
