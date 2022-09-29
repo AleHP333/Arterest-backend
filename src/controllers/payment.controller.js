@@ -6,6 +6,10 @@ const AppError = require('../utils/appError');
 const axios = require('axios');
 const mongoose = require('mongoose');
 
+const {sendEmail} = require('../utils/nodemailer')
+const {Confirmation} = require('../templates/Confirmation')
+const {orderConfirmation} = require('../templates/orderConfirmation')
+
 
 const {PAYPAL_API,PAYPAL_API_CLIENT,PAYPAL_API_SECRET,} = require("../config");
 
@@ -36,7 +40,7 @@ const createOrder = async (req, res, next) => {
     }
     let total_value = 0;
     for (let itemV of cartItem) {
-      total_value = total_value + itemV.price * itemV.quantity;
+      total_value = total_value + itemV.price * itemV.quantity; 
     }
 //Orden de compra que recibe Paypal
 
@@ -65,8 +69,8 @@ const createOrder = async (req, res, next) => {
         brand_name: "Arterest",
         landing_page: "LOGIN",
         user_action: "PAY_NOW",
-        return_url: 'http://localhost:3001',
-        cancel_url: 'http://localhost:3001/cancel-payment',
+        return_url: 'http://localhost:3001/capture-order',
+        cancel_url: 'http://localhost:3000/home',
       },
     };
 
@@ -83,7 +87,7 @@ const createOrder = async (req, res, next) => {
       params,
       {
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          Content_Type: "application/x-www-form-urlencoded",
         },
         auth: {
           username: PAYPAL_API_CLIENT,
@@ -92,7 +96,7 @@ const createOrder = async (req, res, next) => {
       }
     );
 
-    console.log(access_token);
+    console.log(access_token, "sera esto");
 
     // make a request
     const response = await axios.post(
@@ -105,23 +109,26 @@ const createOrder = async (req, res, next) => {
       }
     );
 
-    console.log(response.data);
+    console.log(response.data, "i");
       //--guardar en user la orden compra
       let products = [];
       cartItem.map((el) =>
         products.push({
-          publicationId: el.product,
+          publicationId: el._id,
           quantity: el.quantity,
-        })
+        }) 
       );
+      
     let user = await User.findByIdAndUpdate(id, {
       purchase_order: {
         products: products,
         link: response.data.links[1].href,
       },
     });
+    console.log(products, "abelardo")
 
-    res.json(response.data.links[1].href); //-- devuelvo el link de pago
+    res.json(response.data.links[1].href);
+     //-- devuelvo el link de pago
   } catch (error) {
     console.log(error);
     next(error);
@@ -144,21 +151,23 @@ const captureOrder = async (req, res, next) => {
     );
 
     const buyer_id = response.data.purchase_units[0].reference_id;
+    console.log(response.data.purchase_units[0].reference_id, "aca")
 
-    const buyer = await User.findOne({ _id: buyer_id });
+    const buyer = await User.findOne({ _id: buyer_id });// ataca too bien
     const publications = buyer.purchase_order.products.map((e) => e);
     const pubs = [];
 
     for (let i = 0; i < publications.length; i++) {
       pubs.push(await Product.findById(publications[i].publicationId));
     }
-
+console.log(pubs, "y esto") //ata aca parece que tamb
     const purchase_units = pubs.map((e, i) => {
       return {
         
         quantity: publications[i].quantity,
-        status: 'pending',
+        status: 'fulfilled',
         product: pubs[i]._id,
+        total_money: e.price * publications[i].quantity,
       
       };
     });
@@ -178,30 +187,31 @@ const captureOrder = async (req, res, next) => {
         { new: true }
       );
 
-      const publi = await Product.findOne({
-        _id: purchase_units[i].publication,
-      });
-      publi.stock-=purchase_units[i].quantity;
-      publi.save();
+      // const publi = await Product.findOne({
+      //   _id: purchase_units[i].publication,
+      // });
+      // publi.stock-=purchase_units[i].quantity;
+      // publi.save();
     }
 
-    await User.updateOne(
-      { _id: buyer_id },
-      {
-        purchase_order: {
-          products: [],
-          link: '',
-        },
-      }
-    );
+    // await User.updateOne(
+    //   { _id: buyer_id },
+    //   {
+    //     purchase_order: {
+    //       products: [],
+    //       link: '',
+    //     },
+    //   }
+    // );
     
     const template = orderConfirmation({
       products: pubs.map((e, i) => {return {price: e.price, title: e.title, quantity: publications[i].quantity, img: e.img, origin: e.origin}}),
-      address : buyer.address
+      //address : buyer.country
     })
 
     sendEmail(buyer.email, 'Succesfully buy', template)
 
+    res.redirect("http://localhost:3000/home");
     res.status(200).json({ status: 'success', data: 'success' });
   } catch (error) {
     console.log(error);
