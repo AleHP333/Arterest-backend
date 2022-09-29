@@ -16,6 +16,9 @@ router.post("/signIn", async (req, res) => {
         if(!findUser){
             return res.status(404).json({ msgData: { status: "error",  msg: "User doesn't exists"}})
         }
+        if(findUser.isBanned === true){
+            return res.status(401).json({ msgData: { status: "warning", msg: "This account was banned"}})
+        }
         if(from === "signIn"){
             if(findUser.verification === false){
                 return res.status(401).json({ msgData: { status: "error",  msg: "The account isn't verificated. Please check your email and verify your account" }})
@@ -33,6 +36,7 @@ router.post("/signIn", async (req, res) => {
                     userImage: findUser.userImage,
                     email: findUser.email,
                     from: findUser.from,
+                    isArtist: findUser.isArtist,
                     isAdmin: findUser.isAdmin,
                     isBanned: findUser.isBanned
                 }
@@ -41,7 +45,7 @@ router.post("/signIn", async (req, res) => {
                     expiresIn: 60 * 60 * 24,
                 })
 
-                return res.status(200).json({msgData: {status: "success", msg: `Welcome ${findUser.userName}`}, userData: userData, token: jwToken });
+                return res.status(200).json({msgData: {status: "success", msg: `Welcome ${findUser.userName}`}, userData: {...userData, country: findUser.country, names: findUser.names, surnames: findUser.surnames, city: findUser.city }, token: jwToken });
             } else {
                 return res.status(401).json({ msgData: {status: "error", msg: "Invalid password"}})
             }
@@ -56,6 +60,7 @@ router.post("/signIn", async (req, res) => {
                     userImage: findUser.userImage,
                     email: findUser.email,
                     from: findUser.from,
+                    isArtist: findUser.isArtist,
                     isAdmin: findUser.isAdmin,
                     isBanned: findUser.isBanned
                 }
@@ -63,7 +68,7 @@ router.post("/signIn", async (req, res) => {
                 const jwToken = jwt.sign(userData, SECRET_KEY, {
                     expiresIn: 60 * 60 * 24,
                 })
-                return res.status(200).json({msgData: {status: "success", msg: `Welcome ${findUser.userName}`}, userData: userData, token: jwToken });
+                return res.status(200).json({msgData: {status: "success", msg: `Welcome ${findUser.userName}`}, userData: {...userData, country: findUser.country, names: findUser.names, surnames: findUser.surnames, city: findUser.city }, token: jwToken });
             } else {
                 return res.status(401).json({ msgData: {status: "error", msg: "The provided information isn't valid"}})
             }
@@ -80,7 +85,18 @@ router.route("/signInToken").get(passport.authenticate("jwt", { session: false }
             const id = req.user._id
             const findUser = await User.findOne({ _id: id });
 
-            return res.status(200).json({ msgData: { status: "success", msg: `Welcome ${findUser.userName}`}, userData: findUser});
+            const userData = {
+                _id: findUser._id,
+                userName: findUser.userName,
+                userImage: findUser.userImage,
+                email: findUser.email,
+                from: findUser.from,
+                isArtist: findUser.isArtist,
+                isAdmin: findUser.isAdmin,
+                isBanned: findUser.isBanned
+            }
+
+            return res.status(200).json({ msgData: { status: "success", msg: `Welcome ${findUser.userName}`}, userData: {...userData, country: findUser.country, names: findUser.names, surnames: findUser.surnames, city: findUser.city }});
         } else {
             return res.status(400).json({ msgData: { status: "error", msg: "Token has expired"}});
         } 
@@ -91,9 +107,11 @@ router.route("/signInToken").get(passport.authenticate("jwt", { session: false }
 })
 
 router.post("/signUp", async (req, res) => {
-    const { email, userName, password, from } = req.body
+    const { email, userName, password, from, userImage } = req.body
     try {
         const uniqueString = crypto.randomBytes(15).toString("hex");
+        const randomNum = Math.floor(Math.random() * 10000)
+        console.log(randomNum)
         const userFound = await User.findOne({ email: email })
         if(userFound){
             if(userFound.from.indexOf(from) !== -1){
@@ -105,7 +123,7 @@ router.post("/signUp", async (req, res) => {
                 if(from === "signUp"){
                     userFound.uniqueString = uniqueString
                     await userFound.save();
-                    sendVerification(email, uniqueString)
+                    sendVerification(email, uniqueString, 0)
                     return res.status(201).json({msgData: { status: "success", msg: "We sent you an email, check your inbox and verify your account" }})
                 } else {
                     userFound.verification = true;
@@ -114,10 +132,15 @@ router.post("/signUp", async (req, res) => {
                 }
             }
         } else {
+            const userNameRandom = userName + randomNum
+            const findedUserByUserName = await User.findOne({userName: userNameRandom})
+            if(findedUserByUserName){
+                return res.status(401).json({ msgData: { status: "error", msg: "An user with the current userName already exists"}})
+            }
             const hashedPassword = await bcrypt.hashSync(password, 10)
             const newUser = await User.create({
                 email,
-                userName,
+                userName: userNameRandom,
                 password: [hashedPassword],
                 verification: false,
                 from: [from]
@@ -130,6 +153,7 @@ router.post("/signUp", async (req, res) => {
                 return res.status(201).json({ msgData: { status:"success", msg: "User Created. To continue please check your email and verify your account"}});
             } else {
                 newUser.verification = true;
+                newUser.userImage = userImage
                 await newUser.save();
                 return res.status(201).json({ msgData: { status:"success", msg: "Thanks for register! Be free to use our website!"}});
             }
@@ -157,5 +181,6 @@ router.get("/verifyEmail/:id", async (req, res) => {
         res.status(500).json({ msgData: { status:"error", msg: "Internal Server Error"}});
     }
 })
+
 
 module.exports = router

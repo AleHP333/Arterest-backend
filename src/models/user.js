@@ -13,6 +13,7 @@ const userSchema = new mongoose.Schema({
     city: {type: String, required: false},
     verification: {type: Boolean, required: false},
     uniqueString: {type: String, required: false},
+    isArtist: {type: Boolean, required: false, default: false},
     isAdmin: {type: Boolean, required: false, default: false},
     isBanned: {type: Boolean, required: false, default: false},
     purchase_order: {
