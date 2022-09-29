@@ -12,7 +12,8 @@ const crypto = require("crypto");
 router.post("/signIn", async (req, res) => {
     const { email, password, from } = req.body;
     try {
-        const findUser = await User.findOne({ email: email });
+        const findUser = await User.findOne({ email: email }).populate("purchase_order.products.publicationId");
+        const userTransactions = await Transaction.find({ buyer: data._id }).populate("transaction.product")
         if(!findUser){
             return res.status(404).json({ msgData: { status: "error",  msg: "User doesn't exists"}})
         }
@@ -45,7 +46,7 @@ router.post("/signIn", async (req, res) => {
                     expiresIn: 60 * 60 * 24,
                 })
 
-                return res.status(200).json({msgData: {status: "success", msg: `Welcome ${findUser.userName}`}, userData: {...userData, country: findUser.country, names: findUser.names, surnames: findUser.surnames, city: findUser.city }, token: jwToken });
+                return res.status(200).json({msgData: {status: "success", msg: `Welcome ${findUser.userName}`}, userData: {...userData, country: findUser.country, names: findUser.names, surnames: findUser.surnames, city: findUser.city, history: userTransactions }, token: jwToken });
             } else {
                 return res.status(401).json({ msgData: {status: "error", msg: "Invalid password"}})
             }
@@ -68,7 +69,7 @@ router.post("/signIn", async (req, res) => {
                 const jwToken = jwt.sign(userData, SECRET_KEY, {
                     expiresIn: 60 * 60 * 24,
                 })
-                return res.status(200).json({msgData: {status: "success", msg: `Welcome ${findUser.userName}`}, userData: {...userData, country: findUser.country, names: findUser.names, surnames: findUser.surnames, city: findUser.city }, token: jwToken });
+                return res.status(200).json({msgData: {status: "success", msg: `Welcome ${findUser.userName}`}, userData: {...userData, country: findUser.country, names: findUser.names, surnames: findUser.surnames, city: findUser.city, history: userTransactions}, token: jwToken });
             } else {
                 return res.status(401).json({ msgData: {status: "error", msg: "The provided information isn't valid"}})
             }
@@ -83,8 +84,8 @@ router.route("/signInToken").get(passport.authenticate("jwt", { session: false }
     try {
         if(req.user){
             const id = req.user._id
-            const findUser = await User.findOne({ _id: id });
-
+            const findUser = await User.findOne({ _id: id })
+            const userTransactions = await Transaction.find({ buyer: data._id }).populate("transaction.product")
             const userData = {
                 _id: findUser._id,
                 userName: findUser.userName,
@@ -96,7 +97,7 @@ router.route("/signInToken").get(passport.authenticate("jwt", { session: false }
                 isBanned: findUser.isBanned
             }
 
-            return res.status(200).json({ msgData: { status: "success", msg: `Welcome ${findUser.userName}`}, userData: {...userData, country: findUser.country, names: findUser.names, surnames: findUser.surnames, city: findUser.city }});
+            return res.status(200).json({ msgData: { status: "success", msg: `Welcome ${findUser.userName}`}, userData: {...userData, country: findUser.country, names: findUser.names, surnames: findUser.surnames, city: findUser.city, history: userTransactions }});
         } else {
             return res.status(400).json({ msgData: { status: "error", msg: "Token has expired"}});
         } 

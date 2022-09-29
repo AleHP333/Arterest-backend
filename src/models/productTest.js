@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema, model } = require('mongoose');
 
-const productArtistSchema = new mongoose.Schema({
+const productTestSchema = new mongoose.Schema({
     user: {type: mongoose.Types.ObjectId, ref: "users" },
     title: {type: String, required: true},
     description: {type: String, required: true},
@@ -14,8 +14,18 @@ const productArtistSchema = new mongoose.Schema({
     price: {type: Number, required: true},
     stock: {type: Number, required: false, default: 10},
     tags: [{type: String, required: true}],
+    transactions: {
+        type: [Schema.Types.ObjectId],
+        ref: 'Transaction',
+      },
+    likes: {type: Array},
+    comments: [{
+        date: {type: Date},
+        comment: {type: String},
+        userId: {type: mongoose.Types.ObjectId, ref: "users" }
+    }]
 })
 
-const ProductArtist = mongoose.model("productsArtist", productArtistSchema);
+const ProductTest = mongoose.model("productsTest", productTestSchema);
 
-module.exports = ProductArtist
+module.exports = ProductTest

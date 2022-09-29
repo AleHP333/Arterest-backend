@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
         products: [{
           publicationId: {
             type: Schema.Types.ObjectId,
-            ref: 'product'
+            ref: 'products'
           },
           quantity: {
             type: Number
@@ -31,7 +31,7 @@ const userSchema = new mongoose.Schema({
         }
       },
     buyHistory: {type: [Schema.Types.ObjectId],
-        ref: "Transaction",
+        ref: "transaction",
       },
     user_id: String
 })

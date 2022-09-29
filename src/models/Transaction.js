@@ -4,7 +4,7 @@ const transactionSchema = new Schema({
   transaction: {
     product: {
       type: Schema.Types.ObjectId,
-      ref: 'Product'
+      ref: 'products'
     },
     
     quantity:{
@@ -22,7 +22,7 @@ const transactionSchema = new Schema({
   },
   buyer: {
     type: Schema.Types.ObjectId,
-    ref: 'User',
+    ref: 'users',
   },
   dateOfBuy: {
     type: Date,
