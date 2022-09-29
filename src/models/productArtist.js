@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema, model } = require('mongoose');
 
-const productSchema = new mongoose.Schema({
+const productArtistSchema = new mongoose.Schema({
     user: {type: mongoose.Types.ObjectId, ref: "users" },
     title: {type: String, required: true},
     description: {type: String, required: true},
@@ -16,6 +16,6 @@ const productSchema = new mongoose.Schema({
     tags: [{type: String, required: true}],
 })
 
-const ProductArtist = mongoose.model("productsArtist", productSchema);
+const ProductArtist = mongoose.model("productsArtist", productArtistSchema);
 
 module.exports = ProductArtist

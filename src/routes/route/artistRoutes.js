@@ -1,7 +1,7 @@
 const passport = require("../../../config/passport.js");
 const { Router } = require("express");
 const User = require("../../models/user.js");
-const ProductArtist = require("../../models/product.js");
+const ProductArtist = require("../../models/productArtist.js");
 const Request = require("../../models/request.js")
 const router = Router();
 
@@ -52,6 +52,7 @@ router.route("/productRequest").post(passport.authenticate("jwt", { session: fal
         colors,
         releaseDate,
         price,
+        tags
     } = req.body
     const isArtist = req.user.isArtist
     const user = req.user._id
@@ -73,10 +74,10 @@ router.route("/productRequest").post(passport.authenticate("jwt", { session: fal
             tags
         })
     
-        res.status(201).json({msg: "Product to post sent to the staff"})
+        res.status(201).json({msgData: { status: "success", msg: "Product to post sent to the staff" }})
     } catch (error) {
         console.log(error)
-        res.status(500).json({msg: "Internal server error"})
+        res.status(500).json({msgData: { status: "error", msg: "Failed to sent, try again" }})
     }
 })
 
