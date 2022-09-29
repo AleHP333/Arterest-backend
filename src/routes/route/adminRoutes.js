@@ -3,6 +3,8 @@ const { Router } = require("express");
 const User = require("../../models/user.js");
 const Product = require("../../models/product.js");
 const Request = require("../../models/request.js");
+const ProductArtist = require("../../models/productArtist.js");
+const ProductTest = require("../../models/productTest.js")
 const sendVerification = require("../../../config/nodemailer.js");
 const router = Router();
 
@@ -156,6 +158,45 @@ router.route("/getArtistRequest").get(async (req, res) => {
   } catch (error) {
     console.log(error, "getAllUserserror");
     return res.status(500).json({msgData:{ status: "error", msg: "Something is wrong"}});
+  }
+})
+
+router.route("/getArtRequest").get(async (req, res) => {
+  try {
+    let requests = await ProductArtist.find().populate("user", {userName:1, userImage:1, email:1});
+    return res.status(200).json(requests)
+  } catch (error) {
+    return res.status(500).json({msgData:{ status: "error", msg: "Something is wrong"}});
+  }
+})
+
+router.route("/approveArt").post(async (req, res) => {
+  const { user, paint_id, approve, email } = req.body
+  try {
+    if(approve === false){
+      const deleted = await ProductArtist.deleteOne({ _id: paint_id})
+      console.log("entro acá", deleted)
+      return res.status(201).json({ msgData: { status: "info", msg: "Art Request Disapproved"}})
+    } else {
+      const approved = await ProductArtist.findOne({ _id: paint_id })
+      const product = await ProductTest.create({
+        user: user,
+        title: approved.title,
+        description: approved.description,
+        img: approved.img,
+        origin: approved.origin,
+        technique: approved.technique,
+        style: approved.style,
+        colors: approved.colors,
+        releaseDate: approved.releaseDate,
+        price: approved.price,
+        tags: approved.tags
+      })
+      console.log("entro acá", deleted)
+      return res.status(201).json({ msgData: { status: "success", msg: "Product Approved"}})
+    }
+  } catch (error) {
+    
   }
 })
 
