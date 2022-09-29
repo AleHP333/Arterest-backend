@@ -82,14 +82,4 @@ router.route("/productRequest").post(passport.authenticate("jwt", { session: fal
     }
 })
 
-router.route("/pruebita").get(async (req, res) => {
-    try {
-        const data = await User.findOne({ _id: "6330ccd5bc8591b180e3447a"})
-        const userTransactions = await Transaction.find({ buyer: data._id }).populate("transaction.product")
-        return res.status(201).json({userData: data, transactions: userTransactions})
-    } catch (error) {
-        
-    }
-})
-
 module.exports = router
