@@ -7,13 +7,14 @@ const passport = require("../../../config/passport");
 const bcrypt = require("bcryptjs");
 const sendVerification = require("../../../config/nodemailer");
 const crypto = require("crypto");
+const Transaction = require("../../models/Transaction.js");
 
 
 router.post("/signIn", async (req, res) => {
     const { email, password, from } = req.body;
     try {
         const findUser = await User.findOne({ email: email }).populate("purchase_order.products.publicationId");
-        const userTransactions = await Transaction.find({ buyer: data._id }).populate("transaction.product")
+        const userTransactions = await Transaction.find({ buyer: findUser._id }).populate("transaction.product")
         if(!findUser){
             return res.status(404).json({ msgData: { status: "error",  msg: "User doesn't exists"}})
         }
@@ -85,7 +86,7 @@ router.route("/signInToken").get(passport.authenticate("jwt", { session: false }
         if(req.user){
             const id = req.user._id
             const findUser = await User.findOne({ _id: id })
-            const userTransactions = await Transaction.find({ buyer: data._id }).populate("transaction.product")
+            const userTransactions = await Transaction.find({ buyer: findUser._id }).populate("transaction.product")
             const userData = {
                 _id: findUser._id,
                 userName: findUser.userName,
