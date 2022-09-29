@@ -26,7 +26,10 @@ router.get('/', async (req, res) => {
       res.send(error.message)
     }
   })
-  router.put("/modifyUserProfile", async (req, res) => {
+
+  router
+  .route("/modifyUserProfile")
+  .put(passport.authenticate("jwt", { session: false }), async (req, res) => {
     const {
       _id,
       userName,
