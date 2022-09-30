@@ -7,7 +7,7 @@ const mockData = require("./data.json")
 router.get("/getOnePaint/:id", async (req, res) => {
     const {id} = req.params
     try {
-        let onePaint = await Product.findOne({_id: id})
+        let onePaint = await Product.findOne({_id: id}).populate("user", {userName:1, userImage:1})
 
         return res.status(200).json(onePaint);
     } catch (error) {
@@ -19,24 +19,26 @@ router.get("/allpaints", async (req, res) => {
     const {name, art} = req.query
     try {
         if(name){
-            let products = await Product.find({userName: {$regex: '.*' + name + '.*', $options: "i"}})
-
-            return res.status(200).json(products)
+            let products = await Product.find().populate({path: 'user', select:{userName:1, userImage:1}, match: {userName: {$regex: '.*' + art + '.*', $options: "i"}}})
+            let filtered = products.filter(product => product.user !== null)
+            return res.status(200).json(filtered)
         }
         if(art){
-            let productsUserName = await Product.find({userName: {$regex: '.*' + art + '.*', $options: "i"}})
-            let productsTitle = await Product.find({title: {$regex: '.*' + art + '.*', $options: "i"}})
-            let productsOrigin = await Product.find({origin: {$regex: '.*' + art + '.*', $options: "i"}})
-            let productsStyle = await Product.find({style: {$regex: '.*' + art + '.*', $options: "i"}})
+            let productsUserName = await Product.find().populate({path: 'user', select:{userName:1, userImage:1}, match: {userName: {$regex: '.*' + art + '.*', $options: "i"}}})
+            console.log(productsUserName)
+            let productsTitle = await Product.find({title: {$regex: '.*' + art + '.*', $options: "i"}}).populate("user", {userName:1, userImage:1})
+            let productsOrigin = await Product.find({origin: {$regex: '.*' + art + '.*', $options: "i"}}).populate("user", {userName:1, userImage:1})
+            let productsStyle = await Product.find({style: {$regex: '.*' + art + '.*', $options: "i"}}).populate("user", {userName:1, userImage:1})
             //let productsColors = await ProductTest.find({})
-            let productsTags = await Product.find({tags: {$regex: '.*' + art + '.*', $options: "i"} })
-            let productsColors = await Product.find({colors: {$regex: '.*' + art + '.*', $options: "i"} })
-            let productsTechnique = await Product.find({technique: {$regex: '.*' + art + '.*', $options: "i"} })
-            let productsToMap = [...productsUserName, ...productsTitle, ...productsOrigin, ...productsStyle, ...productsTags, ...productsColors, ...productsTechnique]
+            let productsTags = await Product.find({tags: {$regex: '.*' + art + '.*', $options: "i"} }).populate("user", {userName:1, userImage:1})
+            let productsColors = await Product.find({colors: {$regex: '.*' + art + '.*', $options: "i"} }).populate("user", {userName:1, userImage:1})
+            let productsTechnique = await Product.find({technique: {$regex: '.*' + art + '.*', $options: "i"} }).populate("user", {userName:1, userImage:1})
+            let productsToMap = [...productsUserName.filter(product => product.user !== null), ...productsTitle, ...productsOrigin, ...productsStyle, ...productsTags, ...productsColors, ...productsTechnique]
             let products = await [...new Map(productsToMap.map((paint) => [paint["id"], paint])).values()]
             return res.status(200).json(products)
         }
-        let products = await Product.find()
+        let productsRandom = await Product.aggregate([{$sample: {size: 10000}}])
+        let products = await Product.populate(productsRandom, {path: 'user', select:{userName:1, userImage:1}})
         return res.status(200).json(products)
     } catch (error) {
         console.log(error)
@@ -80,7 +82,7 @@ router.get("/autocomplete", async (req, res) => {
 
 router.get("/getFiveRandom", async (req, res) => {
     try {
-        const fiveRandom = await Product.aggregate([{ $sample: { size: 5 } }])
+        const fiveRandom = await Product.aggregate([{ $sample: { size: 3 } }])
         return res.status(200).json(fiveRandom);
     } catch (error) {
         console.log(error)
@@ -89,31 +91,30 @@ router.get("/getFiveRandom", async (req, res) => {
 })
 
 //NO USAR ESTA RUTA (Solo para crear muchos a la vez mediante un .json local)
-router.get("/createMassive", async (req, res) => {
-    try {
-        await mockData.data.forEach( async (product) => {
-            await Product.create({
-                userName: product.artist_name,
-                userImage: product.avatar,
-                title: product.artWork_name,
-                description: product.description,
-                img: product.image,
-                origin: product.country || "unknow",
-                technique: product.artwork_medium,
-                style: product.artwork_genre,
-                colors: product.color,
-                releaseDate: product.releaseDate,
-                price: product.price,
-                tags: product.tags,
-            })
-        })
+// router.get("/createMassive", async (req, res) => {
+//     try {
+//         await mockData.data.forEach( async (product) => {
+//             await Product.create({
+//                 user: "",
+//                 title: product.title,
+//                 description: product.description,
+//                 img: product.img,
+//                 origin: product.origin || "Unknow",
+//                 technique: product.technique,
+//                 style: product.style,
+//                 colors: product.colors,
+//                 releaseDate: product.releaseDate,
+//                 price: product.price,
+//                 tags: product.tags,
+//             })
+//         }) 
 
-        return res.status(201).json({msg: "success"})
-    } catch (error) {
-        console.log(error)
-        return res.status(500).json({msg: "Internal server error"})
-    }
-})
+//         return res.status(201).json({msg: "success"})
+//     } catch (error) {
+//         console.log(error)
+//         return res.status(500).json({msg: "Internal server error"})
+//     }
+// })
 
 router.post("/createProducts", async (req, res) => {
     const {

@@ -8,6 +8,6 @@ const requestSchema = mongoose.Schema({
     url3: {type: String, required: true},
 })
 
-const Request = mongoose.model("request", requestSchema);
+const Request = mongoose.model("requests", requestSchema);
 
 module.exports = Request

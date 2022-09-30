@@ -4,7 +4,6 @@ const User = require("../../models/user.js");
 const Product = require("../../models/product.js");
 const Request = require("../../models/request.js");
 const ProductArtist = require("../../models/productArtist.js");
-const ProductTest = require("../../models/productTest.js")
 const sendVerification = require("../../../config/nodemailer.js");
 const Transaction = require("../../models/Transaction");
 
@@ -69,9 +68,9 @@ router
 router
   .route("/artistUser")
   .put(passport.authenticate("jwt", { session: false }), async (req, res) => {
-    const { _id, isArtist, email } = req.body;
+    const { _id, isArtist, email, requestId } = req.body;
     const isAdmin = req.user.isAdmin
-    console.log(isArtist)
+    console.log(req.body)
     try {
         if(isAdmin === false){
           return res.status(401).json({msgDate: {status: "error", msg: "You don't have permissions"}})
@@ -81,12 +80,14 @@ router
         if(isArtist === true){
             findUser.isArtist = isArtist
             await findUser.save()
+            await Request.deleteOne({_id: req.body.requestId})
             sendVerification(email, null, 1)
-            return res.status(200).json({msgData: {status: "success", msg: `The user ${findUser.userName} turned to Artist`}})
+            return res.status(200).json({ msgData: {status: "success", msg: `The user ${findUser.userName} turned to Artist`}})
         } else {
             findUser.isArtist = isArtist
             await findUser.save()
-            return res.status(200).json({msgData: {status: "info", msg: `User ${findUser.userName}: Request declined`}})
+            await Request.deleteOne({_id: req.body.requestId})
+            return res.status(200).json({ msgData: {status: "info", msg: `User ${findUser.userName}: Request declined`}})
         }
     } catch (error) {
         console.log(error)
@@ -99,8 +100,6 @@ router
   .put(passport.authenticate("jwt", { session: false }), async (req, res) => {
     const {
       _id,
-      userName,
-      userImage,
       title,
       description,
       img,
@@ -119,8 +118,6 @@ router
       const modifiedProduct = await Product.findOneAndUpdate(
         { _id: _id },
         {
-          userName: userName,
-          userImage: userImage,
           title: title,
           description: description,
           img: img,
@@ -132,8 +129,6 @@ router
           price: price,
           stock: stock,
           tags: tags,
-          likes: likes,
-          comments: comments,
         },
         { new: true }
       );
@@ -165,7 +160,9 @@ router
 router.route("/getArtistRequest").get(async (req, res) => {
   try {
     let requests = await Request.find().populate("user", {userName:1, userImage:1, email:1});
+    console.log(requests)
     return res.status(200).json(requests)
+  
   } catch (error) {
     console.log(error, "getAllUserserror");
     return res.status(500).json({msgData:{ status: "error", msg: "Something is wrong"}});
@@ -190,7 +187,7 @@ router.route("/approveArt").post(async (req, res) => {
       return res.status(201).json({ msgData: { status: "info", msg: "Art Request Disapproved"}})
     } else {
       const approved = await ProductArtist.findOne({ _id: paint_id })
-      const product = await ProductTest.create({
+      const product = await Product.create({
         user: user,
         title: approved.title,
         description: approved.description,
@@ -203,6 +200,7 @@ router.route("/approveArt").post(async (req, res) => {
         price: approved.price,
         tags: approved.tags
       })
+      const deleted = await ProductArtist.deleteOne({ _id: paint_id})
       console.log("entro acá", deleted)
       return res.status(201).json({ msgData: { status: "success", msg: "Product Approved"}})
     }
@@ -224,5 +222,5 @@ router
         .status(500)
         .json({ msgData: { status: "error", msg: "Something is wrong" } });
     }
-  });
+});
 module.exports = router;
