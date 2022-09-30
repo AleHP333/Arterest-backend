@@ -14,6 +14,7 @@ const productArtistSchema = new mongoose.Schema({
     price: {type: Number, required: true},
     stock: {type: Number, required: false, default: 10},
     tags: [{type: String, required: true}],
+    date: { type: Date, default: Date.now() }
 })
 
 const ProductArtist = mongoose.model("productsArtist", productArtistSchema);
