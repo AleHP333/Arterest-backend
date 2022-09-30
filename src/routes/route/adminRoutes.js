@@ -70,7 +70,7 @@ router
   .put(passport.authenticate("jwt", { session: false }), async (req, res) => {
     const { _id, isArtist, email, requestId } = req.body;
     const isAdmin = req.user.isAdmin
-    console.log(isArtist)
+    console.log(req.body)
     try {
         if(isAdmin === false){
           return res.status(401).json({msgDate: {status: "error", msg: "You don't have permissions"}})
@@ -80,13 +80,13 @@ router
         if(isArtist === true){
             findUser.isArtist = isArtist
             await findUser.save()
-            await Request.deleteOne({_id: requestId})
+            await Request.deleteOne({_id: req.body.requestId})
             sendVerification(email, null, 1)
             return res.status(200).json({ msgData: {status: "success", msg: `The user ${findUser.userName} turned to Artist`}})
         } else {
             findUser.isArtist = isArtist
             await findUser.save()
-            await Request.deleteOne({_id: requestId})
+            await Request.deleteOne({_id: req.body.requestId})
             return res.status(200).json({ msgData: {status: "info", msg: `User ${findUser.userName}: Request declined`}})
         }
     } catch (error) {
@@ -160,7 +160,9 @@ router
 router.route("/getArtistRequest").get(async (req, res) => {
   try {
     let requests = await Request.find().populate("user", {userName:1, userImage:1, email:1});
+    console.log(requests)
     return res.status(200).json(requests)
+  
   } catch (error) {
     console.log(error, "getAllUserserror");
     return res.status(500).json({msgData:{ status: "error", msg: "Something is wrong"}});

@@ -37,7 +37,8 @@ router.get("/allpaints", async (req, res) => {
             let products = await [...new Map(productsToMap.map((paint) => [paint["id"], paint])).values()]
             return res.status(200).json(products)
         }
-        let products = await Product.find().populate("user", {userName:1, userImage:1})
+        let productsRandom = await Product.aggregate([{$sample: {size: 10000}}])
+        let products = await Product.populate(productsRandom, {path: 'user', select:{userName:1, userImage:1}})
         return res.status(200).json(products)
     } catch (error) {
         console.log(error)
@@ -90,30 +91,30 @@ router.get("/getFiveRandom", async (req, res) => {
 })
 
 //NO USAR ESTA RUTA (Solo para crear muchos a la vez mediante un .json local)
-router.get("/createMassive", async (req, res) => {
-    try {
-        await mockData.data.forEach( async (product) => {
-            await Product.create({
-                user: "",
-                title: product.artWork_name,
-                description: product.description,
-                img: product.image,
-                origin: product.country || "unknow",
-                technique: product.artwork_medium,
-                style: product.artwork_genre,
-                colors: product.color,
-                releaseDate: product.releaseDate,
-                price: product.price,
-                tags: product.tags,
-            })
-        })
+// router.get("/createMassive", async (req, res) => {
+//     try {
+//         await mockData.data.forEach( async (product) => {
+//             await Product.create({
+//                 user: "",
+//                 title: product.title,
+//                 description: product.description,
+//                 img: product.img,
+//                 origin: product.origin || "Unknow",
+//                 technique: product.technique,
+//                 style: product.style,
+//                 colors: product.colors,
+//                 releaseDate: product.releaseDate,
+//                 price: product.price,
+//                 tags: product.tags,
+//             })
+//         }) 
 
-        return res.status(201).json({msg: "success"})
-    } catch (error) {
-        console.log(error)
-        return res.status(500).json({msg: "Internal server error"})
-    }
-})
+//         return res.status(201).json({msg: "success"})
+//     } catch (error) {
+//         console.log(error)
+//         return res.status(500).json({msg: "Internal server error"})
+//     }
+// })
 
 router.post("/createProducts", async (req, res) => {
     const {
