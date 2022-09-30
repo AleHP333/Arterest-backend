@@ -14,7 +14,7 @@ const productSchema = new mongoose.Schema({
     price: {type: Number, required: true},
     stock: {type: Number, required: false, default: 10},
     tags: [{type: String, required: true}],
-    seen: {type: Boolean, required: true, default: false},
+    seen: {type: Boolean, required: true, default: true},
     transactions: {
         type: [Schema.Types.ObjectId],
         ref: 'transaction',
