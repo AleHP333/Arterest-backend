@@ -25,11 +25,11 @@ router
         if(isBanned === true){
             findUser.isBanned = isBanned
             await findUser.save()
-            return res.status(200).json({msgData: {status: "success", msg: "The user was banned"}})
+            return res.status(200).json({msgData: {status: "success", msg: `The user ${findUser.userName} was banned`}})
         } else {
             findUser.isBanned = isBanned
             await findUser.save()
-            return res.status(200).json({msgData: {status: "success", msg: "The user was unbanned"}})
+            return res.status(200).json({msgData: {status: "success", msg: `The user ${findUser.userName} was unbanned`}})
         }
     } catch (error) {
       console.log(error);
