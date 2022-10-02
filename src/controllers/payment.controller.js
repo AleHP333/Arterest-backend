@@ -128,6 +128,7 @@ const createOrder = async (req, res, next) => {
     console.log(products, "abelardo")
 
     res.json(response.data.links[1].href);
+  
      //-- devuelvo el link de pago
   } catch (error) {
     console.log(error);
@@ -177,6 +178,7 @@ console.log(pubs, "y esto") //ata aca parece que tamb
         transaction: purchase_units[i],
         buyer: buyer._id,
       });
+      console.log(purchase_units, "ahora ete")
       await User.findByIdAndUpdate(
         { _id: buyer._id },
         {
@@ -187,13 +189,12 @@ console.log(pubs, "y esto") //ata aca parece que tamb
         { new: true }
       );
 
-      // const publi = await Product.findOne({
-      //   _id: purchase_units[i].publication,
-      // });
-      // publi.stock-=purchase_units[i].quantity;
-      // publi.save();
+      const publi = await Product.findOne({
+        _id: purchase_units[i].product,
+      });
+      publi.stock-=purchase_units[i].quantity;
+      publi.save();
     }
-
     await User.updateOne(
       { _id: buyer_id },
       {
@@ -203,6 +204,7 @@ console.log(pubs, "y esto") //ata aca parece que tamb
         },
       }
     );
+
     
     const template = orderConfirmation({
       products: pubs.map((e, i) => {return {price: e.price, title: e.title, quantity: publications[i].quantity, img: e.img, origin: e.origin}}),
@@ -212,6 +214,7 @@ console.log(pubs, "y esto") //ata aca parece que tamb
     sendEmail(buyer.email, 'Succesfully buy', template)
     
 
+    
     await res.redirect("http://localhost:3000/transaction");
     await res.status(200).json({ status: 'success', data: 'success' });
   } catch (error) {
