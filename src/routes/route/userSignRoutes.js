@@ -152,7 +152,7 @@ router.post("/signUp", async (req, res) => {
             if(from === "signUp"){
                 newUser.uniqueString = uniqueString
                 await newUser.save()
-                sendVerification(email, uniqueString)
+                sendVerification(email, uniqueString, 0)
                 return res.status(201).json({ msgData: { status:"success", msg: "User Created. To continue please check your email and verify your account"}});
             } else {
                 newUser.verification = true;
