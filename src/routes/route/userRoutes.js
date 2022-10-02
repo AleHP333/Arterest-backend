@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const router = Router();
 const User = require("../../models/user");
+const Password = require("../../models/password")
 const passport = require("../../../config/passport.js");
 
 

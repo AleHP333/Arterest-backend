@@ -56,6 +56,16 @@ const sendVerification = async (email, code, index) => {
         html: `<b>felicitaciones! 
         Ya eres artista en nuestro sitio web. ¡Ya puedes vender tus cuadros!. Gracias por su interes en nuestro sistema de ventas.</b>
                 <a href="http://localhost:3000/home">Go to web-site!</a>` 
+    },
+    {
+        from: GOOGLE_USER,
+        to: email,
+        subject: "CHANGE PASSWORD - ARTEREST",
+        html: `<b>You can change you password! <b></br>
+            <h1>Follow the next link:</h1>
+                <a href="http://localhost:3000/password/${code}">CLICK HERE!</a>
+                <p>The code expires in 1 day</p>` 
+                
     }
     ]
     await transporter.sendMail(message[index], (error, response) => {
