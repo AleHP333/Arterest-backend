@@ -21,6 +21,7 @@ router.use("/likeComments", likeComments)
 router.use("/adminActions", adminActions)
 
 router.use("/users", users)
+
 router.use("/artist", artistActions)
 
 module.exports = router;

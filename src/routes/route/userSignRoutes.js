@@ -8,6 +8,7 @@ const bcrypt = require("bcryptjs");
 const sendVerification = require("../../../config/nodemailer");
 const crypto = require("crypto");
 const Transaction = require("../../models/Transaction.js");
+const Password = require("../../models/password")
 
 
 router.post("/signIn", async (req, res) => {
@@ -180,6 +181,89 @@ router.get("/verifyEmail/:id", async (req, res) => {
         }
     } catch (error) {
         console.log(error)
+        res.status(500).json({ msgData: { status:"error", msg: "Internal Server Error"}});
+    }
+})
+
+router.route("/passwordRecovery").post(async (req, res) => {
+    const { email } = req.body;
+    try {
+        if(!email){
+            return res.status(404).json({ msgData: { status: "warning", msg: "Please, write an e-mail" }})
+        }
+        const findUser = await User.findOne({ email: req.body.email});
+        console.log(findUser)
+        if(!findUser){
+            return res.status(404).json({ msgData: { status: "warning", msg: "The user with the email wasn't registered" }})
+        }
+        if(findUser && findUser.from.indexOf("google") && !findUser.from.indexOf("signUp") ){
+            return res.status(404).json({ msgData: { status: "warning", msg: "The user was registered by google, just login with google" }})
+        }
+        const passwordRequest = await Password.findOne({ user: findUser._id})
+        if(passwordRequest){
+            await Password.deleteOne({ user: findUser._id})
+        }
+        const jwToken = jwt.sign({email: email}, SECRET_KEY, {
+            expiresIn: 60*60*24
+        })
+        const String = crypto.randomBytes(15).toString("hex");
+        await Password.create({
+            email: email,
+            uniqueString: jwToken,
+            code: String
+        })
+
+        sendVerification(email, String, 2);
+
+        return res.status(201).json({msgData: { status: "success", msg: `We sent an email to ${email}`}})
+     
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ msgData: { status:"error", msg: "Internal Server Error"}});
+    }
+})
+
+router.route("/verifyPassCode").post(async (req, res) => {
+    const { code } = req.body
+    console.log(code)
+    try {
+        const codeDb = await Password.findOne({code: code})
+        console.log(codeDb)
+        if(!codeDb){
+            return res.status(404).json({ msgData: { status:"error", msg: "The code doesn't exists"}})
+        }
+        const verify = await jwt.verify(codeDb.uniqueString, SECRET_KEY);
+        if(!verify){
+            return res.status(401).json({ msgData: { status:"error", msg: "Code has expired"}})
+        } else {
+            return res.status(200).json({msgData: { status: "success", msg: "The code is valid, change your password"}})
+        }
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ msgData: { status:"error", msg: "Internal Server Error"}});
+    }
+})
+
+router.route("/changePassword").put(async (req, res) => {
+    const { code, password } = req.body
+    try {
+        const codeDb = await Password.findOne({code: code})
+        if(!codeDb){
+            return res.status(404).json({ msgData: { status:"error", msg: "The code doesn't exists"}})
+        }
+        const verify = await jwt.verify(codeDb.uniqueString, SECRET_KEY);
+        if(!verify){
+            return res.status(401).json({ msgData: { status:"error", msg: "Code has expired"}})
+        } else {
+            const hashedPassword = await bcrypt.hashSync(password, 10);
+            const findedUser = await User.findOne({ email: codeDb.email });
+            console.log(findedUser)
+            await findedUser.password.push(hashedPassword);
+            await findedUser.save();
+            await Password.deleteOne({code: code})
+            return res.status(201).json({msgData: { status: "success", msg: "Password changed successfully"}})
+        }
+    } catch (error) {
         res.status(500).json({ msgData: { status:"error", msg: "Internal Server Error"}});
     }
 })
