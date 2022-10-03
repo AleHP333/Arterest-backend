@@ -9,7 +9,7 @@ const passport = require("../../../config/passport");
 router.get("/getPaintComments/:id", async (req, res) => {
     const { id } = req.params
     try {
-        const paintComments = await Product.findOne({ _id: id }).select("comments").populate("comments.userId", {userName:1, userImage:1})
+        const paintComments = await Product.findOne({ _id: id }).select("comments").populate("comments.userId", {userName:1, userImage:1, isAdmin:1, isArtist:1, isBanned:1})
         res.status(200).json({success: "success", response: paintComments, msg: "disliked"})
     } catch (error) {
         res.status(500).json({success: false, msg: "Something is wrong :C"})
@@ -40,7 +40,7 @@ router.route("/addComment").post(passport.authenticate("jwt", { session: false }
     const user = req.user._id
     try {
         const newCommentAdd = await Product.findOneAndUpdate({ _id: paintId }, { $push: { comments: { comment: comment, userId: user, date: Date.now() }}})
-        const newComment = await Product.findOne({ _id: paintId }).select("comments").then(response => response.populate("comments.userId", {userName:1, userImage:1}))
+        const newComment = await Product.findOne({ _id: paintId }).select("comments").then(response => response.populate("comments.userId", {userName:1, userImage:1, isAdmin:1, isArtist:1, isBanned:1}))
         res.status(201).json({ msgData: { status: "success", msg: "Thanks for comment"}, response: newComment})
     } catch (error) {
         console.log(error)
@@ -52,7 +52,7 @@ router.route("/modifyComment").put(passport.authenticate("jwt", { session: false
     const { commentId, comment } = req.body
     try {
         const modifyComment = await Product.findOneAndUpdate({"comments._id": commentId}, { $set: {"comments.$.comment": comment, "comments.$.date": Date.now() }}, {new: true})
-        const modifiedComments = await Product.findOne({"comments._id": commentId}).select("comments").then(response => response.populate("comments.userId", {userName:1, userImage:1}))
+        const modifiedComments = await Product.findOne({"comments._id": commentId}).select("comments").then(response => response.populate("comments.userId", {userName:1, userImage:1, isAdmin:1, isArtist:1, isBanned:1}))
         res.status(201).json({ msgData: { status: "info", msg: "Comment edited successfully"}, response: modifiedComments})
     } catch (error) {
         console.log(error)
