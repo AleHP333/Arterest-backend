@@ -69,8 +69,8 @@ const createOrder = async (req, res, next) => {
         brand_name: "Arterest",
         landing_page: "LOGIN",
         user_action: "PAY_NOW",
-        return_url: 'http://localhost:3001/capture-order',
-        cancel_url: 'http://localhost:3000/home',
+        return_url: 'https://arterest-back.herokuapp.com/capture-order',
+        cancel_url: 'https://arterest-frontend-9wpcs2k6s-alehp333.vercel.app/home',
       },
     };
 
@@ -215,7 +215,7 @@ console.log(pubs, "y esto") //ata aca parece que tamb
     
 
     
-    await res.redirect("http://localhost:3000/transaction");
+    await res.redirect("https://arterest-frontend-9wpcs2k6s-alehp333.vercel.app/transaction");
     await res.status(200).json({ status: 'success', data: 'success' });
   } catch (error) {
     console.log(error);
