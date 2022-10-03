@@ -1,0 +1,1953 @@
+[
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Mariano Valdivieso",
+        "userImage": "https://i.pinimg.com/280x280_RS/2a/21/6a/2a216a881cc9d415d986d4d0ef6b154b.jpg ",
+        "title": "Filosofia I",
+        "description": "Oil on canvas, 1.8 x 2.4 m",
+        "img": "https://res.cloudinary.com/drmm6mayx/image/upload/v1663927968/Artworks/filosofia_1_maarse.jpg",
+        "origin": "Argentina",
+        "technique": [
+            "Oil", "Drawing"
+        ],
+        "style": "Painting",
+        "colors": [
+            "Black", "Yellow", "Brown"
+        ],
+        "releaseDate": 2022,
+        "price": 200,
+        "stock": 10,
+        "tags": [
+            "paint",
+            "colors",
+            "figurative art"
+        ],
+        "likes": [
+            
+        ],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Mariano Valdivieso",
+        "userImage": "https://i.pinimg.com/280x280_RS/2a/21/6a/2a216a881cc9d415d986d4d0ef6b154b.jpg",
+        "title": "Gift me ink",
+        "description": "Técnica mixta, tintas y acuarelas",
+        "img": "https://res.cloudinary.com/drmm6mayx/image/upload/v1663928373/Artworks/IMG_20220314_180223_4053_rvhw82.jpg",
+        "origin": "Argentina",
+        "technique": [
+            "Mixed Techniques"
+        ],
+        "style": "Figurative",
+        "colors": [
+            "Black", "Pink", "Brown"
+        ],
+        "releaseDate": 2021,
+        "price": 29,
+        "stock": 10,
+        "tags": [
+            "draw",
+            "colors",
+            "woman"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Mariano Valdivieso",
+        "userImage": "https://i.pinimg.com/280x280_RS/2a/21/6a/2a216a881cc9d415d986d4d0ef6b154b.jpg",
+        "title": "Whiskey Queen",
+        "description": "Técnica mixta, tintas y marcadores",
+        "img": "https://res.cloudinary.com/drmm6mayx/image/upload/v1663928361/Artworks/IMG_20220226_131105_4040_nlnit1.jpg",
+        "origin": "Argentina",
+        "technique": [
+            "Mixed Techniques"
+        ],
+        "style": "Figurative",
+        "colors": [
+            "Black", "Blue"
+        ],
+        "releaseDate": 2021,
+        "price": 420,
+        "stock": 10,
+        "tags": [
+            "beautiful",
+            "woman",
+            "queen"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Mariano Valdivieso",
+        "userImage": "https://i.pinimg.com/280x280_RS/2a/21/6a/2a216a881cc9d415d986d4d0ef6b154b.jpg",
+        "title": "Tattoed",
+        "description": "Técnica mixta, tintas y marcadores",
+        "img": " https://res.cloudinary.com/drmm6mayx/image/upload/v1663928369/Artworks/entintada_-_Subida_aojgx6.jpg",
+        "origin": "Argentina",
+        "technique": [
+            "Mixed Techniques"
+        ],
+        "style": "Figurative",
+        "colors": [
+            "Black", "Blue"
+        ],
+        "releaseDate": 2021,
+        "price": 420,
+        "stock": 10,
+        "tags": [
+            "tattoo",
+            "beautiful",
+            "woman"
+            
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Mariano Valdivieso",
+        "userImage": "https://i.pinimg.com/280x280_RS/2a/21/6a/2a216a881cc9d415d986d4d0ef6b154b.jpg",
+        "title": "Sexiest than ever",
+        "description": "Tiza pastel",
+        "img": "https://res.cloudinary.com/drmm6mayx/image/upload/v1663928396/Artworks/IMG_20220226_131046_4041_s961ze.jpg",
+        "origin": "Argentina",
+        "technique": [
+            "Pastel"
+        ],
+        "style": "Figurative",
+        "colors": [
+            "Black", "Fuscia", "Yellow"
+        ],
+        "releaseDate": 2021,
+        "price": 420,
+        "stock": 10,
+        "tags": [
+            "paint",
+            "colors",
+            "woman"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Mariano Valdivieso",
+        "userImage": "https://i.pinimg.com/280x280_RS/2a/21/6a/2a216a881cc9d415d986d4d0ef6b154b.jpg ",
+        "title": "Agua",
+        "description": "Óleo sobre lienzo 1.2 x 0.70 m",
+        "img": "https://res.cloudinary.com/drmm6mayx/image/upload/v1663928191/Artworks/Agua_apdlmh.jpg",
+        "origin": "Argentina",
+        "technique": [
+            "Oil"
+        ],
+        "style": "Figurative",
+        "colors": [
+            "Black","Crimson","Orange"
+        ],
+        "releaseDate": 2020,
+        "price": 1095.78,
+        "stock": 10,
+        "tags": [
+            "paint",
+            "colors",
+            "figurative art"
+        ],
+        "likes": [],
+        "comments": [
+            
+        ],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Mariano Valdivieso",
+        "userImage": "https://i.pinimg.com/280x280_RS/2a/21/6a/2a216a881cc9d415d986d4d0ef6b154b.jpg",
+        "title": "Fuego",
+        "description": "Óleo sobre tela. Medidas: 1.20 x 0.80 mts. Arde feliz y sin ataduras en el fuego de la libertad. Ya nada podrá apagarlo otra vez. Arde sin miedo y sin excusas, que esta vez el fuego es tuyo.",
+        "img": "https://res.cloudinary.com/drmm6mayx/image/upload/v1663927979/Artworks/Fuego_skx2up.jpg",
+        "origin": "Argentina",
+        "technique": [
+            "Oil"
+        ],
+        "style": "Figurative",
+        "colors": [
+            "Black", "Blue", "Red"
+        ],
+        "releaseDate": 2019,
+        "price": 100000,
+        "stock": 10,
+        "tags": [
+            "colors",
+            "woman",
+            "water"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Mariano Valdivieso",
+        "userImage": "https://i.pinimg.com/280x280_RS/2a/21/6a/2a216a881cc9d415d986d4d0ef6b154b.jpg ",
+        "title": "Sacrificio I",
+        "description": "1ra de 3 Piezas de 0.90 x 0.60 m. Óleo sobre tela",
+        "img": "https://res.cloudinary.com/drmm6mayx/image/upload/v1663927969/Artworks/Sacrificio_01_pnwdf5.jpg",
+        "origin": "Argentina",
+        "technique": [
+            "Oil", "Painting"
+        ],
+        "style": "Figurative",
+        "colors": [
+            "Brown", "Yellow"
+        ],
+        "releaseDate": 2019,
+        "price": 671.16,
+        "stock": 10,
+        "tags": [
+            "colors",
+            "woman",
+            "wine"
+        ],
+        "likes": [
+           
+        ],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Mariano Valdivieso",
+        "userImage": "https://i.pinimg.com/280x280_RS/2a/21/6a/2a216a881cc9d415d986d4d0ef6b154b.jpg ",
+        "title": "XI (Once)",
+        "description": "Óleo sobre lienzo 1.20 x 0.70 m",
+        "img": "https://res.cloudinary.com/drmm6mayx/image/upload/v1663927983/Artworks/XI_lezb1b.jpg",
+        "origin": "Argentina",
+        "technique": [
+            "Oil", "Painting"
+        ],
+        "style": "Figurative",
+        "colors": [
+            "Black", "White"
+        ],
+        "releaseDate": 2018,
+        "price": 262.84,
+        "stock": 10,
+        "tags": [
+            "colors",
+            "woman",
+            "wine"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Mariano Valdivieso",
+        "userImage": "https://i.pinimg.com/280x280_RS/2a/21/6a/2a216a881cc9d415d986d4d0ef6b154b.jpg ",
+        "title": "El Templo",
+        "description": "Óleo sobre lienzo 1.80 x 1.00 m",
+        "img": "https://scontent-scl2-1.xx.fbcdn.net/v/t1.6435-9/49344541_2079333702357362_4081864801322532864_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeHHwbVMNraqN3sV8ZLD62fgS8CW60OmC4hLwJbrQ6YLiPUtIBDpF0Dwe_yrBXPTT5I&_nc_ohc=snmSDZN_6PAAX_6g9qI&_nc_ht=scontent-scl2-1.xx&oh=00_AT8ke505YLcNNBbB7Hr0v-114UKl86NvCsNt00LfGXHzwQ&oe=63488563",
+        "origin": "Argentina",
+        "technique": [
+            "Oil"
+        ],
+        "style": "Figurative",
+        "colors": [
+            "Brown", "Crimson", "Yellow"
+        ],
+        "releaseDate": 2017,
+        "price": 279.16,
+        "stock": 10,
+        "tags": [
+            "paint",
+            "woman",
+            "wine"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Mariano Valdivieso",
+        "userImage": "https://i.pinimg.com/280x280_RS/2a/21/6a/2a216a881cc9d415d986d4d0ef6b154b.jpg ",
+        "title": "Opus Aqua Sole",
+        "description": "Óleo sobre lienzo 1.30 x 0.80 m",
+        "img": "https://res.cloudinary.com/drmm6mayx/image/upload/v1663927969/Artworks/Opus_Aqua_Sole_ntlx9t.jpg",
+        "origin": "Argentina",
+        "technique": [
+            "Oil"
+        ],
+        "style": "Figurative",
+        "colors": [
+            "Green", "Orange"
+        ],
+        "releaseDate": 2017,
+        "price": 233.4,
+        "stock": 10,
+        "tags": [
+            "woman",
+            "wine",
+            "cat"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Mariano Valdivieso",
+        "userImage": "https://i.pinimg.com/280x280_RS/2a/21/6a/2a216a881cc9d415d986d4d0ef6b154b.jpg ",
+        "title": "In Vino Veritas",
+        "description": "Óleo sobre lienzo 1.60 x 0.80 m",
+        "img": "https://res.cloudinary.com/drmm6mayx/image/upload/v1663927990/Artworks/In_Vino_Veritas_q7pjxf.jpg",
+        "origin": "Argentina",
+        "technique": [
+            "Oil"
+        ],
+        "style": "Figurative",
+        "colors": [
+            "Yellow", "Green", "Brown"
+        ],
+        "releaseDate": 2017,
+        "price": 372.23,
+        "stock": 10,
+        "tags": [
+            "woman",
+            "wine",
+            "beautiful"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Mariano Valdivieso",
+        "userImage": "https://i.pinimg.com/280x280_RS/2a/21/6a/2a216a881cc9d415d986d4d0ef6b154b.jpg ",
+        "title": "The happiest explossion",
+        "description": "Técnica mixta, tintas y acuarelas",
+        "img": "https://res.cloudinary.com/drmm6mayx/image/upload/v1663928366/Artworks/SQ_-_subida_othn9e.jpg",
+        "origin": "Argentina",
+        "technique": [
+            "Watercolor", "Ink"
+        ],
+        "style": "Figurative",
+        "colors": [
+            "Crimson"
+        ],
+        "releaseDate": 2021,
+        "price": 773.18,
+        "stock": 10,
+        "tags": [
+            "draw",
+            "woman",
+            "sexy"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Mariano Valdivieso",
+        "userImage": "https://i.pinimg.com/280x280_RS/2a/21/6a/2a216a881cc9d415d986d4d0ef6b154b.jpg ",
+        "title": "St. Mary",
+        "description": "Digital drawing, art nouveau style",
+        "img": "https://res.cloudinary.com/drmm6mayx/image/upload/v1663927961/Artworks/rubia_an_def_bnzkvc.jpg",
+        "origin": "Argentina",
+        "technique": [
+            "Digital-Art"
+        ],
+        "style": "Art Nouveau Style",
+        "colors": [
+            "Green"
+        ],
+        "releaseDate": 1640995200000,
+        "price": 1805.4,
+        "stock": 10,
+        "tags": [
+            "woman",
+            "colors",
+            "original"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Sirena Pearl",
+        "userImage": "https://i.pinimg.com/280x280_RS/38/a8/79/38a8794354cc0b02646cd274e3606637.jpg ",
+        "title": "Plastic Wrapped Oceans",
+        "description": "Plastic Wrapped Oceans, Plastic debris is ruining the marine ecosystem. By 2050 the  oceans could contain more plastic than fish. We need to be aware of the importance of reducing everyday plastic consumption including myself, Made with gauche, watercolor and color pencils.",
+        "img": "https://i0.wp.com/sirenapearl.com/wp-content/uploads/2022/07/Plastic-Oceans-9x12-Colored-pencil-Drawing-by-Sirena-Pearl.jpg?fit=640%2C480&ssl=1",
+        "origin": "United States",
+        "technique": [
+            "Pen"
+        ],
+        "style": "Surreal",
+        "colors": [
+            "Red", "Black", "Blue"
+        ],
+        "releaseDate": 2016,
+        "price": 500,
+        "stock": 10,
+        "tags": [
+            "artwork",
+            "surreal",
+            "original"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Sirena Pearl",
+        "userImage": "https://i.pinimg.com/280x280_RS/38/a8/79/38a8794354cc0b02646cd274e3606637.jpg ",
+        "title": "Bodily Autonomy",
+        "description": "I don't want to become muted. My piece Bodily Autonomy stares back at the viewer addressing the stereotypes and objectification portrayed. The figures hover over a glass mountain, symbolizing the importance of remaining resilient during a fragile state. The glass mountain reflects the colors from the background; purple and red. Purple illustrates the power, and red embodies courage. Made with Colored pencils, Gauche and Watercolors on paper.",
+        "img": "https://i0.wp.com/sirenapearl.com/wp-content/uploads/2022/07/Bodily-Autonomy-24x18-Colored-pencil-Drawing-by-Sirena-Pearl-1.jpg?fit=739%2C554&ssl=1",
+        "origin": "United States",
+        "technique": [
+            "Drawing"
+        ],
+        "style": "Surreal",
+        "colors": [
+            "Purple"
+        ],
+        "releaseDate": 2016,
+        "price": 760,
+        "stock": 10,
+        "tags": [
+            "artwork",
+            "surreal",
+            "original"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Mariano Valdivieso",
+        "userImage": "https://i.pinimg.com/280x280_RS/2a/21/6a/2a216a881cc9d415d986d4d0ef6b154b.jpg ",
+        "title": "Posing Through Time",
+        "description": "Digital drawing, art nouveau style",
+        "img": "https://scontent-scl2-1.xx.fbcdn.net/v/t39.30808-6/298899631_726381158452117_4548520902092969252_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeHFkwrbdI1tRJPF_FeF2N78nVVpjNHZZFadVWmM0dlkVrR4M8bvJjD8fgNHpoMxAw4&_nc_ohc=IyGznab_nGoAX-UUEyL&_nc_ht=scontent-scl2-1.xx&oh=00_AT_xozMew8h6QpDpfyd7_veWOwEE4PtmX28R7FSjtWpxhg&oe=6327080F",
+        "origin": "Argentina",
+        "technique": [
+            "Digital-Art"
+        ],
+        "style": "Art Nouveau Style",
+        "colors": [
+            "Maroon"
+        ],
+        "releaseDate": 1640995200000,
+        "price": 1662.03,
+        "stock": 10,
+        "tags": [
+            "colors",
+            "digital-art",
+            "woman"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Sirena Pearl",
+        "userImage": "https://i.pinimg.com/280x280_RS/38/a8/79/38a8794354cc0b02646cd274e3606637.jpg ",
+        "title": "farming 4.0",
+        "description": "Instead of organic, digital and geometric forms constructed the vegetation. My piece concentrates on the future of the agricultural industry. With the rise of developing technologies, my work farming 4.0 plays with the ideas of genetically modified plants, AI, and 3D printing. Made with: Colored pencils, Watercolors and Gauche on 12 x 9 inch paper. Made in 2021.",
+        "img": "https://i0.wp.com/sirenapearl.com/wp-content/uploads/2022/07/Farming-4.0-12x9-Colored-pencil-Drawing-by-Sirena-Pearl.jpg?fit=870%2C653&ssl=1",
+        "origin": "United States",
+        "technique": [
+            "Drawing"
+        ],
+        "style": "Surreal",
+        "colors": [
+            "Green"
+        ],
+        "releaseDate": 2016,
+        "price": 413.88,
+        "stock": 10,
+        "tags": [
+            "artwork",
+            "surreal",
+            "original"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Sirena Pearl",
+        "userImage": "https://i.pinimg.com/280x280_RS/38/a8/79/38a8794354cc0b02646cd274e3606637.jpg ",
+        "title": "Walking to the Uber",
+        "description": "Part of the Uber Ride home series. Made with colored pencils, watercolors and gauche on 9 x12 paper. Made in 2021.",
+        "img": "https://i0.wp.com/sirenapearl.com/wp-content/uploads/2022/07/Walking-to-the-Uber-9x12-Colored-pencil-Drawing-by-Sirena-Pearl.jpg?fit=454%2C605&ssl=1",
+        "origin": "United States",
+        "technique": [
+            "Drawing"
+        ],
+        "style": "Surreal",
+        "colors": [
+            "Khaki"
+        ],
+        "releaseDate": 1640995200000,
+        "price": 721.03,
+        "stock": 10,
+        "tags": [
+            "artwork",
+            "surreal",
+            "original"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Sirena Pearl",
+        "userImage": "https://i.pinimg.com/280x280_RS/38/a8/79/38a8794354cc0b02646cd274e3606637.jpg ",
+        "title": "Phosphenes",
+        "description": "Made from my hands pressing into my eyes with Colored pencils, Gauche, Watercolors, Pastels, and Oil Pastels on 9 x 12 inch paper. Made in 2021.",
+        "img": "https://i0.wp.com/sirenapearl.com/wp-content/uploads/2022/07/Phosphenes-9x12-Colored-pencil-Drawing-by-Sirena-Pearl.jpg?fit=1122%2C1496&ssl=1",
+        "origin": "United States",
+        "technique": [
+            "Drawing"
+        ],
+        "style": "Abstract",
+        "colors": [
+            "Red"
+        ],
+        "releaseDate": 2015,
+        "price": 971.67,
+        "stock": 10,
+        "tags": [
+            "artwork",
+            "abstact",
+            "original"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Sirena Pearl",
+        "userImage": "https://i.pinimg.com/280x280_RS/38/a8/79/38a8794354cc0b02646cd274e3606637.jpg  ",
+        "title": "Aquarium",
+        "description": "Made in 2021 with watercolors, gauche and colored pencils on 12 x 9 inch paper.",
+        "img": "https://i0.wp.com/sirenapearl.com/wp-content/uploads/2022/08/Aquarium-12x9-Colored-pencil-Drawing-by-Sirena-Pearl.jpg?fit=645%2C484&ssl=1",
+        "origin": "United States",
+        "technique": [
+            "Drawing"
+        ],
+        "style": "Scenery",
+        "colors": [
+            "Blue"
+        ],
+        "releaseDate": 2021,
+        "price": 1415.55,
+        "stock": 10,
+        "tags": [
+            "surreal",
+            "original",
+            "landscape"
+        ],
+        "likes": [
+            
+        ],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Sirena Pearl",
+        "userImage": "https://i.pinimg.com/280x280_RS/38/a8/79/38a8794354cc0b02646cd274e3606637.jpg ",
+        "title": "Are Humans the Invasive Species?",
+        "description": "Invasive species cause the extinction of natives, alter environments, and typically out-compete native organisms for limited resources. Are we the invasive species? I often visualize an image of humans spawning from a structure, isolating ourselves in uninhabited environments. We have advanced the exponential growth of climate change and sabotaged vital ecological services provided by ecosystems. We, humans, engage in interspecies competition for land and resources. However, as resources become limited, we confront intraspecies domination that targets native and indigenous cultures. I contorted clones of an individual to demonstrate how corporations frame individuals as the source of our environmental issues. These artificial entities spread narratives through ad campaigns to dodge accountability for their actions. The activity we are presently engaged in is driving the 6th mass extinction. As the rate of Anthropogenic climate change unnaturally spikes, our oceans will rise, as with the competition for resources, creating a frenzy of uncertainty",
+        "img": "https://i0.wp.com/sirenapearl.com/wp-content/uploads/2022/07/Are-Humans-the-Invasive-Species-24x18-Colored-pencil-Drawing-by-Sirena-Pearl.jpg?fit=717%2C538&ssl=1",
+        "origin": "United States",
+        "technique": [
+            "Drawing"
+        ],
+        "style": "Surreal",
+        "colors": [
+            "Red"
+        ],
+        "releaseDate": 2020,
+        "price": 1029.23,
+        "stock": 10,
+        "tags": [
+            "artwork",
+            "surreal",
+            "original"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Sirena Pearl",
+        "userImage": "https://i.pinimg.com/280x280_RS/38/a8/79/38a8794354cc0b02646cd274e3606637.jpg ",
+        "title": "Worm's Eye View",
+        "description": "Swapping the perspective of marine wildlife, I drew the victims of wildlife abuse as big oil predators. I illustrated pelicans pouring oil on squirming, worm-like humans and a fish disregarding the damage in favor of the profits. To change the traditional perspective of humans, I framed the piece from the worm's eye perspective. With this cropping, humans lack the power to end the abuse and exploitation of their ecosystem.",
+        "img": "https://i0.wp.com/sirenapearl.com/wp-content/uploads/2022/07/Worms-Eye-View-24x18-Colored-pencil-Drawing-by-Sirena-Pearl.jpg?fit=758%2C568&ssl=1",
+        "origin": "United States",
+        "technique": [
+            "Drawing"
+        ],
+        "style": "Surreal",
+        "colors": [
+            "White"
+        ],
+        "releaseDate": 1640995200000,
+        "price": 1646.49,
+        "stock": 10,
+        "tags": [
+            "artwork",
+            "surreal",
+            "original"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Sirena Pearl",
+        "userImage": "https://i.pinimg.com/280x280_RS/38/a8/79/38a8794354cc0b02646cd274e3606637.jpg ",
+        "title": "Instrumental Role",
+        "description": "The internal misogynist belief is that women are strong if they possess instrumental traits. This premise demeans expressive qualities that men and women both share. Inspired by TV depictions of strong female power, I portrayed a domain of females illustrated by instrumental and masculine comic-book-like shadings and colors. The viewpoint is a perception of what many consider feminism, women displaying instrumental attributes. Made with colored pencils, gauche and watercolor on 24 x 18 inch paper. Made in 2022. ",
+        "img": "https://i0.wp.com/sirenapearl.com/wp-content/uploads/2022/08/Instrumental-Role-24x18-Colored-pencil-Drawing-by-Sirena-Pearl.jpg?fit=977%2C733&ssl=1",
+        "origin": "United States",
+        "technique": [
+            "Drawing"
+        ],
+        "style": "Cubism",
+        "colors": [
+            "Yellow"
+        ],
+        "releaseDate": 2021,
+        "price": 1817.24,
+        "stock": 10,
+        "tags": [
+            "artwork",
+            "surreal",
+            "original"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Sirena Pearl",
+        "userImage": "https://i.pinimg.com/280x280_RS/38/a8/79/38a8794354cc0b02646cd274e3606637.jpg ",
+        "title": "Corporations Vs. Nature",
+        "description": "A personified corporation, lethargically gazing down. At their product. Profits sink as the water rapidly ascends. A murky atmosphere surrounds chips and fragments of bleached coral, money, and an artificial person.If corporations have rights, why doesn't nature? How did we let corporations become artificial people if they can't eat, sleep, feel pain, or emotion? They cannot be jailed or held liable for their actions. If environments had personhood, would we let our corals become bleached? Would nature allow for our ice caps to melt? Would fossil fuels still be used with more affordable clean energy alternatives? No.Corporations do not care about the state of the environment because they are not living. Their purpose is profit. Since corporations don't live in an environment, they don't concern themselves with long-term consequences. If we continue to allow corporations to have unregulated legal personhood, our democracy, economy, and ecosystem will fall apart. Made with colored pencils, watercolors and gauche on paper. Made in 2022. ",
+        "img": "https://i0.wp.com/sirenapearl.com/wp-content/uploads/2022/07/Corporations-Vs.-Nature-18x24-Colored-pencil-Drawing-by-Sirena-Pearl.jpg?fit=672%2C896&ssl=1",
+        "origin": "United States",
+        "technique": [
+            "Drawing"
+        ],
+        "style": "Surreal",
+        "colors": [
+            "Blue"
+        ],
+        "releaseDate": 1640995200000,
+        "price": 1546.9,
+        "stock": 10,
+        "tags": [
+            "artwork",
+            "surreal",
+            "original"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Sirena Pearl",
+        "userImage": "https://i.pinimg.com/280x280_RS/38/a8/79/38a8794354cc0b02646cd274e3606637.jpg ",
+        "title": "Twenty Self Portrait",
+        "description": "Twenty self portrait 11x14 Colored pencil, watercolor and gauche drawing on paper. Created in 2022",
+        "img": "https://i0.wp.com/sirenapearl.com/wp-content/uploads/2022/07/Twenty-self-portrait-11x14-Colored-pencil-Drawing-by-Sirena-Pearl.jpg?fit=725%2C544&ssl=1",
+        "origin": "United States",
+        "technique": [
+            "Drawing"
+        ],
+        "style": "Surreal",
+        "colors": [
+            "Yellow"
+        ],
+        "releaseDate": 2022,
+        "price": 1690.61,
+        "stock": 10,
+        "tags": [
+            "artwork",
+            "surreal",
+            "original"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Sirena Pearl",
+        "userImage": "https://i.pinimg.com/280x280_RS/38/a8/79/38a8794354cc0b02646cd274e3606637.jpg ",
+        "title": "Courage in Pride",
+        "description": "I made this polychromatic piece to display the courage of the LGBTQ+ community over the past 50 years. Since the Stonewall uprising, activists advocating for equal rights for members of all races, classes, genders, ethnicities, partners, and identities continue to prevail. I subdivided the groups and bodies to represent the many identities that make up this diverse community. While encountering setbacks, the figures' postures remain resilient. Some of the bodies in the collection have identifiable colors and emblems from flags used by the PRIDE community. As support continues to expand, more communities are coming out. I added figures with color schemes currently unrecognizable to personify future, unidentified groups finding support and unity in the PRIDE community. I also illustrated figures with bodies colored with allyship flags to characterize the importance of heterosexual and cisgender people advocating for equality for the LGBTQ+ community. The composition emits courage and PRIDE through a band of rainbow colors in bodies and transforming environments.",
+        "img": "https://i0.wp.com/sirenapearl.com/wp-content/uploads/2022/07/Courage-in-Pride-42x41-Colored-pencil-Drawing-by-Sirena-Pearl.jpg?fit=586%2C586&ssl=1",
+        "origin": "United States",
+        "technique": [
+            "Drawing"
+        ],
+        "style": "Surreal",
+        "colors": [
+            "Red"
+        ],
+        "releaseDate": 2022,
+        "price": 1854.18,
+        "stock": 10,
+        "tags": [
+            "artwork",
+            "surreal",
+            "original"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Cinzia Bolognesi",
+        "userImage": "https://i.pinimg.com/280x280_RS/7e/0a/dd/7e0adda8ba0dd5e44e6141e767549070.jpg ",
+        "title": "MORNING BATH!",
+        "description": "Coffee, the good morning juice!",
+        "img": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiP3h6vnibJhvbuPOq1J09Rvrlrdy9RnRMK7EZF5yU7KfdpP6pgsx5KKAKWCHviWrzTQwtwzL0bJ35GJyaAHaNQhJZaIAWzV9ka4FEr_hAUIctUgSLj8eu5MXcZ6kewDk5on-SHgjAYWFVQhXqTLz6WfuzBghpHAZDFUG6M54XrSKeHEedPfw4LCimu4w/s16000/2D009E8A-56BC-4A13-9375-0BB7A421D87B.jpeg",
+        "origin": "Italy",
+        "technique": [
+            "Digital-Art"
+        ],
+        "style": "Fantasy",
+        "colors": [
+            "Aquamarine"
+        ],
+        "releaseDate": 2019,
+        "price": 1196.48,
+        "stock": 10,
+        "tags": [
+            "style",
+            "beautiful"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Cinzia Bolognesi",
+        "userImage": "https://i.pinimg.com/280x280_RS/7e/0a/dd/7e0adda8ba0dd5e44e6141e767549070.jpg ",
+        "title": "ABRIL",
+        "description": "Digital fantasy art",
+        "img": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhuwQkUL_uUKsucJ9dWQczGLcaUUv5H5LGsD-4uQM37P4HP0v1A5qHvy8UmpvNGaHVCpca_2gR07qgfwJvg7TzW_H5L01tbnNGuC1Sm8yZoA4BnlYI-ll83otyelwt-Zab8tn3ersYaWAdWt01UAktpaZWzf7fux-3tKTL3MmL6D0wMfzvwz1bpQ9Qcug/s16000/April_Bunny_.jpg",
+        "origin": "Italy",
+        "technique": [
+            "Digital-Art"
+        ],
+        "style": "Fantasy",
+        "colors": [
+            "Fuscia"
+        ],
+        "releaseDate": 2020,
+        "price": 608.35,
+        "stock": 10,
+        "tags": [
+            "style",
+            "beautiful"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Cinzia Bolognesi",
+        "userImage": "https://i.pinimg.com/280x280_RS/7e/0a/dd/7e0adda8ba0dd5e44e6141e767549070.jpg ",
+        "title": "COFFEE UNIVERSE",
+        "description": "The coffee spell, the only thing in the universe which wake!s up all my poor synapses!",
+        "img": "https://1.bp.blogspot.com/-JtYQJUshQM0/XPjNFzBruxI/AAAAAAAAGhE/wYacLcJ26boFo_Lfilbi8esaeeM9_z9pQCLcBGAs/s1600/90C553C6-818D-4776-B103-2DBCA6EE12B6.jpeg",
+        "origin": "Italy",
+        "technique": [
+            "Digital-Art"
+        ],
+        "style": "Fantasy",
+        "colors": [
+            "Red"
+        ],
+        "releaseDate": 2021,
+        "price": 602.59,
+        "stock": 10,
+        "tags": [
+            "style",
+            "beautiful"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Cinzia Bolognesi",
+        "userImage": "https://i.pinimg.com/280x280_RS/7e/0a/dd/7e0adda8ba0dd5e44e6141e767549070.jpg ",
+        "title": "A SEA TALE",
+        "description": "Have you seen the sea? As he breathe, mumbles, blowing. He raises his eyes to he sky, to his brother.He foaming at the mouth like a black wolf.Everyone own has their own wolf to feed.Baptizes him, Zorba says.And he will take you, as the sea. Illustration inspired by the art of  Kelogsloops",
+        "img": "https://1.bp.blogspot.com/-tQtVpVo3Ho0/XTCXwEe6ZAI/AAAAAAAAGjs/K9gZXY9YMMIi6_TdCjpxjmn2xpd26zVRQCLcBGAs/s1600/fullsizeoutput_228d.jpeg",
+        "origin": "Italy",
+        "technique": [
+            "Digital-Art"
+        ],
+        "style": "Fantasy",
+        "colors": [
+            "Red"
+        ],
+        "releaseDate": 2020,
+        "price": 1170.67,
+        "stock": 10,
+        "tags": [
+            "style",
+            "beautiful"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Cinzia Bolognesi",
+        "userImage": "https://i.pinimg.com/280x280_RS/7e/0a/dd/7e0adda8ba0dd5e44e6141e767549070.jpg ",
+        "title": "A SUMMER DREAM",
+        "description": "A summer dream, a lucid vision of a floating journey (In a morning, before my coffee)",
+        "img": "https://1.bp.blogspot.com/-xf1DXLmfYT0/XQsu1hhX4_I/AAAAAAAAGhg/LD2VUcf1Qzkf_Eie8gQuyX9Ky5n337nmQCLcBGAs/s1600/A05A659F-B1B7-4965-AB21-7DE3283D70DF.jpeg",
+        "origin": "Italy",
+        "technique": [
+            "Digital-Art"
+        ],
+        "style": "Fantasy",
+        "colors": [
+            "Blue"
+        ],
+        "releaseDate": 2019,
+        "price": 1739.25,
+        "stock": 10,
+        "tags": [
+            "style",
+            "beautiful"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+      {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Sirena Pearl",
+        "userImage": "https://i.pinimg.com/280x280_RS/38/a8/79/38a8794354cc0b02646cd274e3606637.jpg ",
+        "title": "Black Carbon",
+        "description": "Black Carbon features figures obscured in soot, dawdling on ice caps. The smoky colors of these figures sponge heat from the sun, contributing to the polar meltings. I arranged the bodies in a coil, encircling the environment to reference the development of a positive feedback cycle. The dark shades from pollution melt the high albedo ice. If ice liquefies, exposed soil and open water will drink in additional heat. Uncovered artic grounds lead to the thawing of permafrost, which releases catastrophic amounts of Methane and Carbon Dioxide into the atmosphere, furthering this human-induced spiral. I made the black carbon into figures to illustrate that the artic warming is not exclusively a crisis for the polar bears but also for us; rising waters, erratic weather, limited resources, mass migration, and extinction. Each figure mulls in isolation. We have not yet formed a community to solve issues as a global society. Made in 2022 with colored pencils, pastels, gauche on 14 x 11 paper.",
+        "img": "https://i0.wp.com/sirenapearl.com/wp-content/uploads/2022/07/Black-Carbon-14x11-Colored-pencil-Drawing-by-Sirena-Pearl.jpg?fit=856%2C642&ssl=1",
+        "origin": "United States",
+        "technique": [
+            "Drawing"
+        ],
+        "style": "Surreal",
+        "colors": [
+            "Puce"
+        ],
+        "releaseDate": 2021,
+        "price": 618.51,
+        "stock": 10,
+        "tags": [
+            "artwork",
+            "surreal",
+            "original"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Cinzia Bolognesi",
+        "userImage": "https://i.pinimg.com/280x280_RS/7e/0a/dd/7e0adda8ba0dd5e44e6141e767549070.jpg ",
+        "title": "WAKE ME UP",
+        "description": "Digital fantasy art",
+        "img": "https://1.bp.blogspot.com/-OSIDHqMxePU/XTCMQ-J9fxI/AAAAAAAAGjU/ZLHjaOvMQ-QIsFV47mrM0T4xGVSA0gXtACLcBGAs/s1600/IMG_1916.jpg",
+        "origin": "Italy",
+        "technique": [
+            "Digital-Art"
+        ],
+        "style": "Fantasy",
+        "colors": [
+            "Purple"
+        ],
+        "releaseDate": 2022,
+        "price": 487.45,
+        "stock": 10,
+        "tags": [
+            "style",
+            "beautiful"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Sirena Pearl",
+        "userImage": "https://i.pinimg.com/280x280_RS/38/a8/79/38a8794354cc0b02646cd274e3606637.jpg ",
+        "title": "Parallax",
+        "description": "Drawn from photograph references of a photographer taking a photo of the drawer. Parallax 11x14 Colored pencil, watercolor and gauche drawing on paper. Made in 2022",
+        "img": "https://i0.wp.com/sirenapearl.com/wp-content/uploads/2022/07/Parallax-11x14-Colored-pencil-Drawing-by-Sirena-Pearl-1.jpg?fit=416%2C555&ssl=1",
+        "origin": "United States",
+        "technique": [
+            "Drawing"
+        ],
+        "style": "Surreal",
+        "colors": [
+            "Red"
+        ],
+        "releaseDate": 2021,
+        "price": 1138.02,
+        "stock": 10,
+        "tags": [
+            "artwork",
+            "surreal",
+            "original"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Cinzia Bolognesi",
+        "userImage": "https://i.pinimg.com/280x280_RS/7e/0a/dd/7e0adda8ba0dd5e44e6141e767549070.jpg ",
+        "title": "THE HOLE",
+        "description": "Digital fantasy art",
+        "img": "https://1.bp.blogspot.com/-J3dPDBQptWk/XTCNjZ4XkRI/AAAAAAAAGjg/59YCUmB6T8MxkSWnnzxUX0pH80aPZAKQACLcBGAs/s1600/fullsizeoutput_16bb.jpeg",
+        "origin": "Italy",
+        "technique": [
+            "Digital-Art"
+        ],
+        "style": "Fantasy",
+        "colors": [
+            "Green"
+        ],
+        "releaseDate": 2019,
+        "price": 1820.38,
+        "stock": 10,
+        "tags": [
+            "style",
+            "beautiful"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Cinzia Bolognesi",
+        "userImage": " https://i.pinimg.com/280x280_RS/7e/0a/dd/7e0adda8ba0dd5e44e6141e767549070.jpg",
+        "title": "THE BLUEBIRD OF HAPPINESS",
+        "description": "I recently discovered that one of the earliest examples of blue bird in myth is found in ancient Chinese culture. The little bird was the messenger of a fairy queen who protected all women who stood outside the roles prescribed for women in the traditional society",
+        "img": "https://1.bp.blogspot.com/-WvPb9CMYcx4/XSyM6UYL3XI/AAAAAAAAGio/itSs5AQljZ0suFECti0uhJPiyWlz6PDUwCLcBGAs/s1600/8C9CBC92-F331-4F99-A0DE-28039AA58CA2.jpg",
+        "origin": "Italy",
+        "technique": [
+            "Digital-Art"
+        ],
+        "style": "Fantasy",
+        "colors": [
+            "Puce"
+        ],
+        "releaseDate": 2019,
+        "price": 1912.2,
+        "stock": 10,
+        "tags": [
+            "draw",
+            "paint",
+            "digital-art"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Cinzia Bolognesi",
+        "userImage": " https://i.pinimg.com/280x280_RS/7e/0a/dd/7e0adda8ba0dd5e44e6141e767549070.jpg",
+        "title": "ICED COFFEE QUEEN",
+        "description": "A special coffee break!",
+        "img": "https://1.bp.blogspot.com/-eU0fV1AIqcw/XRt67eh4_8I/AAAAAAAAGiI/sCY23zoaAg03hPmaJCCkW-BMuouGdY4HQCLcBGAs/s1600/fullsizeoutput_2609.jpeg",
+        "origin": "Italy",
+        "technique": [
+            "Digital-Art"
+        ],
+        "style": "Fantasy",
+        "colors": [
+            "Maroon"
+        ],
+        "releaseDate": 2020,
+        "price": 1454.49,
+        "stock": 10,
+        "tags": [
+            "draw",
+            "paint",
+            "digital-art"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Sirena Pearl",
+        "userImage": "https://i.pinimg.com/280x280_RS/38/a8/79/38a8794354cc0b02646cd274e3606637.jpg ",
+        "title": "Obx",
+        "description": "Obx ocean inspired from pier view. Made in 2020 with watercolors, gauche and colored pencils on 12 x 9 paper.",
+        "img": "https://i0.wp.com/sirenapearl.com/wp-content/uploads/2022/07/Outer-Banks-Ocean-12x9-Colored-pencil-Drawing-by-Sirena-Pearl.jpg?fit=890%2C667&ssl=1",
+        "origin": "United States",
+        "technique": [
+            "Drawing"
+        ],
+        "style": "Scenery",
+        "colors": [
+            "Blue"
+        ],
+        "releaseDate": 1640995200000,
+        "price": 1339.8,
+        "stock": 10,
+        "tags": [
+            "artwork",
+            "surreal",
+            "original"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Cinzia Bolognesi",
+        "userImage": "https://i.pinimg.com/280x280_RS/7e/0a/dd/7e0adda8ba0dd5e44e6141e767549070.jpg ",
+        "title": "THE ACROBAT SERIES",
+        "description": "The acrobat series from my little coffee stories. I always had a thing from these artists of the air.As in the real life, we are on a tightrope, attempting to keep our own balance and push ourselves always a little farther.",
+        "img": "https://1.bp.blogspot.com/-kqoYrSmAUZc/V-OTZSXe7xI/AAAAAAAAGJU/yGF9CBY7jIMlyrSVqef3752eEXfgJ0TvQCLcB/s640/IMG_1982.jpg",
+        "origin": "Italy",
+        "technique": [
+            "Digital-Art"
+        ],
+        "style": "Fantasy",
+        "colors": [
+            "Yellow"
+        ],
+        "releaseDate": 2021,
+        "price": 1952.66,
+        "stock": 10,
+        "tags": [
+            "draw",
+            "paint",
+            "digital-art"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Cinzia Bolognesi",
+        "userImage": "https://i.pinimg.com/280x280_RS/7e/0a/dd/7e0adda8ba0dd5e44e6141e767549070.jpg ",
+        "title": "THE ACROBAT SERIES",
+        "description": "The acrobat series from my little coffee stories. I always had a thing from these artists of the air.As in the real life, we are on a tightrope, attempting to keep our own balance and push ourselves always a little farther.",
+        "img": "https://1.bp.blogspot.com/-T2flHrMJD7g/V-OTfRErstI/AAAAAAAAGJc/30CcLLiEZg8iDXKngpls51-uR2zBcR0UgCLcB/s640/IMG_1929.jpg",
+        "origin": "Italy",
+        "technique": [
+            "Digital-Art"
+        ],
+        "style": "Fantasy",
+        "colors": [
+            "Fuscia"
+        ],
+        "releaseDate": 2020,
+        "price": 54.48,
+        "stock": 10,
+        "tags": [
+            "draw",
+            "paint",
+            "digital-art"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Cinzia Bolognesi",
+        "userImage": "https://i.pinimg.com/280x280_RS/7e/0a/dd/7e0adda8ba0dd5e44e6141e767549070.jpg ",
+        "title": "CAPPUCCETTO ROSSO",
+        "description": "A volte devi andare nel bosco ad affrontare il tuo lupo,farci una bella litigata e dopo, solo dopo,andare a bersi una birra insieme.",
+        "img": "https://1.bp.blogspot.com/-p0bjfLBUDOc/VBGd_vxTHVI/AAAAAAAAFI8/bt345-Di1fE/s1600/Cappuccetto.jpg",
+        "origin": "Italy",
+        "technique": [
+            "Digital-Art"
+        ],
+        "style": "Fantasy",
+        "colors": [
+            "Purple"
+        ],
+        "releaseDate": 2020,
+        "price": 469.02,
+        "stock": 10,
+        "tags": [
+            "draw",
+            "paint",
+            "digital-art"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Yubis Guzmán ",
+        "userImage": "https://i.pinimg.com/280x280_RS/76/e0/8c/76e08c1fc563fa0105e31bddf6f57bee.jpg ",
+        "title": "Fantasy Watercolor Work",
+        "description": "Commision artwork",
+        "img": "https://i.pinimg.com/750x/f6/6f/03/f66f03b00e5831d8317810724a1c296e.jpg",
+        "origin": "Venezuela",
+        "technique": [
+            "Watercolor"
+        ],
+        "style": "Fantasy",
+        "colors": [
+            "Red"
+        ],
+        "releaseDate": 2019,
+        "price": 1748.32,
+        "stock": 10,
+        "tags": [
+            "draw",
+            "watercolor",
+            "colors"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Yubis Guzmán ",
+        "userImage": " https://i.pinimg.com/280x280_RS/76/e0/8c/76e08c1fc563fa0105e31bddf6f57bee.jpg",
+        "title": "Fantasy Watercolor Work",
+        "description": "Commision artwork",
+        "img": "https://i.pinimg.com/750x/2d/84/36/2d8436cfee66d34751f8974f1b55ac00.jpg",
+        "origin": "Venezuela",
+        "technique": [
+            "Watercolor"
+        ],
+        "style": "Fantasy",
+        "colors": [
+            "Aquamarine"
+        ],
+        "releaseDate": 2019,
+        "price": 1944.5,
+        "stock": 10,
+        "tags": [
+            "paint",
+            "watercolor",
+            "colors"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Yubis Guzmán ",
+        "userImage": "https://i.pinimg.com/280x280_RS/76/e0/8c/76e08c1fc563fa0105e31bddf6f57bee.jpg ",
+        "title": "Fantasy Watercolor Work",
+        "description": "Commision artwork",
+        "img": "https://i.pinimg.com/750x/d2/81/4c/d2814c70d996fd057ff08bbcb720108c.jpg",
+        "origin": "Venezuela",
+        "technique": [
+            "Watercolor"
+        ],
+        "style": "Fantasy",
+        "colors": [
+            "Orange"
+        ],
+        "releaseDate": 2019,
+        "price": 1109.58,
+        "stock": 10,
+        "tags": [
+            "paint",
+            "watercolor",
+            "colors"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Yubis Guzmán ",
+        "userImage": "https://i.pinimg.com/280x280_RS/76/e0/8c/76e08c1fc563fa0105e31bddf6f57bee.jpg ",
+        "title": "Fantasy Watercolor Work",
+        "description": "Commision artwork",
+        "img": "https://i.pinimg.com/750x/66/8e/68/668e68d1aef549341bcab8b4b3cddb69.jpg",
+        "origin": "Venezuela",
+        "technique": [
+            "Watercolor"
+        ],
+        "style": "Fantasy",
+        "colors": [
+            "Khaki"
+        ],
+        "releaseDate": 2021,
+        "price": 1985.82,
+        "stock": 10,
+        "tags": [
+            "paint",
+            "watercolor",
+            "colors"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Yubis Guzmán ",
+        "userImage": "https://i.pinimg.com/280x280_RS/76/e0/8c/76e08c1fc563fa0105e31bddf6f57bee.jpg ",
+        "title": "Fantasy Watercolor Work",
+        "description": "Commision artwork",
+        "img": "https://i.pinimg.com/750x/2d/84/362d8436cfee66d34751f8974f1b55ac00.jpg",
+        "origin": "unknow",
+        "technique": [
+            "Watercolor"
+        ],
+        "style": "Fantasy",
+        "colors": [
+            "Khaki"
+        ],
+        "releaseDate": 2020,
+        "price": 187.55,
+        "stock": 10,
+        "tags": [
+            "paint",
+            "watercolor",
+            "colors"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Yubis Guzmán ",
+        "userImage": " https://i.pinimg.com/280x280_RS/76/e0/8c/76e08c1fc563fa0105e31bddf6f57bee.jpg",
+        "title": "Fantasy Watercolor Work",
+        "description": "Commision artwork",
+        "img": "https://i.pinimg.com/750x/c7/6c/18/c76c1822594b10a11782d01dd39596d6.jpg",
+        "origin": "Venezuela",
+        "technique": [
+            "Watercolor"
+        ],
+        "style": "Fantasy",
+        "colors": [
+            "Violet"
+        ],
+        "releaseDate": 2020,
+        "price": 1397.52,
+        "stock": 10,
+        "tags": [
+            "paint",
+            "watercolor",
+            "colors"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Petra Veikkola ",
+        "userImage": "https://i.pinimg.com/280x280_RS/c4/d2/9e/c4d29e1c091eec5d4a10a751703302a0.jpg ",
+        "title": "Artistic Photography",
+        "description": "Commision artwork",
+        "img": "https://images.squarespace-cdn.com/content/v1/60471c7c9b130129ec7709bc/0f77a075-029a-40ed-9628-664399d282a8/VEIK9273.jpg?format=500w",
+        "origin": "Finland",
+        "technique": [
+            "Photography"
+        ],
+        "style": "Realism",
+        "colors": [
+            "Red"
+        ],
+        "releaseDate": 2020,
+        "price": 1748.32,
+        "stock": 10,
+        "tags": [
+            "artist",
+            "art",
+            "original"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Petra Veikkola ",
+        "userImage": "https://i.pinimg.com/280x280_RS/c4/d2/9e/c4d29e1c091eec5d4a10a751703302a0.jpg ",
+        "title": "Artistic Photography",
+        "description": "Commision artwork",
+        "img": "https://images.squarespace-cdn.com/content/v1/60471c7c9b130129ec7709bc/d267f15c-2202-49ab-a085-a5c96482b24c/photographerireland+%281+of+5%29.jpg?format=500w",
+        "origin": "Finland",
+        "technique": [
+            "Photography"
+        ],
+        "style": "Realism",
+        "colors": [
+            "Aquamarine"
+        ],
+        "releaseDate": 2022,
+        "price": 1944.5,
+        "stock": 10,
+        "tags": [
+            "artist",
+            "art",
+            "original"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Petra Veikkola ",
+        "userImage": "https://i.pinimg.com/280x280_RS/c4/d2/9e/c4d29e1c091eec5d4a10a751703302a0.jpg ",
+        "title": "Artistic Photography",
+        "description": "Commision artwork",
+        "img": "https://images.squarespace-cdn.com/content/v1/60471c7c9b130129ec7709bc/cadaf7aa-548c-49f5-8000-edfff2c47507/Petra+Veikkola+Photography+-+Ireland+fall-10.jpg?format=500w",
+        "origin": "Finland",
+        "technique": [
+            "Photography"
+        ],
+        "style": "Realism",
+        "colors": [
+            "Orange"
+        ],
+        "releaseDate": 2020,
+        "price": 1109.58,
+        "stock": 10,
+        "tags": [
+            "artist",
+            "art",
+            "original"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Petra Veikkola ",
+        "userImage": " https://i.pinimg.com/280x280_RS/c4/d2/9e/c4d29e1c091eec5d4a10a751703302a0.jpg",
+        "title": "Artistic Photography",
+        "description": "Commision artwork",
+        "img": "https://images.squarespace-cdn.com/content/v1/60471c7c9b130129ec7709bc/af039360-2c49-4c78-ada3-e25718aac745/IMG_3307.JPG?format=300w",
+        "origin": "Finland",
+        "technique": [
+            "Photography"
+        ],
+        "style": "Realism",
+        "colors": [
+            "Khaki"
+        ],
+        "releaseDate": 2021,
+        "price": 1985.82,
+        "stock": 10,
+        "tags": [
+            "artist",
+            "art",
+            "original"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Petra Veikkola ",
+        "userImage": "https://i.pinimg.com/280x280_RS/c4/d2/9e/c4d29e1c091eec5d4a10a751703302a0.jpg ",
+        "title": "Artistic Photography",
+        "description": "Commision artwork",
+        "img": "https://images.squarespace-cdn.com/content/v1/60471c7c9b130129ec7709bc/125822d0-3a82-4186-8564-d29adb118ba6/IMG_2753.JPG?format=300w",
+        "origin": "Finland",
+        "technique": [
+            "Photography"
+        ],
+        "style": "Realism",
+        "colors": [
+            "Khaki"
+        ],
+        "releaseDate": 2022,
+        "price": 187.55,
+        "stock": 10,
+        "tags": [
+            "artist",
+            "art",
+            "original"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "632bbf1d072c8bf024cbb52e",
+        "userName": "Petra Veikkola ",
+        "userImage": " https://i.pinimg.com/280x280_RS/c4/d2/9e/c4d29e1c091eec5d4a10a751703302a0.jpg",
+        "title": "Artistic Photography",
+        "description": "Commision artwork",
+        "img": "https://images.squarespace-cdn.com/content/v1/60471c7c9b130129ec7709bc/896095a9-9102-4151-b262-c48c23b8b693/2C1A7705.jpeg?format=300w",
+        "origin": "Finland",
+        "technique": [
+            "Photography"
+        ],
+        "style": "Realism",
+        "colors": [
+            "Violet"
+        ],
+        "releaseDate": 2022,
+        "price": 1397.52,
+        "stock": 10,
+        "tags": [
+            "artist",
+            "art",
+            "original"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Petra Veikkola ",
+        "userImage": "https://i.pinimg.com/280x280_RS/c4/d2/9e/c4d29e1c091eec5d4a10a751703302a0.jpg ",
+        "title": "Artistic Photography",
+        "description": "Commision artwork",
+        "img": "https://images.squarespace-cdn.com/content/v1/60471c7c9b130129ec7709bc/dc5e8561-a5ef-49b0-8f89-2cc838c719b4/Petra+Veikkola+Photography-2726.jpg?format=500w",
+        "origin": "Finland",
+        "technique": [
+            "Photography"
+        ],
+        "style": "Realism",
+        "colors": [
+            "Khaki"
+        ],
+        "releaseDate": 2021,
+        "price": 187.55,
+        "stock": 10,
+        "tags": [
+            "artist",
+            "art",
+            "original"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Petra Veikkola ",
+        "userImage": "https://i.pinimg.com/280x280_RS/c4/d2/9e/c4d29e1c091eec5d4a10a751703302a0.jpg ",
+        "title": "Artistic Photography",
+        "description": "Commision artwork",
+        "img": "https://images.squarespace-cdn.com/content/v1/60471c7c9b130129ec7709bc/2ef71015-90c4-4428-827f-03e0b84f1b20/Italy+%2B+Styled+Shoot-134.jpg?format=500w",
+        "origin": "Finland",
+        "technique": [
+            "Photography"
+        ],
+        "style": "Realism",
+        "colors": [
+            "Violet"
+        ],
+        "releaseDate": 2022,
+        "price": 1397.52,
+        "stock": 10,
+        "tags": [
+            "artist",
+            "art",
+            "original"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Petra Veikkola ",
+        "userImage": "https://i.pinimg.com/280x280_RS/c4/d2/9e/c4d29e1c091eec5d4a10a751703302a0.jpg ",
+        "title": "Artistic Photography",
+        "description": "Commision artwork",
+        "img": "https://images.squarespace-cdn.com/content/v1/60471c7c9b130129ec7709bc/01ef6331-0d7d-462c-9b5b-5cae3140d6dd/IMG_3298.jpg?format=500w",
+        "origin": "Finland",
+        "technique": [
+            "Photography"
+        ],
+        "style": "Realism",
+        "colors": [
+            "Violet"
+        ],
+        "releaseDate": 2022,
+        "price": 1397.52,
+        "stock": 10,
+        "tags": [
+            "artist",
+            "art",
+            "original"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Cinzia Bolognesi",
+        "userImage": "https://i.pinimg.com/280x280_RS/7e/0a/dd/7e0adda8ba0dd5e44e6141e767549070.jpg ",
+        "title": "AUDREY",
+        "description": "There was once a very lovely, very frightened girl. She lived alone except for a nameless cat",
+        "img": "https://3.bp.blogspot.com/-SxP64Lht-c0/XE7-o3JtanI/AAAAAAAAGaA/6drvykQ_qhsdUQfSk_XFmi-qa8ZA5MrZACLcBGAs/s1600/fullsizeoutput_2010.jpeg",
+        "origin": "Italy",
+        "technique": [
+            "Digital-Art"
+        ],
+        "style": "Fantasy",
+        "colors": [
+            "Red"
+        ],
+        "releaseDate": 2021,
+        "price": 1554.09,
+        "stock": 10,
+        "tags": [
+            "style",
+            "beautiful"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Cinzia Bolognesi",
+        "userImage": "https://i.pinimg.com/280x280_RS/7e/0a/dd/7e0adda8ba0dd5e44e6141e767549070.jpg ",
+        "title": "THE ACROBAT SERIES",
+        "description": "The acrobat series from my little coffee stories. I always had a thing from these artists of the air.As in the real life, we are on a tightrope, attempting to keep our own balance and push ourselves always a little farther.",
+        "img": "https://1.bp.blogspot.com/-zKT8fEDLmxw/V-OTZcYf66I/AAAAAAAAGJQ/LvjHjFZ4aiUt_UD8nXVwTGDdciJJZZ4EgCLcB/s640/IMG_4064.jpg",
+        "origin": "Italy",
+        "technique": [
+            "Digital-Art"
+        ],
+        "style": "Fantasy",
+        "colors": [
+            "Aquamarine"
+        ],
+        "releaseDate": 2022,
+        "price": 1392.97,
+        "stock": 10,
+        "tags": [
+            "draw",
+            "paint",
+            "digital-art"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Mariano Valdivieso",
+        "userImage": "https://i.pinimg.com/280x280_RS/2a/21/6a/2a216a881cc9d415d986d4d0ef6b154b.jpg ",
+        "title": "Sacrificio II",
+        "description": "2da de 3 Piezas de 0.90 x 0.60 m. Óleo sobre tela",
+        "img": "https://res.cloudinary.com/drmm6mayx/image/upload/v1663927967/Artworks/Sacrificio_02_rj8ye2.jpg",
+        "origin": "Argentina",
+        "technique": [
+            "Painting"
+        ],
+        "style": "Figurative",
+        "colors": [
+            "Brown"
+        ],
+        "releaseDate": 2019,
+        "price": 671.16,
+        "stock": 10,
+        "tags": [
+            "woman",
+            "wine",
+            "beautiful"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Mariano Valdivieso",
+        "userImage": "https://i.pinimg.com/280x280_RS/2a/21/6a/2a216a881cc9d415d986d4d0ef6b154b.jpg ",
+        "title": "Sacrificio III",
+        "description": "3ra de 3 Piezas de 0.90 x 0.60 m. Óleo sobre tela",
+        "img": "https://res.cloudinary.com/drmm6mayx/image/upload/v1663928234/Artworks/Sacrificio_03_hllzpi.jpg",
+        "origin": "Argentina",
+        "technique": [
+            "Painting"
+        ],
+        "style": "Figurative",
+        "colors": [
+            "Brown"
+        ],
+        "releaseDate": 2019,
+        "price": 671.16,
+        "stock": 10,
+        "tags": [
+            "woman",
+            "wine",
+            "beautiful"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Mariano Valdivieso",
+        "userImage": "https://i.pinimg.com/280x280_RS/2a/21/6a/2a216a881cc9d415d986d4d0ef6b154b.jpg ",
+        "title": "Possy",
+        "description": "Digital drawing, art nouveau style",
+        "img": "https://res.cloudinary.com/drmm6mayx/image/upload/v1663927975/Artworks/pelirroja_an_txl1ub.jpg",
+        "origin": "Argentina",
+        "technique": [
+            "Digital Art"
+        ],
+        "style": "Art Nouveau Style",
+        "colors": [
+            "Yellow"
+        ],
+        "releaseDate": 2022,
+        "price": 905.4,
+        "stock": 10,
+        "tags": [
+            "colors",
+            "digital-art",
+            "woman"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Mariano Valdivieso",
+        "userImage": "https://i.pinimg.com/280x280_RS/2a/21/6a/2a216a881cc9d415d986d4d0ef6b154b.jpg",
+        "title": "Tattoed II",
+        "description": "Técnica mixta, tintas y marcadores",
+        "img": " https://res.cloudinary.com/drmm6mayx/image/upload/v1663928365/Artworks/IMG_20220226_131123_4042_nde4lr.jpg",
+        "origin": "Argentina",
+        "technique": [
+            "Ink"
+        ],
+        "style": "Figurative",
+        "colors": [
+            "Blue"
+        ],
+        "releaseDate": 2021,
+        "price": 349.12,
+        "stock": 10,
+        "tags": [
+            "paint",
+            "colors"
+        ],
+        "likes": [],
+        "comments": [
+          
+        ],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Mariano Valdivieso",
+        "userImage": "https://i.pinimg.com/280x280_RS/2a/21/6a/2a216a881cc9d415d986d4d0ef6b154b.jpg ",
+        "title": "Primigenios I",
+        "description": "Digital drawing",
+        "img": "https://res.cloudinary.com/drmm6mayx/image/upload/v1663927986/Artworks/peniasco_jzw6lh.jpg",
+        "origin": "Argentina",
+        "technique": [
+            "Digital-Art"
+        ],
+        "style": "Digital-Art",
+        "colors": [
+            "Green"
+        ],
+        "releaseDate": 2022,
+        "price": 805.4,
+        "stock": 10,
+        "tags": [
+            "paint",
+            "colors"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    },
+    {
+        "seen": true,
+        "transactions": [],
+        "date": "2022-09-30T18:06:26.041Z",
+        "_id": "",
+        "userName": "Mariano Valdivieso",
+        "userImage": "https://i.pinimg.com/280x280_RS/2a/21/6a/2a216a881cc9d415d986d4d0ef6b154b.jpg ",
+        "title": "Primigenios II",
+        "description": "Digital drawing",
+        "img": "https://res.cloudinary.com/drmm6mayx/image/upload/v1663930334/Artworks/molotov_yxhxw4.jpg",
+        "origin": "Argentina",
+        "technique": [
+            "Digital-Art"
+        ],
+        "style": "Digital-Art",
+        "colors": [
+            "Black"
+        ],
+        "releaseDate": 2022,
+        "price": 605.4,
+        "stock": 10,
+        "tags": [
+            "paint",
+            "colors"
+        ],
+        "likes": [],
+        "comments": [],
+        "__v": 0
+    }
+
+]

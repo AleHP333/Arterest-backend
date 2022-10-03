@@ -4,7 +4,7 @@ const transactionSchema = new Schema({
   transaction: {
     product: {
       type: Schema.Types.ObjectId,
-      ref: 'Product'
+      ref: 'products'
     },
     
     quantity:{
@@ -16,10 +16,13 @@ const transactionSchema = new Schema({
     enum: ['pending', 'rejected', 'fulfilled'],
     default: 'pending',
   },
+  total_money: {
+    type: Number,
+  }
   },
   buyer: {
     type: Schema.Types.ObjectId,
-    ref: 'User',
+    ref: 'users',
   },
   dateOfBuy: {
     type: Date,

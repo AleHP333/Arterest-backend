@@ -2,8 +2,7 @@ const mongoose = require('mongoose');
 const { Schema, model } = require('mongoose');
 
 const productSchema = new mongoose.Schema({
-    userName: {type: String, required: true},
-    userImage: {type: String, required: false},
+    user: {type: mongoose.Types.ObjectId, ref: "users" },
     title: {type: String, required: true},
     description: {type: String, required: true},
     img: {type: String, required: true},
@@ -11,21 +10,40 @@ const productSchema = new mongoose.Schema({
     technique: [{type: String, required: true}],
     style: {type: String, required: false},
     colors: [{type: String, required: false}],
-    releaseDate: {type: Date, required: true},
+    releaseDate: {type: Number, required: true},
     price: {type: Number, required: true},
-    stock: {type: Number, required: false, default: 10},
+    stock: { 
+        type: Number,
+        validate: {
+          validator: function (el) {
+            return el >= 0;
+          },
+          message: 'Stock can not be a negative value',
+        },
+      },
     tags: [{type: String, required: true}],
+    seen: {type: Boolean, required: true, default: true},
     transactions: {
         type: [Schema.Types.ObjectId],
-        ref: 'Transaction',
+        ref: 'transaction',
       },
     likes: {type: Array},
     comments: [{
         date: {type: Date},
         comment: {type: String},
-        userId: {type: mongoose.Types.ObjectId, ref: "users" }
-    }]
+        userId: {type: mongoose.Types.ObjectId, ref: "users" } 
+    }],
+    date: { type: Date, default: Date.now() }
 })
+
+productSchema.pre('save', function (next) {
+    if (this.stock <= 0) {
+      this.status = false;
+    } else {
+      this.status = true;
+    }
+    next();
+  });
 
 const Product = mongoose.model("products", productSchema);
 

@@ -13,13 +13,14 @@ const userSchema = new mongoose.Schema({
     city: {type: String, required: false},
     verification: {type: Boolean, required: false},
     uniqueString: {type: String, required: false},
+    isArtist: {type: Boolean, required: false, default: false},
     isAdmin: {type: Boolean, required: false, default: false},
     isBanned: {type: Boolean, required: false, default: false},
     purchase_order: {
         products: [{
           publicationId: {
             type: Schema.Types.ObjectId,
-            ref: 'product'
+            ref: 'products'
           },
           quantity: {
             type: Number
@@ -30,7 +31,7 @@ const userSchema = new mongoose.Schema({
         }
       },
     buyHistory: {type: [Schema.Types.ObjectId],
-        ref: "Transaction",
+        ref: "transaction",
       },
     user_id: String
 })
