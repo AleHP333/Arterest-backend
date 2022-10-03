@@ -70,7 +70,7 @@ const createOrder = async (req, res, next) => {
         landing_page: "LOGIN",
         user_action: "PAY_NOW",
         return_url: 'https://arterest-back.herokuapp.com/capture-order',
-        cancel_url: 'https://arterest-frontend-9wpcs2k6s-alehp333.vercel.app/home',
+        cancel_url: 'https://arterest.vercel.app/home',
       },
     };
 
@@ -215,7 +215,7 @@ console.log(pubs, "y esto") //ata aca parece que tamb
     
 
     
-    await res.redirect("https://arterest-frontend-9wpcs2k6s-alehp333.vercel.app/transaction");
+    await res.redirect("https://arterest.vercel.app/transaction");
     await res.status(200).json({ status: 'success', data: 'success' });
   } catch (error) {
     console.log(error);
