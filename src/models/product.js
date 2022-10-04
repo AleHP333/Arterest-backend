@@ -23,6 +23,7 @@ const productSchema = new mongoose.Schema({
       },
     tags: [{type: String, required: true}],
     seen: {type: Boolean, required: true, default: true},
+    lastCheck: {type: Boolean, required: true, default: false},
     transactions: {
         type: [Schema.Types.ObjectId],
         ref: 'transaction',
