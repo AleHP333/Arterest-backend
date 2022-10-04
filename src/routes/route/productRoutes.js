@@ -52,15 +52,13 @@ router.get("/autocomplete", async (req, res) => {
             return res.status(200).json(products)
         }
         if(art){
-            let productsUserName = await Product.find().populate({path: 'user', select:{userName:1, userImage:1}, match: {userName: {$regex: '.*' + art + '.*', $options: "i"}}})
-            console.log(productsUserName)
-            let productsTitle = await Product.find({title: {$regex: '.*' + art + '.*', $options: "i"}}).populate("user", {userName:1, userImage:1})
-            let productsOrigin = await Product.find({origin: {$regex: '.*' + art + '.*', $options: "i"}}).populate("user", {userName:1, userImage:1})
-            let productsStyle = await Product.find({style: {$regex: '.*' + art + '.*', $options: "i"}}).populate("user", {userName:1, userImage:1})
-            //let productsColors = await ProductTest.find({})
-            let productsTags = await Product.find({tags: {$regex: '.*' + art + '.*', $options: "i"} }).populate("user", {userName:1, userImage:1})
-            let productsColors = await Product.find({colors: {$regex: '.*' + art + '.*', $options: "i"} }).populate("user", {userName:1, userImage:1})
-            let productsTechnique = await Product.find({technique: {$regex: '.*' + art + '.*', $options: "i"} }).populate("user", {userName:1, userImage:1})
+            let productsUserName = await Product.find({lastCheck: true, seen: true}).populate({path: 'user', select:{userName:1, userImage:1}, match: {userName: {$regex: '.*' + art + '.*', $options: "i"}}})
+            let productsTitle = await Product.find({title: {$regex: '.*' + art + '.*', $options: "i"}, lastCheck: true, seen: true}).populate("user", {userName:1, userImage:1})
+            let productsOrigin = await Product.find({origin: {$regex: '.*' + art + '.*', $options: "i"}, lastCheck: true, seen: true}).populate("user", {userName:1, userImage:1})
+            let productsStyle = await Product.find({style: {$regex: '.*' + art + '.*', $options: "i"}, lastCheck: true, seen: true}).populate("user", {userName:1, userImage:1})
+            let productsTags = await Product.find({tags: {$regex: '.*' + art + '.*', $options: "i"}, lastCheck: true, seen: true }).populate("user", {userName:1, userImage:1})
+            let productsColors = await Product.find({colors: {$regex: '.*' + art + '.*', $options: "i"}, lastCheck: true, seen: true }).populate("user", {userName:1, userImage:1})
+            let productsTechnique = await Product.find({technique: {$regex: '.*' + art + '.*', $options: "i"}, lastCheck: true, seen: true }).populate("user", {userName:1, userImage:1})
             let productsToMap = [...productsUserName.filter(product => product.user !== null), ...productsTitle, ...productsOrigin, ...productsStyle, ...productsTags, ...productsColors, ...productsTechnique]
             let products = await [...new Map(productsToMap.map((paint) => [paint["id"], paint])).values()]
             let sorted = products.sort((a, b) => a.likes.length - b.likes.length).reverse()
