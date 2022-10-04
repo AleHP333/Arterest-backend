@@ -313,4 +313,5 @@ router.get("/getOnePaintAdmin/:id", async (req, res) => {
         res.status(500).json({msg: "Internal server error"})
     }
 })
+
 module.exports = router;

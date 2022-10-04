@@ -25,11 +25,9 @@ router.get("/allpaints", async (req, res) => {
         }
         if(art){
             let productsUserName = await Product.find({lastCheck: true, seen: true}).populate({path: 'user', select:{userName:1, userImage:1}, match: {userName: {$regex: '.*' + art + '.*', $options: "i"}}})
-            console.log(productsUserName)
             let productsTitle = await Product.find({title: {$regex: '.*' + art + '.*', $options: "i"}, lastCheck: true, seen: true}).populate("user", {userName:1, userImage:1})
             let productsOrigin = await Product.find({origin: {$regex: '.*' + art + '.*', $options: "i"}, lastCheck: true, seen: true}).populate("user", {userName:1, userImage:1})
             let productsStyle = await Product.find({style: {$regex: '.*' + art + '.*', $options: "i"}, lastCheck: true, seen: true}).populate("user", {userName:1, userImage:1})
-            //let productsColors = await ProductTest.find({})
             let productsTags = await Product.find({tags: {$regex: '.*' + art + '.*', $options: "i"}, lastCheck: true, seen: true }).populate("user", {userName:1, userImage:1})
             let productsColors = await Product.find({colors: {$regex: '.*' + art + '.*', $options: "i"}, lastCheck: true, seen: true }).populate("user", {userName:1, userImage:1})
             let productsTechnique = await Product.find({technique: {$regex: '.*' + art + '.*', $options: "i"}, lastCheck: true, seen: true }).populate("user", {userName:1, userImage:1})
