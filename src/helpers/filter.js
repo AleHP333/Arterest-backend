@@ -1,6 +1,5 @@
 const Product = require("../models/product")
 
-
 async function filterProducts(req,res){
     let condition={}
     try{
