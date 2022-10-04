@@ -66,6 +66,14 @@ const sendVerification = async (email, code, index) => {
                 <a href="http://localhost:3000/password/${code}">CLICK HERE!</a>
                 <p>The code expires in 1 day</p>` 
                 
+    },
+    {
+        from: GOOGLE_USER,
+        to: "arterest002@gmail.com",
+        subject: `CONTACT US - ${(email.subject).toUpperCase()} - ${email.name}`,
+        html: `<h1>THEME: ${email.subject}</h1>
+                <h2>From: ${email.name} - ${email.email}</h2>
+                <h3>Message: ${email.message}</h3>`              
     }
     ]
     await transporter.sendMail(message[index], (error, response) => {
