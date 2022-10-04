@@ -17,7 +17,7 @@ router.route("/banUser").put(passport.authenticate("jwt", { session: false }), a
     const isAdmin = req.user.isAdmin 
     try {
         if(isAdmin === false){
-            return res.status(401).json({msgDate: {status: "error", msg: "You don't have permissions"}})
+            return res.status(401).json({msgData: {status: "error", msg: "You don't have permissions"}})
         }
         const findUser = await User.findOne({ _id: req.body._id })
         if(!findUser){return res.status(404).json({msgData:{status: "error", msg: "User not found"}})}
@@ -40,7 +40,7 @@ router.route("/giveAdmin").put(passport.authenticate("jwt", { session: false }),
     const isAdmin1 = req.user.isAdmin 
     try {
         if(isAdmin1 === false){
-            return res.status(401).json({msgDate: {status: "error", msg: "You don't have permissions"}})
+            return res.status(401).json({msgData: {status: "error", msg: "You don't have permissions"}})
         }
         const findUser = await User.findOne({ _id: req.body._id })
         if(!findUser){return res.status(404).json({msgData:{status: "error", msg: "User not found"}})}
@@ -63,7 +63,7 @@ router.route("/giveArtist").put(passport.authenticate("jwt", { session: false })
     const isAdmin = req.user.isAdmin 
     try {
         if(isAdmin === false){
-            return res.status(401).json({msgDate: {status: "error", msg: "You don't have permissions"}})
+            return res.status(401).json({msgData: {status: "error", msg: "You don't have permissions"}})
         }
         const findUser = await User.findOne({ _id: req.body._id })
         if(!findUser){return res.status(404).json({msgData:{status: "error", msg: "User not found"}})}
@@ -87,7 +87,7 @@ router.route("/artistUser").put(passport.authenticate("jwt", { session: false })
     const isAdmin = req.user.isAdmin
     try {
         if(isAdmin === false){
-            return res.status(401).json({msgDate: {status: "error", msg: "You don't have permissions"}})
+            return res.status(401).json({msgData: {status: "error", msg: "You don't have permissions"}})
         }
         const findUser = await User.findOne({ _id: req.body._id })
         if(!findUser){return res.status(404).json({msgData:{status: "error", msg: "User not found"}})}
@@ -122,13 +122,14 @@ router.route("/modifyProduct").put(passport.authenticate("jwt", { session: false
         price,
         stock,
         tags,
+        seen,
         likes,
         comments,
     } = req.body;
     const isAdmin = req.user.isAdmin
     try {
         if(isAdmin === false){
-            return res.status(401).json({msgDate: {status: "error", msg: "You don't have permissions"}})
+            return res.status(401).json({msgData: {status: "error", msg: "You don't have permissions"}})
         }
         const modifiedProduct = await Product.findOneAndUpdate(
             { _id: _id },
@@ -144,6 +145,7 @@ router.route("/modifyProduct").put(passport.authenticate("jwt", { session: false
                 price: price,
                 stock: stock,
                 tags: tags,
+                seen: seen
             },
             { new: true }
         );
@@ -181,12 +183,12 @@ router.route("/getArtRequest").get(async (req, res) => {
     }
 })
 
-router.route("/approveArt").post(async (req, res) => {
+router.route("/approveArt").post(passport.authenticate("jwt", { session: false }), async (req, res) => {
     const { user, paint_id, approve, email } = req.body
     const isAdmin = req.user.isAdmin
     try {
         if(isAdmin === false){
-            return res.status(401).json({msgDate: {status: "error", msg: "You don't have permissions"}})
+            return res.status(401).json({msgData: {status: "error", msg: "You don't have permissions"}})
         }
         if(approve === false){
             const deleted = await ProductArtist.deleteOne({ _id: paint_id})
@@ -228,7 +230,7 @@ router.route("/deleteCommentAdmin").put(passport.authenticate("jwt", { session: 
     const isAdmin = req.user.isAdmin
     try {
         if(isAdmin === false){
-            return res.status(401).json({msgDate: {status: "error", msg: "You don't have permissions"}})
+            return res.status(401).json({msgData: {status: "error", msg: "You don't have permissions"}})
         }
         const deletedComment = await Product.findOneAndUpdate({"comments._id": commentId}, {$pull: {comments: {_id: commentId}}}, {new: true})
         res.status(201).json({ msgData: { status: "success", response: { deletedComment }, msg: "Comment deleted successfully"}})
@@ -237,4 +239,79 @@ router.route("/deleteCommentAdmin").put(passport.authenticate("jwt", { session: 
         res.status(500).json({ msgData: { status: "error", msg: "The comment wasn't deleted, try again"}})
     }
 })
+
+router.route("/getUnchecked").get(passport.authenticate("jwt", { session: false }), async (req, res) => {
+    const isAdmin = req.user.isAdmin
+    try {
+        const product = await Product.find({ lastCheck: false }).populate("user", {userName:1, userImage:1});
+        res.status(200).json(product)
+    } catch (error) {
+        return res.status(500).json({msgData:{ status: "error", msg: "Something is wrong"}});
+    }
+})
+
+router.route("/checkProduct/:id").put(passport.authenticate("jwt", { session: false }), async (req, res) => {
+    const isAdmin = req.user.isAdmin
+    const { id } = req.params
+    try {
+        if(isAdmin === false){
+            return res.status(401).json({msgData: {status: "error", msg: "You don't have permissions"}})
+        }
+        const product = await Product.findOne({_id : id })
+        if(!product){
+            return res.status(404).json({msgData: {status: "error", msg: "Product not found"}})
+        }
+        if(product.lastCheck === true){
+            return res.status(200).json({msgData: {status: "info", msg: "The product is already checked"}})
+        }
+        product.lastCheck = true;
+        await product.save();
+        res.status(201).json({msgData: {status: "success", msg: "The product was checked"}})
+    } catch (error) {
+        return res.status(500).json({msgData:{ status: "error", msg: "Something is wrong"}});
+    }
+})
+
+router.get("/allpaintsAdmin", async (req, res) => {
+    const {name, art} = req.query
+    try {
+        if(name){
+            let products = await Product.find().populate({path: 'user', select:{userName:1, userImage:1}, match: {userName: {$regex: '.*' + art + '.*', $options: "i"}}})
+            let filtered = products.filter(product => product.user !== null)
+            return res.status(200).json(filtered)
+        }
+        if(art){
+            let productsUserName = await Product.find().populate({path: 'user', select:{userName:1, userImage:1}, match: {userName: {$regex: '.*' + art + '.*', $options: "i"}}})
+            console.log(productsUserName)
+            let productsTitle = await Product.find({title: {$regex: '.*' + art + '.*', $options: "i"}}).populate("user", {userName:1, userImage:1})
+            let productsOrigin = await Product.find({origin: {$regex: '.*' + art + '.*', $options: "i"}}).populate("user", {userName:1, userImage:1})
+            let productsStyle = await Product.find({style: {$regex: '.*' + art + '.*', $options: "i"}}).populate("user", {userName:1, userImage:1})
+            //let productsColors = await ProductTest.find({})
+            let productsTags = await Product.find({tags: {$regex: '.*' + art + '.*', $options: "i"} }).populate("user", {userName:1, userImage:1})
+            let productsColors = await Product.find({colors: {$regex: '.*' + art + '.*', $options: "i"} }).populate("user", {userName:1, userImage:1})
+            let productsTechnique = await Product.find({technique: {$regex: '.*' + art + '.*', $options: "i"} }).populate("user", {userName:1, userImage:1})
+            let productsToMap = [...productsUserName.filter(product => product.user !== null), ...productsTitle, ...productsOrigin, ...productsStyle, ...productsTags, ...productsColors, ...productsTechnique]
+            let products = await [...new Map(productsToMap.map((paint) => [paint["id"], paint])).values()]
+            return res.status(200).json(products)
+        }
+        let productsRandom = await Product.aggregate([{$sample: {size: 10000}}])
+        let products = await Product.populate(productsRandom, {path: 'user', select:{userName:1, userImage:1}})
+        return res.status(200).json(products)
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({msg: "Internal server error"})
+    }
+})
+
+router.get("/getOnePaintAdmin/:id", async (req, res) => {
+    const {id} = req.params
+    try {
+        let onePaint = await Product.findOne({_id: id}).populate("user", {userName:1, userImage:1})
+
+        return res.status(200).json(onePaint);
+    } catch (error) {
+        res.status(500).json({msg: "Internal server error"})
+    }
+})
+
 module.exports = router;
