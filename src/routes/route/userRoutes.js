@@ -59,7 +59,7 @@ router.route("/modifyUserProfile").put(passport.authenticate("jwt", { session: f
 router.route("/contactUs").post(async (req, res ) => {
     const { subject, name, email, message } = req.body
     try {
-        sendContact({subject: subject, name: name, message: message, email: email}, null, 3)    
+        sendContact({subject: subject, name: name, message: message, email: email})    
         return res.status(200).json({msgData:{ status: "success", msg: "Thank you for contact us"}})
     } catch (error) {
         return res.status(500).json({msgData:{ status: "error", msg: "Something is wrong"}})
