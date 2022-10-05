@@ -218,7 +218,8 @@ router.route("/approveArt").post(passport.authenticate("jwt", { session: false }
 
 router.route("/getAllOrders").get(passport.authenticate("jwt", { session: false }), async (req, res) => {
     try {
-        let orders = await Transaction.find();
+        let orders = await Transaction.find().populate("buyer", {userName:1, userImage:1})
+        console.log(orders)
         return res.status(200).json(orders);
     } catch (error) {
         return res.status(500).json({ msgData: { status: "error", msg: "Something is wrong" } });
