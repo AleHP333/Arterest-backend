@@ -33,7 +33,8 @@ router.get("/allpaints", async (req, res) => {
             let productsTechnique = await Product.find({technique: {$regex: '.*' + art + '.*', $options: "i"}, lastCheck: true, seen: true }).populate("user", {userName:1, userImage:1})
             let productsToMap = [...productsUserName.filter(product => product.user !== null), ...productsTitle, ...productsOrigin, ...productsStyle, ...productsTags, ...productsColors, ...productsTechnique]
             let products = await [...new Map(productsToMap.map((paint) => [paint["id"], paint])).values()]
-            return res.status(200).json(products)
+            let productsFinal = products.filter(e => e.stock > 0)
+            return res.status(200).json(productsFinal)
         }
         let productsRandom = await Product.aggregate([{$match: {lastCheck: true, seen: true}},{$sample: {size: 10000}}])
         let products = await Product.populate(productsRandom, {path: 'user', select:{userName:1, userImage:1}})
@@ -61,7 +62,8 @@ router.get("/autocomplete", async (req, res) => {
             let productsTechnique = await Product.find({technique: {$regex: '.*' + art + '.*', $options: "i"}, lastCheck: true, seen: true }).populate("user", {userName:1, userImage:1})
             let productsToMap = [...productsUserName.filter(product => product.user !== null), ...productsTitle, ...productsOrigin, ...productsStyle, ...productsTags, ...productsColors, ...productsTechnique]
             let products = await [...new Map(productsToMap.map((paint) => [paint["id"], paint])).values()]
-            let sorted = products.sort((a, b) => a.likes.length - b.likes.length).reverse()
+            let productsFinal = products.filter(e => e.stock > 0)
+            let sorted = productsFinal.sort((a, b) => a.likes.length - b.likes.length).reverse()
             let autocompleted = sorted.slice(0, 5)
             return res.status(200).json(autocompleted)
         }
