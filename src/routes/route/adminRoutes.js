@@ -206,7 +206,8 @@ router.route("/approveArt").post(passport.authenticate("jwt", { session: false }
                 colors: approved.colors,
                 releaseDate: approved.releaseDate,
                 price: approved.price,
-                tags: approved.tags
+                tags: approved.tags,
+                stock: 10
             })
         const deleted = await ProductArtist.deleteOne({ _id: paint_id})
         return res.status(201).json({ msgData: { status: "success", msg: "Product Approved"}})
