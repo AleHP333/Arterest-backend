@@ -12,7 +12,7 @@ const OAuth2 = google.auth.OAuth2;
 //------------
 //TRANSPORTER:
 //Funcion encargada de enviar la data al email del usuario de parte del servidor con el email del proyecto
-const sendContact = async (email, code, index) => {
+const sendContact = async (email) => {
 
     const myOAuth2Client = new OAuth2( //creating the settings with 3 params
         GOOGLE_CLIENTID,
@@ -41,7 +41,7 @@ const sendContact = async (email, code, index) => {
         },
     });
     
-    const message = [
+    const message = 
     {
         from: GOOGLE_USER,
         to: "arterest002@gmail.com",
@@ -50,8 +50,8 @@ const sendContact = async (email, code, index) => {
                 <h2>From: ${email.name} - ${email.email}</h2>
                 <h3>Message: ${email.message}</h3>`              
     }
-    ]
-    await transporter.sendMail(message[index], (error, response) => {
+
+    await transporter.sendMail(message, (error, response) => {
         if(error){
             console.log(error);
         } else {
