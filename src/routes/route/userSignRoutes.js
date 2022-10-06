@@ -195,7 +195,7 @@ router.route("/passwordRecovery").post(async (req, res) => {
         if(!findUser){
             return res.status(404).json({ msgData: { status: "warning", msg: "The user with the email wasn't registered" }})
         }
-        if(findUser && findUser.from.indexOf("google") && !findUser.from.indexOf("signUp") ){
+        if(findUser && findUser.from.indexOf("google") !== -1){
             return res.status(404).json({ msgData: { status: "warning", msg: "The user was registered by google, just login with google" }})
         }
         const passwordRequest = await Password.findOne({ user: findUser._id})
