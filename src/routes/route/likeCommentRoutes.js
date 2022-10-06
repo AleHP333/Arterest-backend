@@ -23,11 +23,9 @@ router.route("/likeDislike/:id").get(passport.authenticate("jwt", { session: fal
         const Paint = await Product.findOne({ _id: id });
         if(Paint.likes.includes(user)){
             let product = await Product.findOneAndUpdate({ _id: id }, { $pull: { likes: user }}, { new: true });
-            console.log("disliked", product.likes)
             res.status(201).json({msgData: {success: "success", msg: "disliked"}, response: product.likes});
         } else {
             let product = await Product.findOneAndUpdate({ _id: id }, { $push: { likes: user }}, { new: true });
-            console.log("liked", product.likes)
             res.status(201).json({ msgData: { status: "error", msg: "liked"}, response: product.likes});
         }
     } catch (error) {
