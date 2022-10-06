@@ -15,10 +15,10 @@ router.post("/signIn", async (req, res) => {
     const { email, password, from } = req.body;
     try {
         const findUser = await User.findOne({ email: email }).populate("purchase_order.products.publicationId");
-        const userTransactions = await Transaction.find({ buyer: findUser._id }).populate("transaction.product")
         if(!findUser){
             return res.status(404).json({ msgData: { status: "error",  msg: "User doesn't exists"}})
         }
+        const userTransactions = await Transaction.find({ buyer: findUser._id }).populate("transaction.product")
         if(findUser.isBanned === true){
             return res.status(401).json({ msgData: { status: "warning", msg: "This account was banned"}})
         }
@@ -77,7 +77,6 @@ router.post("/signIn", async (req, res) => {
             }
         }
     } catch (error) {
-        console.log(error)
         res.status(500).json({ msgData: { status:"error", msg: "Internal Server Error"}});
     }
 })
@@ -99,7 +98,7 @@ router.route("/signInToken").get(passport.authenticate("jwt", { session: false }
                 isBanned: findUser.isBanned
             }
 
-            return res.status(200).json({ msgData: { status: "success", msg: `Welcome ${findUser.userName}`}, userData: {...userData, country: findUser.country, names: findUser.names, surnames: findUser.surnames, city: findUser.city, history: userTransactions }});
+            return res.status(200).setHeader('Last-Modified', (new Date()).toUTCString()).json({ msgData: { status: "success", msg: `Welcome ${findUser.userName}`}, userData: {...userData, country: findUser.country, names: findUser.names, surnames: findUser.surnames, city: findUser.city, history: userTransactions }});
         } else {
             return res.status(400).json({ msgData: { status: "error", msg: "Token has expired"}});
         } 
