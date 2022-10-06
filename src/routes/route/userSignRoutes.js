@@ -15,10 +15,10 @@ router.post("/signIn", async (req, res) => {
     const { email, password, from } = req.body;
     try {
         const findUser = await User.findOne({ email: email }).populate("purchase_order.products.publicationId");
-        const userTransactions = await Transaction.find({ buyer: findUser._id }).populate("transaction.product")
         if(!findUser){
             return res.status(404).json({ msgData: { status: "error",  msg: "User doesn't exists"}})
         }
+        const userTransactions = await Transaction.find({ buyer: findUser._id }).populate("transaction.product")
         if(findUser.isBanned === true){
             return res.status(401).json({ msgData: { status: "warning", msg: "This account was banned"}})
         }
