@@ -47,7 +47,7 @@ const sendVerification = async (email, code, index) => {
         to: email,
         subject: "Verify your account. (Don't reply)",
         html: `<b>Thanks for register.Please confirm your arterest account:</b>
-                <a href="http://localhost:3000/verifyEmail/${code}">Click here to verify</a>` 
+                <a href="https://arterest.vercel.app/verifyEmail/${code}">Click here to verify</a>` 
     },
     {
         from: GOOGLE_USER,
@@ -55,7 +55,7 @@ const sendVerification = async (email, code, index) => {
         subject: "Congratulations! You Artist Request Approved",
         html: `<b>felicitaciones! 
         Ya eres artista en nuestro sitio web. ¡Ya puedes vender tus cuadros!. Gracias por su interes en nuestro sistema de ventas.</b>
-                <a href="http://localhost:3000/home">Go to web-site!</a>` 
+                <a href="https://arterest.vercel.app/home">Go to web-site!</a>` 
     },
     {
         from: GOOGLE_USER,
@@ -63,7 +63,7 @@ const sendVerification = async (email, code, index) => {
         subject: "CHANGE PASSWORD - ARTEREST",
         html: `<b>You can change you password! <b></br>
             <h1>Follow the next link:</h1>
-                <a href="http://localhost:3000/password/${code}">CLICK HERE!</a>
+                <a href="https://arterest.vercel.app/password/${code}">CLICK HERE!</a>
                 <p>The code expires in 1 day</p>` 
                 
     }
