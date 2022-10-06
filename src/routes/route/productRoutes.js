@@ -3,6 +3,7 @@ const router = Router();
 const axios = require("axios");
 const Product = require("../../models/product");
 const mockData = require("./data.json")
+const ObjectId = require('mongodb').ObjectId;
 
 router.get("/getOnePaint/:id", async (req, res) => {
     const {id} = req.params
@@ -147,6 +148,18 @@ router.post("/createProducts", async (req, res) => {
         res.status(500).json({msg: "Internal server error"})
     }
 })
+
+router.route("/favProducts").post(async (req, res) => {
+    const { fav } = req.body
+    try {
+        const favs = await Product.find({ _id: { $in: fav}}).populate("user", {userName:1, userImage:1})
+        return res.status(200).json(favs)
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({msg: "Internal server error"})
+    }
+})
+
 
 module.exports = router
 
