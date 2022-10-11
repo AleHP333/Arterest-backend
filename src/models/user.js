@@ -18,21 +18,12 @@ const userSchema = new mongoose.Schema({
     isBanned: {type: Boolean, required: false, default: false},
     purchase_order: {
         products: [{
-          publicationId: {
-            type: Schema.Types.ObjectId,
-            ref: 'products'
-          },
-          quantity: {
-            type: Number
-          },
+            publicationId: { type: Schema.Types.ObjectId, ref: 'products'},
+            quantity: {type: Number},
         }],
-        link: {
-          type: String
-        }
-      },
-    buyHistory: {type: [Schema.Types.ObjectId],
-        ref: "transaction",
-      },
+        link: { type: String }
+    },
+    buyHistory: {type: [Schema.Types.ObjectId], ref: "transaction" },
     user_id: String
 })
 

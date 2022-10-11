@@ -15,19 +15,19 @@ const productSchema = new mongoose.Schema({
     stock: { 
         type: Number,
         validate: {
-          validator: function (el) {
-            return el >= 0;
-          },
-          message: 'Stock can not be a negative value',
+            validator: function (el) {
+                return el >= 0;
+            },
+            message: 'Stock can not be a negative value',
         },
-      },
+    },
     tags: [{type: String, required: true}],
     seen: {type: Boolean, required: true, default: true},
     lastCheck: {type: Boolean, required: true, default: false},
     transactions: {
         type: [Schema.Types.ObjectId],
         ref: 'transaction',
-      },
+    },
     likes: {type: Array},
     comments: [{
         date: {type: Date},
@@ -39,12 +39,12 @@ const productSchema = new mongoose.Schema({
 
 productSchema.pre('save', function (next) {
     if (this.stock <= 0) {
-      this.status = false;
+        this.status = false;
     } else {
-      this.status = true;
+        this.status = true;
     }
     next();
-  });
+});
 
 const Product = mongoose.model("products", productSchema);
 
