@@ -13,7 +13,6 @@ const router = Router();
 // ruta: /adminActions/banUser
 router.route("/banUser").put(passport.authenticate("jwt", { session: false }), async (req, res) => {
     const { _id, isBanned } = req.body;
-    console.log(_id, isBanned)
     const isAdmin = req.user.isAdmin 
     try {
         if(isAdmin === false){
@@ -237,7 +236,6 @@ router.route("/deleteCommentAdmin").put(passport.authenticate("jwt", { session: 
         const deletedComment = await Product.findOneAndUpdate({"comments._id": commentId}, {$pull: {comments: {_id: commentId}}}, {new: true})
         res.status(201).json({ msgData: { status: "success", response: { deletedComment }, msg: "Comment deleted successfully"}})
     } catch (error) {
-        console.log(error)
         res.status(500).json({ msgData: { status: "error", msg: "The comment wasn't deleted, try again"}})
     }
 })
@@ -284,7 +282,6 @@ router.get("/allpaintsAdmin", async (req, res) => {
         }
         if(art){
             let productsUserName = await Product.find().populate({path: 'user', select:{userName:1, userImage:1}, match: {userName: {$regex: '.*' + art + '.*', $options: "i"}}})
-            console.log(productsUserName)
             let productsTitle = await Product.find({title: {$regex: '.*' + art + '.*', $options: "i"}}).populate("user", {userName:1, userImage:1})
             let productsOrigin = await Product.find({origin: {$regex: '.*' + art + '.*', $options: "i"}}).populate("user", {userName:1, userImage:1})
             let productsStyle = await Product.find({style: {$regex: '.*' + art + '.*', $options: "i"}}).populate("user", {userName:1, userImage:1})
@@ -300,7 +297,6 @@ router.get("/allpaintsAdmin", async (req, res) => {
         let products = await Product.populate(productsRandom, {path: 'user', select:{userName:1, userImage:1}})
         return res.status(200).json(products)
     } catch (error) {
-        console.log(error)
         res.status(500).json({msg: "Internal server error"})
     }
 })

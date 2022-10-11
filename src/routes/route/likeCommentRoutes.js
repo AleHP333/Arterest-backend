@@ -41,7 +41,6 @@ router.route("/addComment").post(passport.authenticate("jwt", { session: false }
         const newComment = await Product.findOne({ _id: paintId }).select("comments").then(response => response.populate("comments.userId", {userName:1, userImage:1, isAdmin:1, isArtist:1, isBanned:1}))
         res.status(201).json({ msgData: { status: "success", msg: "Thanks for comment"}, response: newComment})
     } catch (error) {
-        console.log(error)
         res.status(500).json({ msgData: { status: "error", msg: "The comment wasn't added, try again"}})
     }
 })
@@ -53,7 +52,6 @@ router.route("/modifyComment").put(passport.authenticate("jwt", { session: false
         const modifiedComments = await Product.findOne({"comments._id": commentId}).select("comments").then(response => response.populate("comments.userId", {userName:1, userImage:1, isAdmin:1, isArtist:1, isBanned:1}))
         res.status(201).json({ msgData: { status: "info", msg: "Comment edited successfully"}, response: modifiedComments})
     } catch (error) {
-        console.log(error)
         res.status(500).json({ msgData: { status: "error", msg: "The comment wasn't edited, try again"}})
     }
 })
@@ -64,7 +62,6 @@ router.route("/deleteComment").put(passport.authenticate("jwt", { session: false
         const deletedComment = await Product.findOneAndUpdate({"comments._id": commentId}, {$pull: {comments: {_id: commentId}}}, {new: true})
         res.status(201).json({ msgData: { status: "warning", response: { deletedComment }, msg: "Comment deleted successfully"}})
     } catch (error) {
-        console.log(error)
         res.status(500).json({ msgData: { status: "error", msg: "The comment wasn't deleted, try again"}})
     }
 })

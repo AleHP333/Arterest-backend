@@ -36,7 +36,6 @@ router.route("/artistRequest").post(passport.authenticate("jwt", { session: fals
 
         return res.status(201).json({msgDate: {status: "info", msg: "Thank you for your interest! You will receive the request answer by email"}})
     } catch (error) {
-        console.log(error)
         return res.status(500).json({msg: "Internal server error"})
     }
 
@@ -77,7 +76,6 @@ router.route("/productRequest").post(passport.authenticate("jwt", { session: fal
     
         res.status(201).json({msgData: { status: "success", msg: "Product to post sent to the staff" }})
     } catch (error) {
-        console.log(error)
         res.status(500).json({msgData: { status: "error", msg: "Failed to sent, try again" }})
     }
 })

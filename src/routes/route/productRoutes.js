@@ -40,7 +40,6 @@ router.get("/allpaints", async (req, res) => {
         let products = await Product.populate(productsRandom, {path: 'user', select:{userName:1, userImage:1}})
         return res.status(200).json(products)
     } catch (error) {
-        console.log(error)
         res.status(500).json({msg: "Internal server error"})
     }
 })
@@ -69,7 +68,6 @@ router.get("/autocomplete", async (req, res) => {
         let autocompleted = await Product.find()
         return res.status(200).json(autocompleted)
     } catch (error) {
-        console.log(error)
         res.status(500).json({msg: "Internal server error"})
     }
 })
@@ -80,7 +78,6 @@ router.get("/getFiveRandom", async (req, res) => {
         const fiveRandom = await Product.aggregate([{ $sample: { size: 3 } }])
         return res.status(200).json(fiveRandom);
     } catch (error) {
-        console.log(error)
         return res.status(500).json({msg: "Internal server error"})
     }
 })
@@ -144,7 +141,6 @@ router.post("/createProducts", async (req, res) => {
     
         res.status(201).json({msg: "Product created successfully"})
     } catch (error) {
-        console.log(error)
         res.status(500).json({msg: "Internal server error"})
     }
 })
@@ -155,23 +151,9 @@ router.route("/favProducts").post(async (req, res) => {
         const favs = await Product.find({ _id: { $in: fav}}).populate("user", {userName:1, userImage:1})
         return res.status(200).json(favs)
     } catch (error) {
-        console.log(error)
         return res.status(500).json({msg: "Internal server error"})
     }
 })
 
 
 module.exports = router
-
-// userName: {type: String, required: true},
-// userImage: {type: String, required: false},
-// title: {type: String, required: true},
-// description: {type: String, required: true},
-// img: {type: String, required: true},
-// origin: {type: String, required: true},
-// technique: [{type: String, required: true}], === ARRAY
-// style: {type: String, required: false},
-// colors: [{type: String, required: false}], === ARRAY
-// releaseDate: {type: Date, required: true},
-// price: {type: Number, required: true},
-// tags: [{type: String, required: true}] === ARRAY
